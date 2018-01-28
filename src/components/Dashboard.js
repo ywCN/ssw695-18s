@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CoderList from './CoderList';
 
 const Dashboard = () => {
     return (
         <div>
-            <div>Dashboard</div>
+            <CoderList />
             <div className="fixed-action-btn">
                 <Link to="/AddProject" className="btn-floating btn-large red">
                     {/* icon names: http://materializecss.com/icons.html */}

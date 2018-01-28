@@ -8,7 +8,15 @@ class CoderList extends Component {
     // }
     renderCoders() {}
     render() {
-        return <div>{this.renderCoders()}</div>;
+        // return <div>{this.renderCoders()}</div>;
+        return (
+            <div>
+                <div>Coder1</div>
+                <div>Coder2</div>
+                <div>Coder3</div>
+                <div>Coder4</div>
+            </div>
+        );
     }
 }
 
