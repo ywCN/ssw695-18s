@@ -5,35 +5,42 @@ import {
     LOGOUT,
     FETCH_CODERS,
     FETCH_PORTFOLIO,
-    SAVE_PORTFOLIO
+    SAVE_PORTFOLIO,
+    SAVE_PROJECT
 } from './types';
 
 export const fetchCoders = () => async dispatch => {
-    // const res = await axios.get('/api/current_user'); // TODO: update path, check res and update payload
+    // const res = await axios.get('path'); // TODO: update path, check res and update payload
     // dispatch({ type: FETCH_CODERS, payload: res.data });
 };
 
-export const userLogin = () => async dispatch => {
-    // const res = await axios.get('/api/current_user'); // TODO: check login status
+export const login = () => async dispatch => {
+    // const res = await axios.get('path'); // TODO: check login status
     // Link to dashboard
     // dispatch({ type: LOGIN, payload: true });
 };
 
-export const userLogout = () => async dispatch => {
+export const logout = () => async dispatch => {
     // await logout();
     // Link to logout
     // dispatch({ type: LOGOUT, payload: false });
 };
 
-export const fetchUserPortfolio = () => async dispatch => {
-    // const res = await axios.get('/api/current_user'); // TODO: update path, check res and update payload
+export const fetchPortfolio = () => async dispatch => {
+    // const res = await axios.get('path'); // TODO: update path, check res and update payload
     // dispatch({ type: FETCH_PORTFOLIO, payload: res.data });
 };
 
-export const saveUserPortfolio = () => async dispatch => {
-    // const res = await axios.get('/api/current_user'); // TODO: update path, check res and update payload
+export const savePortfolio = () => async dispatch => {
+    // const res = await axios.get('path'); // TODO: update path, check res and update payload
     // Link to myportfolio
-    // dispatch({ type: FETCH_CODERS, payload: res.data });
+    // dispatch({ type: FETCH_CODERS });
+};
+
+export const saveProject = () => async dispatch => {
+    // const res = await axios.get('path'); // TODO: update path, check res and update payload
+    // Link to myportfolio
+    // dispatch({ type: SAVE_PROJECT });
 };
 
 // sync sample
