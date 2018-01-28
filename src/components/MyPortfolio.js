@@ -12,16 +12,16 @@ const MyPortfolio = () => {
                 <Link
                     to="/editportfolio"
                     onClick={() => console.log('Edit Portfolio clicked')}
+                    className="waves-effect waves-light btn"
                 >
-                    <a className="waves-effect waves-light btn">
-                        Edit Portfolio
-                    </a>
+                    Edit Portfolio
                 </Link>
                 <Link
                     to="/addproject"
                     onClick={() => console.log('Edit Portfolio clicked')}
+                    className="waves-effect waves-light btn"
                 >
-                    <a className="waves-effect waves-light btn">add project</a>
+                    Add Project
                 </Link>
             </div>
         </div>

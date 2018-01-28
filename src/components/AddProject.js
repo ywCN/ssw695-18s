@@ -8,9 +8,10 @@ const AddProject = () => {
             <div>
                 <Link
                     to="/myportfolio"
-                    onClick={() => console.log('Edit Portfolio clicked')}
+                    onClick={() => console.log('add clicked')}
+                    className="waves-effect waves-light btn"
                 >
-                    <a className="waves-effect waves-light btn">save</a>
+                    add
                 </Link>
             </div>
         </div>

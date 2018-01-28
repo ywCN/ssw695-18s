@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { savePortfolio } from '../actions';
-// TODO: import savePortfolio action and use it in 'save' button
 
 class EditPortfolio extends Component {
     // TODO: render currentUser state in TextInput as init value
@@ -9,16 +9,13 @@ class EditPortfolio extends Component {
         return (
             <div>
                 EditPortfolio
-                {/* TODO: savePortfolio action callback in the button*/}
-                <div
+                <Link
+                    to="/editportfolio"
+                    onClick={() => this.props.savePortfolio()}
                     className="waves-effect waves-light btn"
-                    onClick={() => {
-                        this.props.savePortfolio();
-                        console.log('save button clicked');
-                    }}
                 >
                     save
-                </div>
+                </Link>
             </div>
         );
     }
