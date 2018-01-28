@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import axios from 'axios';
+import { createHashHistory } from 'history';
 import {
     LOGIN,
     LOGOUT,
@@ -8,6 +8,8 @@ import {
     SAVE_PORTFOLIO,
     SAVE_PROJECT
 } from './types';
+
+const browserHistory = createHashHistory();
 
 export const fetchCoders = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
@@ -33,7 +35,7 @@ export const fetchPortfolio = () => async dispatch => {
 
 export const savePortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    // Link to myportfolio
+    browserHistory.goBack();
     // dispatch({ type: FETCH_CODERS });
 };
 
