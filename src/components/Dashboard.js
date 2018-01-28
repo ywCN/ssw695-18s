@@ -6,12 +6,6 @@ const Dashboard = () => {
     return (
         <div>
             <CoderList />
-            <div className="fixed-action-btn">
-                <Link to="/AddProject" className="btn-floating btn-large red">
-                    {/* icon names: http://materializecss.com/icons.html */}
-                    <i className="material-icons">add</i>
-                </Link>
-            </div>
         </div>
     );
 };
