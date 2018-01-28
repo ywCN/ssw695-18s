@@ -8,13 +8,7 @@ const MyPortfolio = () => {
     return (
         <div>
             MyPortfolio
-            <div className="fixed-action-btn">
-                {/* This is the add project button. */}
-                <Link to="/addproject" className="btn-floating btn-large red">
-                    <i className="material-icons">add</i>
-                </Link>
-            </div>
-            <div className="waves-effect btn">
+            <div className="waves-effect waves-light btn">
                 <Link
                     to="/editportfolio"
                     onClick={() => console.log('Edit Portfolio clicked')}
@@ -22,7 +16,12 @@ const MyPortfolio = () => {
                     Edit Portfolio
                 </Link>
             </div>
-            {/* TODO: add an edit button with callback Link to edituserportfolio*/}
+            <div className="fixed-action-btn">
+                {/* This is the add project button. */}
+                <Link to="/addproject" className="btn-floating btn-large red">
+                    <i className="material-icons">add</i>
+                </Link>
+            </div>
         </div>
     );
 };
