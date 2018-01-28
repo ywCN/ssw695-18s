@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const AddProject = () => {
-    return <div>AddProject</div>;
+    return (
+        <div>AddProject</div>
+        // TODO: add a save button with saveProject action callback
+    );
 };
 
 export default AddProject;
