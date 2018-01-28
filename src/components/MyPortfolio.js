@@ -13,13 +13,15 @@ const MyPortfolio = () => {
                     to="/editportfolio"
                     onClick={() => console.log('Edit Portfolio clicked')}
                 >
-                    <a class="waves-effect waves-light btn">Edit Portfolio</a>
+                    <a className="waves-effect waves-light btn">
+                        Edit Portfolio
+                    </a>
                 </Link>
                 <Link
                     to="/addproject"
                     onClick={() => console.log('Edit Portfolio clicked')}
                 >
-                    <a class="waves-effect waves-light btn">add project</a>
+                    <a className="waves-effect waves-light btn">add project</a>
                 </Link>
             </div>
         </div>

@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AddProject = () => {
     return (
         <div>
             <div>AddProject</div>
-            <div
-                className="waves-effect waves-light btn"
-                onClick={() => {
-                    this.props.savePortfolio();
-                    console.log('save button clicked');
-                }}
-            >
-                save
+            <div>
+                <Link
+                    to="/myportfolio"
+                    onClick={() => console.log('Edit Portfolio clicked')}
+                >
+                    <a className="waves-effect waves-light btn">save</a>
+                </Link>
             </div>
         </div>
         // TODO: add saveProject action callback
