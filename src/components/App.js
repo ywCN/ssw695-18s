@@ -46,7 +46,7 @@ class App extends Component {
                         />
                         <Route
                             exact
-                            path="/myportfolio/addproject"
+                            path="/addproject"
                             component={AddProject}
                         />
                     </div>
