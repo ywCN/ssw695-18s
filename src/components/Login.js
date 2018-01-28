@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// import { loginUser } from '../actions';
 
 class Landing extends Component {
+    // TODO: add a button under 2 inputs with callback action to log in user and change auth state
     render() {
         return (
             <div style={{ textAlign: 'center' }}>

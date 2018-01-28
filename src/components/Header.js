@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+// TODO: import login and logout action and use them as the callbacks on login and logout buttons
 
 class Header extends Component {
+    // TODO: render a button, the rendered button is determined by the auth state
     renderContent() {
-        switch (false) {
-            // switch (this.props.auth) {
-            case null:
-                return; // show nothing if not sure
-            case false:
-                return (
-                    <li>
-                        <a href="/auth">Login</a>
-                    </li>
-                );
-            default:
-                return [
-                    <li key="1">lol</li>,
-                    <li key="2">
-                        {/* <a href="/api/logout">Logout</a> */}
-                        emmm
-                    </li>
-                ];
+        if (this.props.auth) {
+            // return button with login callback
+        } else {
+            // return button with logout callback
         }
     }
 
@@ -36,9 +25,19 @@ class Header extends Component {
                     >
                         CoderIn
                     </Link>
+                    {/* <div className="right">{this.renderContent()}</div> */}
+                    <div className="right">{'login/logout'}</div>
                 </div>
             </nav>
         );
     }
 }
 export default Header;
+
+// function mapStateToProps({ auth }) {
+//     return { auth };
+// }
+
+// TODO: subscribe to the auth state
+
+// export default connect(mapStateToProps)(Header);

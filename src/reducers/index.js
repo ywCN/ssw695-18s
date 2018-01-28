@@ -7,3 +7,5 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+// TODO: make sure the init auth is false
