@@ -7,9 +7,9 @@ class Header extends Component {
     // TODO: render a button, the rendered button is determined by the auth state
     renderContent() {
         if (this.props.auth) {
-            return <a onClick={() => console.log('login')}>login</a>;
-        } else {
             return <a onClick={() => console.log('logout')}>logout</a>;
+        } else {
+            return <a onClick={() => console.log('login')}>login</a>;
         }
     }
 
