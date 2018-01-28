@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {
-    USER_LOGIN,
-    USER_LOGOUT,
+    LOGIN,
+    LOGOUT,
     FETCH_CODERS,
-    FETCH_USER_PORTFOLIO,
-    SAVE_USER_PORTFOLIO
+    FETCH_PORTFOLIO,
+    SAVE_PORTFOLIO
 } from './types';
 
 export const fetchCoders = () => async dispatch => {
@@ -16,18 +16,18 @@ export const fetchCoders = () => async dispatch => {
 export const userLogin = () => async dispatch => {
     // const res = await axios.get('/api/current_user'); // TODO: check login status
     // Link to dashboard
-    // dispatch({ type: USER_LOGIN, payload: true });
+    // dispatch({ type: LOGIN, payload: true });
 };
 
 export const userLogout = () => async dispatch => {
     // await logout();
     // Link to logout
-    // dispatch({ type: USER_LOGOUT, payload: false });
+    // dispatch({ type: LOGOUT, payload: false });
 };
 
 export const fetchUserPortfolio = () => async dispatch => {
     // const res = await axios.get('/api/current_user'); // TODO: update path, check res and update payload
-    // dispatch({ type: FETCH_USER_PORTFOLIO, payload: res.data });
+    // dispatch({ type: FETCH_PORTFOLIO, payload: res.data });
 };
 
 export const saveUserPortfolio = () => async dispatch => {
