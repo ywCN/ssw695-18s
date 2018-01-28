@@ -19,6 +19,13 @@ class App extends Component {
             messagingSenderId: '282335465798'
         };
         firebase.initializeApp(config);
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // call action to set login state
+            } else {
+                // call action to set login state
+            }
+        });
     }
     render() {
         return (
