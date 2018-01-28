@@ -9,6 +9,7 @@ import MyPortfolio from './MyPortfolio';
 import AddProject from './AddProject';
 import Login from './Login';
 import Logout from './Logout';
+import EditPortfolio from './EditPortfolio';
 
 class App extends Component {
     componentWillMount() {
@@ -33,6 +34,11 @@ class App extends Component {
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
+                        <Route
+                            exact
+                            path="/editportfolio"
+                            component={EditPortfolio}
+                        />
                         <Route
                             exact
                             path="/myportfolio"
