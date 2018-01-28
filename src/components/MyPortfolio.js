@@ -7,19 +7,19 @@ const MyPortfolio = () => {
     // can just display name and email for now
     return (
         <div>
-            MyPortfolio
-            <div className="waves-effect waves-light btn">
+            <div>MyPortfolio</div>
+            <div>
                 <Link
                     to="/editportfolio"
                     onClick={() => console.log('Edit Portfolio clicked')}
                 >
-                    Edit Portfolio
+                    <a class="waves-effect waves-light btn">Edit Portfolio</a>
                 </Link>
-            </div>
-            <div className="fixed-action-btn">
-                {/* This is the add project button. */}
-                <Link to="/addproject" className="btn-floating btn-large red">
-                    <i className="material-icons">add</i>
+                <Link
+                    to="/addproject"
+                    onClick={() => console.log('Edit Portfolio clicked')}
+                >
+                    <a class="waves-effect waves-light btn">add project</a>
                 </Link>
             </div>
         </div>
