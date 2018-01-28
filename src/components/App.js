@@ -7,6 +7,8 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import MyPortfolio from './MyPortfolio';
 import AddProject from './AddProject';
+import Login from './Login';
+import Logout from './Logout';
 
 class App extends Component {
     componentWillMount() {
@@ -19,13 +21,6 @@ class App extends Component {
             messagingSenderId: '282335465798'
         };
         firebase.initializeApp(config);
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                // call action to set login state
-            } else {
-                // call action to set login state
-            }
-        });
     }
     render() {
         return (
@@ -36,6 +31,8 @@ class App extends Component {
                         <Header />
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/logout" component={Logout} />
                         <Route
                             exact
                             path="/myportfolio"
