@@ -2,8 +2,19 @@ import React from 'react';
 
 const AddProject = () => {
     return (
-        <div>AddProject</div>
-        // TODO: add a save button with saveProject action callback
+        <div>
+            <div>AddProject</div>
+            <div
+                className="waves-effect waves-light btn"
+                onClick={() => {
+                    this.props.savePortfolio();
+                    console.log('save button clicked');
+                }}
+            >
+                save
+            </div>
+        </div>
+        // TODO: add saveProject action callback
     );
 };
 
