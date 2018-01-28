@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 // TODO: import savePortfolio action and use it in 'save' button
 
 const EditPortfolio = () => {
@@ -7,7 +6,13 @@ const EditPortfolio = () => {
     return (
         <div>
             EditPortfolio
-            {/* TODO: add a save button with savePortfolio action callback*/}
+            {/* TODO: savePortfolio action callback in the button*/}
+            <div
+                className="waves-effect waves-light btn"
+                onClick={() => console.log('save button clicked')}
+            >
+                save
+            </div>
         </div>
     );
 };
