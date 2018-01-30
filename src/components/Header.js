@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// TODO: import login and logout action and use them as the callbacks on login and logout buttons
+
+import FacebookLogin from './FacebookLogin';
 
 class Header extends Component {
-    // TODO: render a button, the rendered button is determined by the auth state
     renderLoginLogout() {
         console.log(this.props.auth);
         console.log(this.props.auth);
@@ -13,7 +13,7 @@ class Header extends Component {
         if (this.props.auth) {
             return <a onClick={() => console.log('logout')}>logout</a>;
         } else {
-            return <a onClick={() => console.log('login')}>login</a>;
+            return <FacebookLogin />;
         }
     }
 
