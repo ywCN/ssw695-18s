@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
     // TODO: render a button, the rendered button is determined by the auth state
     renderLoginLogout() {
+        console.log(this.props.auth);
+        console.log(this.props.auth);
+        console.log(this.props.auth);
+        console.log(this.props.auth);
         if (this.props.auth) {
-            return <a onClick={() => console.log('login')}>login</a>;
-        } else {
             return <a onClick={() => console.log('logout')}>logout</a>;
+        } else {
+            return <a onClick={() => console.log('login')}>login</a>;
         }
     }
 
@@ -20,7 +24,7 @@ class Header extends Component {
                     <Link to={'/'} className="left brand-logo">
                         CoderIn
                     </Link>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <ul id="nav-mobile" className="right">
                         <li>
                             <Link to={'/myportfolio'} className="right">
                                 myportfolio
