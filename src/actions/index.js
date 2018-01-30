@@ -17,6 +17,7 @@ export const fetchCoders = () => async dispatch => {
 };
 
 export const login = user => async dispatch => {
+    console.log('login action is called');
     dispatch({ type: LOGIN, payload: user });
 };
 
