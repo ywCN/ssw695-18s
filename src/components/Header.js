@@ -6,11 +6,7 @@ import FacebookLogin from './FacebookLogin';
 
 class Header extends Component {
     renderLoginLogout() {
-        console.log(this.props.auth);
-        console.log(this.props.auth);
-        console.log(this.props.auth);
-        console.log(this.props.auth);
-        if (this.props.auth) {
+        if (this.props.user) {
             return <a onClick={() => console.log('logout')}>logout</a>;
         } else {
             return <FacebookLogin />;
@@ -18,7 +14,7 @@ class Header extends Component {
     }
 
     renderHeaderLeftLogo() {
-        if (this.props.auth) {
+        if (this.props.user) {
             return (
                 <Link
                     to={'/dashboard'}
@@ -60,8 +56,9 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({ user }) {
+    console.log(user);
+    return { user };
 }
 
 export default connect(mapStateToProps)(Header);
