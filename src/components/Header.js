@@ -17,13 +17,35 @@ class Header extends Component {
         }
     }
 
+    renderHeaderLeftLogo() {
+        if (this.props.auth) {
+            return (
+                <Link
+                    to={'/dashboard'}
+                    className="left brand-logo"
+                    onClick={() => console.log('logo clicked while logged in')}
+                >
+                    CoderIn
+                </Link>
+            );
+        } else {
+            return (
+                <Link
+                    to={'/'}
+                    className="left brand-logo"
+                    onClick={() => console.log('logo clicked while logged out')}
+                >
+                    CoderIn
+                </Link>
+            );
+        }
+    }
+
     render() {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <Link to={'/'} className="left brand-logo">
-                        CoderIn
-                    </Link>
+                    {this.renderHeaderLeftLogo()}
                     <ul id="nav-mobile" className="right">
                         <li>
                             <Link to={'/myportfolio'} className="right">
@@ -37,7 +59,6 @@ class Header extends Component {
         );
     }
 }
-// export default Header;
 
 function mapStateToProps({ auth }) {
     return { auth };
