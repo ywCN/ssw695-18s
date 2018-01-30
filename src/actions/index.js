@@ -16,10 +16,8 @@ export const fetchCoders = () => async dispatch => {
     // dispatch({ type: FETCH_CODERS, payload: res.data });
 };
 
-export const login = () => async dispatch => {
-    // const res = await axios.get('path'); // TODO: check login status
-    // Link to dashboard
-    // dispatch({ type: LOGIN, payload: true });
+export const login = user => async dispatch => {
+    dispatch({ type: LOGIN, payload: user });
 };
 
 export const logout = () => async dispatch => {
