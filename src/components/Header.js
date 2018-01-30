@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
     // TODO: render a button, the rendered button is determined by the auth state
-    renderContent() {
+    renderLoginLogout() {
         if (this.props.auth) {
-            return <a onClick={() => console.log('logout')}>logout</a>;
-        } else {
             return <a onClick={() => console.log('login')}>login</a>;
+        } else {
+            return <a onClick={() => console.log('logout')}>logout</a>;
         }
     }
 
@@ -20,15 +20,14 @@ class Header extends Component {
                     <Link to={'/'} className="left brand-logo">
                         CoderIn
                     </Link>
-                    {/* <div className="right">{this.renderContent()}</div> */}
-                    <Link
-                        to={'/myportfolio'}
-                        className="right"
-                        style={{ marginLeft: 30 }}
-                    >
-                        myportfolio
-                    </Link>
-                    <div className="right">{this.renderContent()}</div>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <li>
+                            <Link to={'/myportfolio'} className="right">
+                                myportfolio
+                            </Link>
+                        </li>
+                        <li>{this.renderLoginLogout()}</li>
+                    </ul>
                 </div>
             </nav>
         );
