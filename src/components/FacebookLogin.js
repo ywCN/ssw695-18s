@@ -11,6 +11,7 @@ class MyComponent extends React.Component {
     };
 
     render() {
+        // TODO: change style of FacebookLogin
         return (
             <FacebookLogin
                 appId="164069247570253"
