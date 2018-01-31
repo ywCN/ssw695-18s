@@ -21,11 +21,10 @@ export const login = user => async dispatch => {
     dispatch({ type: LOGIN, payload: user });
 };
 
-export const logout = () => async dispatch => {
-    // await logout();
-    // Link to logout
-    // dispatch({ type: LOGOUT, payload: false });
-};
+export function logout() {
+    // set the user object to null in redux-store to make the user 'logged out'
+    return { type: LOGOUT };
+}
 
 export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
