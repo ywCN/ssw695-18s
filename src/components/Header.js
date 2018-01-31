@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { logout } from '../actions';
+
 class Header extends Component {
     renderHeaderRight() {
         if (this.props.user) {
@@ -17,6 +19,7 @@ class Header extends Component {
                             to={'/logout'}
                             className="right"
                             onClick={() => {
+                                this.props.logout();
                                 console.log('logout clicked');
                             }}
                         >
@@ -69,4 +72,4 @@ function mapStateToProps({ user }) {
     return { user };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { logout })(Header);
