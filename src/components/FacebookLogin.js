@@ -6,7 +6,7 @@ import { login } from '../actions';
 
 class MyComponent extends React.Component {
     responseFacebook = response => {
-        console.log(response);
+        // console.log(response);
         this.props.login(response);
     };
 
