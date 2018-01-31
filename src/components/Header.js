@@ -2,18 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import FacebookLogin from './FacebookLogin';
-
 class Header extends Component {
-    renderLoginLogout() {
+    renderHeaderRight() {
         if (this.props.user) {
-            return <a onClick={() => console.log('logout')}>logout</a>;
-        } else {
-            return <FacebookLogin />;
+            return (
+                <ul id="nav-mobile" className="right">
+                    <li>
+                        <Link to={'/myportfolio'} className="right">
+                            myportfolio
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to={'/logout'}
+                            className="right"
+                            onClick={() => {
+                                console.log('logout clicked');
+                            }}
+                        >
+                            logout
+                        </Link>
+                    </li>
+                </ul>
+            );
         }
     }
 
-    renderHeaderLeftLogo() {
+    renderHeaderLeft() {
         if (this.props.user) {
             return (
                 <Link
@@ -41,15 +56,8 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    {this.renderHeaderLeftLogo()}
-                    <ul id="nav-mobile" className="right">
-                        <li>
-                            <Link to={'/myportfolio'} className="right">
-                                myportfolio
-                            </Link>
-                        </li>
-                        <li>{this.renderLoginLogout()}</li>
-                    </ul>
+                    {this.renderHeaderLeft()}
+                    {this.renderHeaderRight()}
                 </div>
             </nav>
         );
