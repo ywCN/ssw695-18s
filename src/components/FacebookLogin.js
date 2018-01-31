@@ -11,18 +11,26 @@ class MyComponent extends React.Component {
     };
 
     render() {
-        // TODO: change style of FacebookLogin
-        return (
-            <FacebookLogin
-                appId="164069247570253"
-                autoLoad={false}
-                fields="name,email,picture"
-                scope="public_profile,user_friends,user_actions.books"
-                callback={this.responseFacebook}
-                size="small"
-            />
-        );
+        if (!this.props.user) {
+            return (
+                <FacebookLogin
+                    appId="164069247570253"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    scope="public_profile,user_friends,user_actions.books"
+                    callback={this.responseFacebook}
+                    size="small"
+                />
+            );
+        } else {
+            return <div />;
+        }
     }
 }
 
-export default connect(null, { login })(MyComponent);
+function mapStateToProps({ user }) {
+    console.log(user);
+    return { user };
+}
+
+export default connect(mapStateToProps, { login })(MyComponent);
