@@ -12,8 +12,6 @@ import {
 export const fetchCoders = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
     console.log('fetchCoders called');
-    console.log('fetchCoders called');
-    console.log('fetchCoders called');
     dispatch({
         type: FETCH_CODERS,
         payload: ['coder 1', 'coder 2', 'coder 3', 'coder 4']
