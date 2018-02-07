@@ -1,5 +1,4 @@
 // import axios from 'axios';
-import { createHashHistory } from 'history';
 import {
     LOGIN,
     LOGOUT,
