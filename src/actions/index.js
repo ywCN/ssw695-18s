@@ -17,7 +17,6 @@ export const fetchCoders = () => async dispatch => {
         type: FETCH_CODERS,
         payload: ['coder 1', 'coder 2', 'coder 3', 'coder 4']
     });
-    // dispatch({ type: FETCH_CODERS, payload: res.data });
 };
 
 export const login = user => async dispatch => {
@@ -32,12 +31,15 @@ export function logout() {
 
 export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    // dispatch({ type: FETCH_PORTFOLIO, payload: res.data });
+    dispatch({ type: FETCH_PORTFOLIO, payload: user });
 };
 
 export const savePortfolio = () => async dispatch => {
-    // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    return { type: SAVE_PORTFOLIO };
+    // const res = await axios.post('path'); // TODO: update path, check res and update payload
+    return {
+        type: SAVE_PORTFOLIO,
+        payload: { name: 'tom', email: 'email@email.com' }
+    };
     // dispatch({ type: FETCH_CODERS });
 };
 
