@@ -68,7 +68,6 @@ class Header extends Component {
 }
 
 function mapStateToProps({ user }) {
-    console.log(user);
     return { user };
 }
 
