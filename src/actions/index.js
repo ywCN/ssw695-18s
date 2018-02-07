@@ -31,15 +31,14 @@ export function logout() {
 
 export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    dispatch({ type: FETCH_PORTFOLIO, payload: user });
-};
-
-export const savePortfolio = () => async dispatch => {
-    // const res = await axios.post('path'); // TODO: update path, check res and update payload
     return {
         type: SAVE_PORTFOLIO,
         payload: { name: 'tom', email: 'email@email.com' }
     };
+};
+
+export const savePortfolio = () => async dispatch => {
+    // const res = await axios.post('path'); // TODO: update path, check res and update payload
     // dispatch({ type: FETCH_CODERS });
 };
 
