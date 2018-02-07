@@ -33,7 +33,7 @@ export const fetchPortfolio = () => async dispatch => {
 
 export const savePortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    browserHistory.goBack();
+    return { type: SAVE_PORTFOLIO };
     // dispatch({ type: FETCH_CODERS });
 };
 

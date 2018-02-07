@@ -10,7 +10,7 @@ class EditPortfolio extends Component {
             <div>
                 EditPortfolio
                 <Link
-                    to="/editportfolio"
+                    to="/"
                     onClick={() => this.props.savePortfolio()}
                     className="waves-effect waves-light btn"
                 >
