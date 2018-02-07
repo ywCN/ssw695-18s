@@ -6,22 +6,19 @@ class CoderList extends Component {
     componentWillMount() {
         this.props.fetchCoders();
     }
-    renderCoders() {}
+    renderCoders() {
+        if (this.props.coders) {
+            return this.props.coders.map(coder => {
+                // TODO: use coder.id instead of coder
+                return <div key={coder}>coder</div>;
+            });
+        } else {
+            console.log(this.props.coders);
+            return <div />;
+        }
+    }
     render() {
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props.coders);
-        console.log(this.props.coders);
-        // return <div>{this.renderCoders()}</div>;
-        return (
-            <div>
-                <div>Coder1</div>
-                <div>Coder2</div>
-                <div>Coder3</div>
-                <div>Coder4</div>
-            </div>
-        );
+        return <div>{this.renderCoders()}</div>;
     }
 }
 
