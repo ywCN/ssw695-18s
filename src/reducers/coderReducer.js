@@ -3,7 +3,15 @@ import { FETCH_CODERS } from '../actions/types';
 export default function(state = null, action) {
     switch (action.type) {
         case FETCH_CODERS:
-            return { ...state, ...action.payload };
+            console.log('action.payload');
+            console.log('action.payload');
+            console.log('action.payload');
+            console.log('action.payload');
+
+            console.log(action.payload);
+            console.log(action.payload);
+            console.log(action.payload);
+            return action.payload;
         default:
             return state;
     }

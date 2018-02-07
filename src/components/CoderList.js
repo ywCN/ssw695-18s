@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { fetchCoders } from '../../actions';
+import { connect } from 'react-redux';
+import { fetchCoders } from './../actions';
 
 class CoderList extends Component {
-    // componentDidMount() {
-    //     this.props.fetchCoders();
-    // }
+    componentWillMount() {
+        this.props.fetchCoders();
+    }
     renderCoders() {}
     render() {
+        console.log(this.props);
+        console.log(this.props);
+        console.log(this.props);
+        console.log(this.props.coders);
+        console.log(this.props.coders);
         // return <div>{this.renderCoders()}</div>;
         return (
             <div>
@@ -20,10 +25,8 @@ class CoderList extends Component {
     }
 }
 
-// function mapStateToProps({ coders }) {
-//     return { coders };
-// }
+function mapStateToProps({ coders }) {
+    return { coders };
+}
 
-export default CoderList;
-
-// export default connect(mapStateToProps, { fetchCoders })(CoderList);
+export default connect(mapStateToProps, { fetchCoders })(CoderList);
