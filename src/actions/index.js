@@ -13,6 +13,10 @@ const browserHistory = createHashHistory();
 
 export const fetchCoders = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
+    dispatch({
+        type: FETCH_CODERS,
+        payload: ['coder 1', 'coder 2', 'coder 3', 'coder 4']
+    });
     // dispatch({ type: FETCH_CODERS, payload: res.data });
 };
 
