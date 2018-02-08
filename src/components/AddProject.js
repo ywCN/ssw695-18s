@@ -6,20 +6,17 @@ const AddProject = () => {
     return (
         <div>
             <div>AddProject</div>
-            <div>
-                <Button
-                    as={Link}
-                    animated
-                    to="/myportfolio"
-                    onClick={() => console.log('add clicked')}
-                    className="waves-effect waves-light btn"
-                >
-                    <Button.Content visible>Add</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name="right arrow" />
-                    </Button.Content>
-                </Button>
-            </div>
+            <Button
+                animated
+                as={Link}
+                to="/myportfolio"
+                onClick={() => console.log('add clicked')}
+            >
+                <Button.Content visible>Add</Button.Content>
+                <Button.Content hidden>
+                    <Icon name="right arrow" />
+                </Button.Content>
+            </Button>
         </div>
         // TODO: add saveProject action callback
     );
