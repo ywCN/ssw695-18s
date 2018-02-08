@@ -21,17 +21,26 @@ class AddProject extends Component {
                     label="Project Description"
                     placeholder="Project Description"
                 />
-                <Button
-                    animated
-                    as={Link}
-                    to="/myportfolio"
-                    onClick={() => console.log('add clicked')}
-                >
-                    <Button.Content visible>Add</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name="right arrow" />
-                    </Button.Content>
-                </Button>
+                <div>
+                    <Button
+                        primary
+                        animated
+                        as={Link}
+                        to="/myportfolio"
+                        onClick={() => console.log('add clicked')}
+                    >
+                        <Button.Content visible>Add</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name="check" />
+                        </Button.Content>
+                    </Button>
+                    <Button secondary animated as={Link} to="/myportfolio">
+                        <Button.Content visible>Cancel</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name="cancel" />
+                        </Button.Content>
+                    </Button>
+                </div>
             </Form>
             // TODO: add saveProject action callback
         );
