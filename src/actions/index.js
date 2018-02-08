@@ -14,19 +14,19 @@ export const fetchCoders = () => async dispatch => {
         type: FETCH_CODERS,
         payload: [
             {
-                name: 'Steve Sanders',
+                name: 'Lily',
                 role: 'Python Developer',
                 exp: '2 years experience'
             },
             {
-                name: 'Steve Sanders',
-                role: 'Python Developer',
-                exp: '2 years experience'
+                name: 'Tom',
+                role: 'Java Developer',
+                exp: '6 years experience'
             },
             {
-                name: 'Steve Sanders',
-                role: 'Python Developer',
-                exp: '2 years experience'
+                name: 'Jack',
+                role: 'Web Developer',
+                exp: '4 years experience'
             }
         ]
     });
