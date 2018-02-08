@@ -10,7 +10,6 @@ import {
 
 export const fetchCoders = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    console.log('fetchCoders called');
     dispatch({
         type: FETCH_CODERS,
         payload: ['coder 1', 'coder 2', 'coder 3', 'coder 4']
@@ -18,21 +17,20 @@ export const fetchCoders = () => async dispatch => {
 };
 
 export const login = user => async dispatch => {
-    console.log('login action is called');
     dispatch({ type: LOGIN, payload: user });
 };
 
 export const logout = () => {
-    // set the user object to null in redux-store to make the user 'logged out'
+    // set the user state to null in redux-store to make the user 'logged out'
     return { type: LOGOUT };
 };
 
 export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
-    return {
+    dispatch({
         type: FETCH_PORTFOLIO,
         payload: { name: 'tom', email: 'email@email.com' }
-    };
+    });
 };
 
 export const savePortfolio = () => async dispatch => {
