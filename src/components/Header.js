@@ -1,68 +1,68 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { Header, Segment } from 'semantic-ui-react';
 import { logout } from '../actions';
 
-class Header extends Component {
-    renderHeaderRight() {
-        if (this.props.user) {
-            return (
-                <ul id="nav-mobile" className="right">
-                    <li>
-                        <Link to={'/myportfolio'} className="right">
-                            myportfolio
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to={'/logout'}
-                            className="right"
-                            onClick={() => {
-                                this.props.logout();
-                                console.log('logout clicked');
-                            }}
-                        >
-                            logout
-                        </Link>
-                    </li>
-                </ul>
-            );
-        }
-    }
-
+class AppHeader extends React.Component {
     renderHeaderLeft() {
         if (this.props.user) {
             return (
-                <Link
-                    to={'/dashboard'}
-                    className="left brand-logo"
+                <Header
+                    as={Link}
+                    floated="left"
+                    to="/dashboard"
                     onClick={() => console.log('logo clicked while logged in')}
                 >
-                    CoderIn
-                </Link>
+                    CodeIn
+                </Header>
             );
         } else {
             return (
-                <Link
-                    to={'/'}
-                    className="left brand-logo"
+                <Header
+                    as={Link}
+                    floated="left"
+                    to="/"
                     onClick={() => console.log('logo clicked while logged out')}
                 >
-                    CoderIn
-                </Link>
+                    CodeIn
+                </Header>
             );
         }
     }
-
+    renderMyPortfolio() {
+        if (this.props.user) {
+            return (
+                <Header as={Link} to="/myportfolio" floated="right">
+                    myportfolio
+                </Header>
+            );
+        }
+    }
+    renderLogout() {
+        if (this.props.user) {
+            return (
+                <Header
+                    as={Link}
+                    to="/logout"
+                    floated="right"
+                    onClick={() => {
+                        this.props.logout();
+                        console.log('logout clicked');
+                    }}
+                >
+                    logout
+                </Header>
+            );
+        }
+    }
     render() {
         return (
-            <nav>
-                <div className="nav-wrapper">
-                    {this.renderHeaderLeft()}
-                    {this.renderHeaderRight()}
-                </div>
-            </nav>
+            <Segment clearing color="blue">
+                {this.renderHeaderLeft()}
+                {this.renderLogout()}
+                {this.renderMyPortfolio()}
+            </Segment>
         );
     }
 }
@@ -71,4 +71,4 @@ function mapStateToProps({ user }) {
     return { user };
 }
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout })(AppHeader);
