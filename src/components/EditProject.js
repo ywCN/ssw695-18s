@@ -6,6 +6,7 @@ import { Button, Icon, Form, Input, TextArea } from 'semantic-ui-react';
 import { saveProject } from '../actions';
 
 class EditProject extends Component {
+    // TODO: use defaultValue from redux store current project
     render() {
         return (
             <Form>

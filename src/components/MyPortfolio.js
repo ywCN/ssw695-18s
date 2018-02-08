@@ -66,6 +66,8 @@ class MyPortfolio extends Component {
         }
     }
     renderProjectsHelper() {
+        // TODO: add dummy data and use dummy data and _ or map to return an array of <Form>
+        // TODO: placeholder and readOnly
         return (
             <Form>
                 <Form.Field
