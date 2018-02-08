@@ -1,25 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Icon } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Button, Icon, Form, Input, TextArea } from 'semantic-ui-react';
 
-const AddProject = () => {
-    return (
-        <div>
-            <div>AddProject</div>
-            <Button
-                animated
-                as={Link}
-                to="/myportfolio"
-                onClick={() => console.log('add clicked')}
-            >
-                <Button.Content visible>Add</Button.Content>
-                <Button.Content hidden>
-                    <Icon name="right arrow" />
-                </Button.Content>
-            </Button>
-        </div>
-        // TODO: add saveProject action callback
-    );
-};
+import { saveProject } from '../actions';
 
-export default AddProject;
+class AddProject extends Component {
+    render() {
+        return (
+            <Form>
+                <Form.Field
+                    id="form-input-control-first-name"
+                    control={Input}
+                    label="Project Name"
+                    placeholder="Project Name"
+                />
+                <Form.Field
+                    id="form-textarea-control-opinion"
+                    control={TextArea}
+                    label="Project Description"
+                    placeholder="Project Description"
+                />
+                <Button
+                    animated
+                    as={Link}
+                    to="/myportfolio"
+                    onClick={() => console.log('add clicked')}
+                >
+                    <Button.Content visible>Add</Button.Content>
+                    <Button.Content hidden>
+                        <Icon name="right arrow" />
+                    </Button.Content>
+                </Button>
+            </Form>
+            // TODO: add saveProject action callback
+        );
+    }
+}
+
+export default connect(null, { saveProject })(AddProject);
