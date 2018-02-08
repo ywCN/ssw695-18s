@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header';
+import AppHeader from './AppHeader';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import MyPortfolio from './MyPortfolio';
@@ -18,7 +18,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div>
                         {/* Header will always display because it is not in Route. */}
-                        <Header />
+                        <AppHeader />
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/login" component={Login} />
