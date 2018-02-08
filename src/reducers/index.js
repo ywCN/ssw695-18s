@@ -6,7 +6,7 @@ import portfolioReducer from './portfolioReducer';
 const rootReducer = combineReducers({
     user: authReducer,
     coders: coderReducer,
-    user_portfolio: portfolioReducer
+    current_user_portfolio: portfolioReducer
 });
 
 export default rootReducer;
