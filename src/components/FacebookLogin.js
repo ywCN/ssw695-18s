@@ -29,7 +29,6 @@ class MyComponent extends React.Component {
 }
 
 function mapStateToProps({ user }) {
-    console.log(user);
     return { user };
 }
 
