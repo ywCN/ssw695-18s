@@ -83,8 +83,8 @@ class MyPortfolio extends Component {
                 <Button
                     animated
                     as={Link}
-                    to="/myportfolio"
-                    onClick={() => console.log('add clicked')}
+                    to="/editproject"
+                    onClick={() => console.log('edit clicked')}
                 >
                     <Button.Content visible>Edit</Button.Content>
                     <Button.Content hidden>

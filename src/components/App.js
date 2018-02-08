@@ -9,6 +9,7 @@ import AddProject from './AddProject';
 import Login from './Login';
 import Logout from './Logout';
 import EditPortfolio from './EditPortfolio';
+import EditProject from './EditProject';
 import FacebookLogin from './FacebookLogin';
 
 class App extends Component {
@@ -42,6 +43,11 @@ class App extends Component {
                             exact
                             path="/addproject"
                             component={AddProject}
+                        />
+                        <Route
+                            exact
+                            path="/editproject"
+                            component={EditProject}
                         />
                     </div>
                 </BrowserRouter>
