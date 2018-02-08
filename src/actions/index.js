@@ -45,7 +45,7 @@ export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
     dispatch({
         type: FETCH_PORTFOLIO,
-        payload: { name: 'tom', email: 'email@email.com' }
+        payload: { name: 'tom', email: 'tom@email.com' }
     });
 };
 
