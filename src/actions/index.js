@@ -22,15 +22,15 @@ export const login = user => async dispatch => {
     dispatch({ type: LOGIN, payload: user });
 };
 
-export function logout() {
+export const logout = () => {
     // set the user object to null in redux-store to make the user 'logged out'
     return { type: LOGOUT };
-}
+};
 
 export const fetchPortfolio = () => async dispatch => {
     // const res = await axios.get('path'); // TODO: update path, check res and update payload
     return {
-        type: SAVE_PORTFOLIO,
+        type: FETCH_PORTFOLIO,
         payload: { name: 'tom', email: 'email@email.com' }
     };
 };
