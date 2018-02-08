@@ -41,17 +41,6 @@ class MyPortfolio extends Component {
                             readOnly
                         />
                     </Form.Group>
-                </Form>
-            );
-        } else {
-            return <div />;
-        }
-    }
-    render() {
-        return (
-            <div>
-                {this.renderPortfolio()}
-                <div>
                     <Button
                         primary
                         as={Link}
@@ -60,15 +49,56 @@ class MyPortfolio extends Component {
                     >
                         Edit Portfolio
                     </Button>
-                    <Button
-                        secondary
-                        as={Link}
-                        to="/addproject"
-                        onClick={() => console.log('Add Project clicked')}
-                    >
-                        Add Project
-                    </Button>
+                </Form>
+            );
+        } else {
+            return <div />;
+        }
+    }
+    renderProjectsHelper() {
+        return (
+            <div>
+                <div>
+                    <h3>Project1</h3>
+                    <p>Project Description</p>
                 </div>
+                <div>
+                    <h3>Project2</h3>
+                    <p>Project Description</p>
+                </div>
+                <div>
+                    <h3>Project3</h3>
+                    <p>Project Description</p>
+                </div>
+                <div>
+                    <h3>Project4</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+        );
+    }
+
+    renderProjects() {
+        return (
+            <div>
+                {this.renderProjectsHelper()}
+                <Button
+                    secondary
+                    as={Link}
+                    to="/addproject"
+                    onClick={() => console.log('Add Project clicked')}
+                >
+                    Add Project
+                </Button>
+            </div>
+        );
+    }
+    render() {
+        return (
+            <div>
+                {this.renderPortfolio()}
+                {/* TODO: separate two Buttons */}
+                {this.renderProjects()}
             </div>
         );
     }
