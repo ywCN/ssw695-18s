@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import AppHeader from './AppHeader';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
