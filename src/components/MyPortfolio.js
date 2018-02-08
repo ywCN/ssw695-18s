@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Divider } from 'semantic-ui-react';
 
 import { fetchPortfolio } from '../actions';
 
@@ -96,8 +96,9 @@ class MyPortfolio extends Component {
     render() {
         return (
             <div>
+                <Divider horizontal>Portfolio</Divider>
                 {this.renderPortfolio()}
-                {/* TODO: separate two Buttons */}
+                <Divider horizontal>Projects</Divider>
                 {this.renderProjects()}
             </div>
         );
