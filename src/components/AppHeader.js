@@ -30,29 +30,25 @@ class AppHeader extends React.Component {
             );
         }
     }
-    renderMyPortfolio() {
+    renderHeaderRight() {
         if (this.props.user) {
             return (
-                <Header as={Link} to="/myportfolio" floated="right">
-                    myportfolio
-                </Header>
-            );
-        }
-    }
-    renderLogout() {
-        if (this.props.user) {
-            return (
-                <Header
-                    as={Link}
-                    to="/logout"
-                    floated="right"
-                    onClick={() => {
-                        this.props.logout();
-                        console.log('logout clicked');
-                    }}
-                >
-                    logout
-                </Header>
+                <div>
+                    <Header as={Link} to="/myportfolio" floated="right">
+                        myportfolio
+                    </Header>
+                    <Header
+                        as={Link}
+                        to="/logout"
+                        floated="right"
+                        onClick={() => {
+                            this.props.logout();
+                            console.log('logout clicked');
+                        }}
+                    >
+                        logout
+                    </Header>
+                </div>
             );
         }
     }
@@ -60,8 +56,7 @@ class AppHeader extends React.Component {
         return (
             <Segment clearing color="blue">
                 {this.renderHeaderLeft()}
-                {this.renderLogout()}
-                {this.renderMyPortfolio()}
+                {this.renderHeaderRight()}
             </Segment>
         );
     }
