@@ -8,22 +8,15 @@ const MyPortfolio = () => {
     // can just display name and email for now
     return (
         <div>
+            {/* Dummy text */}
             <div>MyPortfolio</div>
+            <div>MyPortfolio</div>
+            <div>MyPortfolio</div>
+            <div>MyPortfolio</div>
+            <div>MyPortfolio</div>
+            {/* Dummy text */}
+
             <div>
-                {/* <Link
-                    to="/editportfolio"
-                    onClick={() => console.log('Edit Portfolio clicked')}
-                    className="waves-effect waves-light btn"
-                >
-                    Edit Portfolio
-                </Link>
-                <Link
-                    to="/addproject"
-                    onClick={() => console.log('Edit Portfolio clicked')}
-                    className="waves-effect waves-light btn"
-                >
-                    Add Project
-                </Link> */}
                 <Button
                     primary
                     as={Link}
