@@ -1,7 +1,8 @@
+// import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 import { fetchPortfolio } from '../actions';
 
@@ -9,22 +10,47 @@ class MyPortfolio extends Component {
     componentWillMount() {
         this.props.fetchPortfolio();
     }
+
+    renderPortfolio() {
+        if (this.props.current_user_portfolio) {
+            const { name, email } = this.props.current_user_portfolio;
+
+            return (
+                <Form>
+                    <Form.Group unstackable widths={2}>
+                        <Form.Input
+                            label="First name"
+                            placeholder={name}
+                            readOnly
+                        />
+                        <Form.Input
+                            label="Last name"
+                            placeholder="Last name"
+                            readOnly
+                        />
+                    </Form.Group>
+                    <Form.Group widths={2}>
+                        <Form.Input
+                            label="Email"
+                            placeholder={email}
+                            readOnly
+                        />
+                        <Form.Input
+                            label="Phone"
+                            placeholder="Phone"
+                            readOnly
+                        />
+                    </Form.Group>
+                </Form>
+            );
+        } else {
+            return <div />;
+        }
+    }
     render() {
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
         return (
             <div>
-                {/* Dummy text */}
-                <div>MyPortfolio</div>
-                <div>MyPortfolio</div>
-                <div>MyPortfolio</div>
-                <div>MyPortfolio</div>
-                <div>MyPortfolio</div>
-                {/* Dummy text */}
-
+                {this.renderPortfolio()}
                 <div>
                     <Button
                         primary
