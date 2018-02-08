@@ -2,7 +2,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Form, Divider } from 'semantic-ui-react';
+import {
+    Button,
+    Icon,
+    Form,
+    Input,
+    TextArea,
+    Divider
+} from 'semantic-ui-react';
 
 import { fetchPortfolio } from '../actions';
 
@@ -42,12 +49,15 @@ class MyPortfolio extends Component {
                         />
                     </Form.Group>
                     <Button
-                        primary
+                        animated
                         as={Link}
                         to="/editportfolio"
                         onClick={() => console.log('Edit Portfolio clicked')}
                     >
-                        Edit Portfolio
+                        <Button.Content visible>Edit Portfolio</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name="write" />
+                        </Button.Content>
                     </Button>
                 </Form>
             );
@@ -57,24 +67,31 @@ class MyPortfolio extends Component {
     }
     renderProjectsHelper() {
         return (
-            <div>
-                <div>
-                    <h3>Project1</h3>
-                    <p>Project Description</p>
-                </div>
-                <div>
-                    <h3>Project2</h3>
-                    <p>Project Description</p>
-                </div>
-                <div>
-                    <h3>Project3</h3>
-                    <p>Project Description</p>
-                </div>
-                <div>
-                    <h3>Project4</h3>
-                    <p>Project Description</p>
-                </div>
-            </div>
+            <Form>
+                <Form.Field
+                    id="form-input-control-first-name"
+                    control={Input}
+                    label="Project Name"
+                    placeholder="Project Name"
+                />
+                <Form.Field
+                    id="form-textarea-control-opinion"
+                    control={TextArea}
+                    label="Project Description"
+                    placeholder="Project Description"
+                />
+                <Button
+                    animated
+                    as={Link}
+                    to="/myportfolio"
+                    onClick={() => console.log('add clicked')}
+                >
+                    <Button.Content visible>Edit</Button.Content>
+                    <Button.Content hidden>
+                        <Icon name="edit" />
+                    </Button.Content>
+                </Button>
+            </Form>
         );
     }
 
@@ -82,13 +99,17 @@ class MyPortfolio extends Component {
         return (
             <div>
                 {this.renderProjectsHelper()}
+                <Divider fitted />
                 <Button
-                    secondary
+                    animated
                     as={Link}
                     to="/addproject"
                     onClick={() => console.log('Add Project clicked')}
                 >
-                    Add Project
+                    <Button.Content visible>Add Project</Button.Content>
+                    <Button.Content hidden>
+                        <Icon name="add" />
+                    </Button.Content>
                 </Button>
             </div>
         );
