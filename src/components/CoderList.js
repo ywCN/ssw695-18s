@@ -10,13 +10,8 @@ class CoderList extends Component {
     }
 
     renderCard() {
-        console.log(this.props.coders);
-        console.log(this.props.coders);
-        console.log(this.props.coders);
-
         return this.props.coders.map(coder => {
             // TODO: use id instead of name
-
             const { name, role, exp } = coder;
             return (
                 <Card key={name}>
