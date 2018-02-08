@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 // TODO: import fetchPortfolio action and use it in ComponentWillMount
 
 const MyPortfolio = () => {
@@ -9,7 +10,7 @@ const MyPortfolio = () => {
         <div>
             <div>MyPortfolio</div>
             <div>
-                <Link
+                {/* <Link
                     to="/editportfolio"
                     onClick={() => console.log('Edit Portfolio clicked')}
                     className="waves-effect waves-light btn"
@@ -22,7 +23,23 @@ const MyPortfolio = () => {
                     className="waves-effect waves-light btn"
                 >
                     Add Project
-                </Link>
+                </Link> */}
+                <Button
+                    primary
+                    as={Link}
+                    to="/editportfolio"
+                    onClick={() => console.log('Edit Portfolio clicked')}
+                >
+                    Edit Portfolio
+                </Button>
+                <Button
+                    secondary
+                    as={Link}
+                    to="/addproject"
+                    onClick={() => console.log('Add Project clicked')}
+                >
+                    Add Project
+                </Button>
             </div>
         </div>
     );
