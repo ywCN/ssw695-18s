@@ -19,18 +19,26 @@ class EditPortfolio extends Component {
                         <Form.Input label="Email" defaultValue={email} />
                         <Form.Input label="Phone" placeholder="Phone" />
                     </Form.Group>
-                    <Form.Checkbox label="I agree to the Terms and Conditions" />
-                    <Button
-                        animated
-                        as={Link}
-                        to="/myportfolio"
-                        onClick={() => this.props.savePortfolio()}
-                    >
-                        <Button.Content visible>Save</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name="right arrow" />
-                        </Button.Content>
-                    </Button>
+                    <div>
+                        <Button
+                            primary
+                            animated
+                            as={Link}
+                            to="/myportfolio"
+                            onClick={() => this.props.savePortfolio()}
+                        >
+                            <Button.Content visible>Save</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name="check" />
+                            </Button.Content>
+                        </Button>
+                        <Button secondary animated as={Link} to="/myportfolio">
+                            <Button.Content visible>Cancel</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name="cancel" />
+                            </Button.Content>
+                        </Button>
+                    </div>
                 </Form>
             );
         } else {
