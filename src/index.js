@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import 'semantic-ui-css/semantic.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 
