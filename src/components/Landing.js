@@ -1,5 +1,7 @@
 import React from 'react';
-import FacebookLogin from './FacebookLogin';
+import { Segment, Button, Divider } from 'semantic-ui-react';
+
+import FBLogin from './FBLogin';
 
 const Landing = () => {
     return (
@@ -8,7 +10,16 @@ const Landing = () => {
                 <h1>CoderIn!</h1>
                 Find smartest coders!
             </div>
-            <FacebookLogin />
+            <FBLogin />
+            <Segment padded>
+                <Button primary fluid>
+                    <FBLogin />
+                </Button>
+                <Divider horizontal>Or</Divider>
+                <Button secondary fluid>
+                    Sign Up Now
+                </Button>
+            </Segment>
         </div>
     );
 };

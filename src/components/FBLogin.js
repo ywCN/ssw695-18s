@@ -4,7 +4,7 @@ import FacebookLogin from 'react-facebook-login';
 
 import { login } from '../actions';
 
-class MyComponent extends React.Component {
+class FBLogin extends React.Component {
     responseFacebook = response => {
         // console.log(response);
         this.props.login(response);
@@ -32,4 +32,4 @@ function mapStateToProps({ user }) {
     return { user };
 }
 
-export default connect(mapStateToProps, { login })(MyComponent);
+export default connect(mapStateToProps, { login })(FBLogin);

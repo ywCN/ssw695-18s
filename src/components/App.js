@@ -10,7 +10,6 @@ import Login from './Login';
 import Logout from './Logout';
 import EditPortfolio from './EditPortfolio';
 import EditProject from './EditProject';
-import FacebookLogin from './FacebookLogin';
 
 class App extends Component {
     render() {
@@ -24,11 +23,6 @@ class App extends Component {
                         <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
-                        <Route
-                            exact
-                            path="/facebooklogin"
-                            component={FacebookLogin}
-                        />
                         <Route
                             exact
                             path="/editportfolio"
