@@ -11,6 +11,7 @@ class GHLogin extends React.Component {
         if (!this.props.user) {
             return (
                 <GitHubLogin
+                    redirectUri=""
                     clientId="e4f29a993da09ec310cf"
                     onSuccess={onSuccess}
                     onFailure={onFailure}
