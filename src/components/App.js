@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import AppHeader from './AppHeader';
 import Landing from './Landing';
@@ -54,4 +54,4 @@ class App extends Component {
     }
 }
 
-export default withRouter(App);
+export default App;

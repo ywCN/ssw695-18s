@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
 
 import { login } from '../actions';
@@ -8,11 +9,6 @@ class FBLogin extends React.Component {
     responseFacebook = response => {
         console.log('facebook auth response is', response);
         this.props.login(response);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
-        console.log(this.props);
         this.props.history.push('/dashboard');
     };
 
@@ -29,4 +25,4 @@ class FBLogin extends React.Component {
     }
 }
 
-export default connect(null, { login })(FBLogin);
+export default connect(null, { login })(withRouter(FBLogin));

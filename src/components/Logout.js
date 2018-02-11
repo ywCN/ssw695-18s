@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from './Login';
+import LoginOptions from './LoginOptions';
 
 const Logout = () => {
     return (
         <div style={{ textAlign: 'center' }}>
             <h1>Thank you for using CoderIn!</h1>
-            <Login />
+            <LoginOptions />
         </div>
     );
 };

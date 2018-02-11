@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
 import { login } from '../actions';
@@ -13,6 +14,7 @@ class GGLogin extends React.Component {
         const { profileObj } = response;
         console.log(profileObj);
         this.props.login(profileObj);
+        this.props.history.push('/dashboard');
     };
     responseOnFailure = response => {
         alert(
@@ -31,4 +33,4 @@ class GGLogin extends React.Component {
     }
 }
 
-export default connect(null, { login })(GGLogin);
+export default connect(null, { login })(withRouter(GGLogin));
