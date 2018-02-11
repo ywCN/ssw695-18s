@@ -8,27 +8,20 @@ class FBLogin extends React.Component {
     responseFacebook = response => {
         console.log('facebook auth response is', response);
         this.props.login(response);
+        this.props.history.push('/dashboard');
     };
 
     render() {
-        if (!this.props.user) {
-            return (
-                <FacebookLogin
-                    appId="164069247570253"
-                    fields="name,email,picture"
-                    scope="public_profile,user_friends,user_actions.books"
-                    callback={this.responseFacebook}
-                    size="small"
-                />
-            );
-        } else {
-            return <div />;
-        }
+        return (
+            <FacebookLogin
+                appId="164069247570253"
+                fields="name,email"
+                scope="public_profile,user_friends,user_actions.books"
+                callback={this.responseFacebook}
+                size="small"
+            />
+        );
     }
 }
 
-function mapStateToProps({ user }) {
-    return { user };
-}
-
-export default connect(mapStateToProps, { login })(FBLogin);
+export default connect(null, { login })(FBLogin);
