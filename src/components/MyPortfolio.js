@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Form, Divider } from 'semantic-ui-react';
+import { Button, Icon, Form, Divider, TextArea } from 'semantic-ui-react';
 
-import { fetchPortfolio } from '../actions';
+import { fetchPortfolio, setEdittingProject } from '../actions';
 
 class MyPortfolio extends Component {
     componentWillMount() {
@@ -70,7 +70,7 @@ class MyPortfolio extends Component {
                             defaultValue={projectName}
                             readOnly
                         />
-                        <Form.Input
+                        <Form.TextArea
                             label="Project Description"
                             defaultValue={projectDescription}
                             readOnly
@@ -79,7 +79,11 @@ class MyPortfolio extends Component {
                             animated
                             as={Link}
                             to="/editproject"
-                            onClick={() => console.log('edit clicked')}
+                            onClick={() => {
+                                this.props.setEdittingProject(project);
+                                console.log('editting project', project);
+                                console.log('edit project clicked');
+                            }}
                         >
                             <Button.Content visible>Edit</Button.Content>
                             <Button.Content hidden>
@@ -130,4 +134,6 @@ const mapStateToProps = ({ current_user_portfolio }) => {
     return { current_user_portfolio };
 };
 
-export default connect(mapStateToProps, { fetchPortfolio })(MyPortfolio);
+export default connect(mapStateToProps, { fetchPortfolio, setEdittingProject })(
+    MyPortfolio
+);

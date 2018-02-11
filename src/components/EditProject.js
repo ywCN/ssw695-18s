@@ -1,51 +1,63 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Icon, Form, Input, TextArea } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom';
+import { Button, Icon, Form, TextArea } from 'semantic-ui-react';
 
 import { saveProject } from '../actions';
+import Landing from './Landing';
 
 class EditProject extends Component {
-    // TODO: use defaultValue from redux store current project
     render() {
-        return (
-            <Form>
-                <Form.Field
-                    id="form-input-control-first-name"
-                    control={Input}
-                    label="Project Name"
-                    placeholder="Project Name"
-                />
-                <Form.Field
-                    id="form-textarea-control-opinion"
-                    control={TextArea}
-                    label="Project Description"
-                    placeholder="Project Description"
-                />
-                <div>
-                    <Button
-                        primary
-                        animated
-                        as={Link}
-                        to="/myportfolio"
-                        onClick={() => console.log('add clicked')}
-                    >
-                        <Button.Content visible>Add</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name="check" />
-                        </Button.Content>
-                    </Button>
-                    <Button secondary animated as={Link} to="/myportfolio">
-                        <Button.Content visible>Cancel</Button.Content>
-                        <Button.Content hidden>
-                            <Icon name="cancel" />
-                        </Button.Content>
-                    </Button>
-                </div>
-            </Form>
-            // TODO: add saveProject action callback
-        );
+        if (this.props.user) {
+            const {
+                projectName,
+                projectDescription
+            } = this.props.current_editting_project;
+            return (
+                <Form>
+                    <Form.Input
+                        label="Project Name"
+                        defaultValue={projectName}
+                    />
+                    <Form.TextArea
+                        label="Project Description"
+                        defaultValue={projectDescription}
+                    />
+                    <div>
+                        <Button
+                            primary
+                            animated
+                            as={Link}
+                            to="/myportfolio"
+                            onClick={() => console.log('add clicked')}
+                        >
+                            <Button.Content visible>Save</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name="check" />
+                            </Button.Content>
+                        </Button>
+                        <Button secondary animated as={Link} to="/myportfolio">
+                            <Button.Content visible>Cancel</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name="cancel" />
+                            </Button.Content>
+                        </Button>
+                    </div>
+                </Form>
+                // TODO: add saveProject action callback
+            );
+        } else {
+            this.props.history.push('/');
+            return <Landing />;
+        }
     }
 }
 
-export default connect(null, { saveProject })(EditProject);
+const mapStateToProps = ({ current_editting_project, user }) => {
+    return { current_editting_project, user };
+};
+
+export default connect(mapStateToProps, { saveProject })(
+    withRouter(EditProject)
+);
