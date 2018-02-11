@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button, Icon, Form, Divider, TextArea } from 'semantic-ui-react';
 
 import { fetchPortfolio, setEdittingProject } from '../actions';
+import Landing from './Landing';
 
 class MyPortfolio extends Component {
     componentWillMount() {
@@ -118,20 +119,25 @@ class MyPortfolio extends Component {
             </div>
         );
     }
+
     render() {
-        return (
+        const content = this.props.user ? (
             <div>
                 <Divider horizontal>Portfolio</Divider>
                 {this.renderPortfolio()}
                 <Divider horizontal>Projects</Divider>
                 {this.renderProjects()}
             </div>
+        ) : (
+            <Landing />
         );
+
+        return content;
     }
 }
 
-const mapStateToProps = ({ current_user_portfolio }) => {
-    return { current_user_portfolio };
+const mapStateToProps = ({ current_user_portfolio, user }) => {
+    return { current_user_portfolio, user };
 };
 
 export default connect(mapStateToProps, { fetchPortfolio, setEdittingProject })(
