@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
-// import { login } from '../actions';
+import { connect } from 'react-redux';
+import { Segment, Button, Divider } from 'semantic-ui-react';
 
-class Landing extends Component {
-    // TODO: add a button under 2 inputs with callback action to log in user and change auth state
+import { login } from '../actions';
+import FBLogin from './FBLogin';
+import GGLogin from './GGLogin';
+
+class Login extends Component {
     render() {
-        return (
-            <div style={{ textAlign: 'center' }}>
-                <h4>Please enter your user name and password to login.</h4>
-            </div>
-        );
+        if (!this.props.user) {
+            return (
+                <Segment padded>
+                    <Button as={FBLogin} color="blue" fluid />
+                    <Divider horizontal>Or</Divider>
+                    <Button as={GGLogin} color="red" fluid />
+                    <Divider horizontal>Or</Divider>
+                    <Button color="black" fluid>
+                        Sign Up Now
+                    </Button>
+                </Segment>
+            );
+        } else {
+            return <div />;
+        }
     }
 }
+function mapStateToProps({ user }) {
+    return { user };
+}
 
-export default Landing;
+export default connect(mapStateToProps, { login })(Login);
