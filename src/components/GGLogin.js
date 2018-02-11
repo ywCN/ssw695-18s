@@ -14,13 +14,18 @@ class GGLogin extends React.Component {
         console.log(profileObj);
         this.props.login(profileObj);
     };
+    responseOnFailure = response => {
+        alert(
+            `Please go to 'chrome://settings/content/cookies' and disable 'Block third-party cookies' to enable login with Google`
+        );
+    };
     render() {
         return (
             <GoogleLogin
                 clientId="806914580079-9msqlpl8f51fd3diiflsthebog8l7p2u.apps.googleusercontent.com"
                 buttonText="LOGIN WITH GOOGLE"
                 onSuccess={this.responseOnSuccess}
-                // onFailure={responseGoogle}
+                onFailure={this.responseOnFailure}
             />
         );
     }
