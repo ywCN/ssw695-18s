@@ -1,15 +1,7 @@
-// import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-    Button,
-    Icon,
-    Form,
-    Input,
-    TextArea,
-    Divider
-} from 'semantic-ui-react';
+import { Button, Icon, Form, Divider } from 'semantic-ui-react';
 
 import { fetchPortfolio } from '../actions';
 
@@ -27,24 +19,24 @@ class MyPortfolio extends Component {
                     <Form.Group unstackable widths={2}>
                         <Form.Input
                             label="First name"
-                            placeholder={name}
+                            defaultValue={name}
                             readOnly
                         />
                         <Form.Input
                             label="Last name"
-                            placeholder="Last name"
+                            defaultValue="Last name"
                             readOnly
                         />
                     </Form.Group>
                     <Form.Group widths={2}>
                         <Form.Input
                             label="Email"
-                            placeholder={email}
+                            defaultValue={email}
                             readOnly
                         />
                         <Form.Input
                             label="Phone"
-                            placeholder="Phone"
+                            defaultValue="Phone"
                             readOnly
                         />
                     </Form.Group>
@@ -66,47 +58,53 @@ class MyPortfolio extends Component {
         }
     }
     renderProjectsHelper() {
-        // TODO: add dummy data and use dummy data and _ or map to return an array of <Form>
-        // TODO: placeholder and readOnly
-        return (
-            <Form>
-                <Form.Field
-                    id="form-input-control-first-name"
-                    control={Input}
-                    label="Project Name"
-                    placeholder="Project Name"
-                />
-                <Form.Field
-                    id="form-textarea-control-opinion"
-                    control={TextArea}
-                    label="Project Description"
-                    placeholder="Project Description"
-                />
-                <Button
-                    animated
-                    as={Link}
-                    to="/editproject"
-                    onClick={() => console.log('edit clicked')}
-                >
-                    <Button.Content visible>Edit</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name="edit" />
-                    </Button.Content>
-                </Button>
-            </Form>
-        );
+        if (this.props.current_user_portfolio) {
+            const { projects } = this.props.current_user_portfolio;
+            return projects.map(project => {
+                const { projectName, projectDescription } = project;
+                return (
+                    // TODO: use id for key
+                    <Form key={projectName}>
+                        <Form.Input
+                            label="Project Name"
+                            defaultValue={projectName}
+                            readOnly
+                        />
+                        <Form.Input
+                            label="Project Description"
+                            defaultValue={projectDescription}
+                            readOnly
+                        />
+                        <Button
+                            animated
+                            as={Link}
+                            to="/editproject"
+                            onClick={() => console.log('edit clicked')}
+                        >
+                            <Button.Content visible>Edit</Button.Content>
+                            <Button.Content hidden>
+                                <Icon name="edit" />
+                            </Button.Content>
+                        </Button>
+                        <Divider section />
+                    </Form>
+                );
+            });
+        } else {
+            return <div />;
+        }
     }
 
     renderProjects() {
         return (
             <div>
                 {this.renderProjectsHelper()}
-                <Divider fitted />
                 <Button
                     animated
                     as={Link}
                     to="/addproject"
                     onClick={() => console.log('Add Project clicked')}
+                    floated="right"
                 >
                     <Button.Content visible>Add Project</Button.Content>
                     <Button.Content hidden>

@@ -24,8 +24,9 @@ class LoginOptions extends Component {
         }
     }
 }
-function mapStateToProps({ user }) {
+
+const mapStateToProps = ({ user }) => {
     return { user };
-}
+};
 
 export default connect(mapStateToProps)(LoginOptions);
