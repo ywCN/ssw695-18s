@@ -6,6 +6,7 @@ import { logout } from '../actions';
 
 class AppHeader extends React.Component {
     renderHeaderLeft() {
+        // TODO: add greeting next to Logo
         if (this.props.user) {
             return (
                 <Header
