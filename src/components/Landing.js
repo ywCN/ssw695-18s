@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Login from './Login';
+import LoginOptions from './LoginOptions';
 
 const Landing = () => {
     return (
@@ -9,7 +9,7 @@ const Landing = () => {
                 <h1>CoderIn!</h1>
                 Find smartest coders!
             </div>
-            <Login />
+            <LoginOptions />
         </div>
     );
 };

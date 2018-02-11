@@ -8,6 +8,11 @@ class FBLogin extends React.Component {
     responseFacebook = response => {
         console.log('facebook auth response is', response);
         this.props.login(response);
+        console.log(this.props);
+        console.log(this.props);
+        console.log(this.props);
+        console.log(this.props);
+        console.log(this.props);
         this.props.history.push('/dashboard');
     };
 

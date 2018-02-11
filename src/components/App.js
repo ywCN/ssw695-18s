@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
 
 import AppHeader from './AppHeader';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import MyPortfolio from './MyPortfolio';
 import AddProject from './AddProject';
-import Login from './Login';
+import LoginEmailPassword from './LoginEmailPassword';
 import Logout from './Logout';
 import EditPortfolio from './EditPortfolio';
 import EditProject from './EditProject';
@@ -21,7 +21,11 @@ class App extends Component {
                         <AppHeader />
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/dashboard" component={Dashboard} />
-                        <Route exact path="/login" component={Login} />
+                        <Route
+                            exact
+                            path="/loginemailpassword"
+                            component={LoginEmailPassword}
+                        />
                         <Route exact path="/logout" component={Logout} />
                         <Route
                             exact
@@ -50,4 +54,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);
