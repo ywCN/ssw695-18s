@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Icon, Form, TextArea } from 'semantic-ui-react';
+import { Button, Icon, Form } from 'semantic-ui-react';
 
 import { saveProject } from '../actions';
 import Landing from './Landing';

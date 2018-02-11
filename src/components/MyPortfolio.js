@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Form, Divider, TextArea } from 'semantic-ui-react';
+import { Button, Icon, Form, Divider } from 'semantic-ui-react';
 
 import { fetchPortfolio, setEdittingProject } from '../actions';
 import Landing from './Landing';
