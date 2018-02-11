@@ -6,7 +6,7 @@ import { login } from '../actions';
 
 class FBLogin extends React.Component {
     responseFacebook = response => {
-        // console.log(response);
+        console.log('facebook auth response is', response);
         this.props.login(response);
     };
 
