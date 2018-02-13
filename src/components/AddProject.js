@@ -21,6 +21,34 @@ class AddProject extends Component {
                     label="Project Description"
                     placeholder="Project Description"
                 />
+                <Form.Group grouped>
+                    <label>HTML radios</label>
+                    <Form.Field
+                        label="This one"
+                        control="input"
+                        type="radio"
+                        name="htmlRadios"
+                    />
+                    <Form.Field
+                        label="That one"
+                        control="input"
+                        type="radio"
+                        name="htmlRadios"
+                    />
+                </Form.Group>
+                <Form.Group grouped>
+                    <label>HTML checkboxes</label>
+                    <Form.Field
+                        label="This one"
+                        control="input"
+                        type="checkbox"
+                    />
+                    <Form.Field
+                        label="That one"
+                        control="input"
+                        type="checkbox"
+                    />
+                </Form.Group>
                 <div>
                     <Button
                         primary
