@@ -14,10 +14,12 @@ class LoginOptions extends Component {
                     <Divider horizontal>Or</Divider>
                     <Button as={GGLogin} color="red" fluid />
                     <Divider horizontal>Or</Divider>
+                    {/* TODO: add callback for login */}
                     <Button color="black" fluid>
                         Login
                     </Button>
                     <Divider horizontal>Or</Divider>
+                    {/* TODO: add callback for sign up */}
                     <Button color="blue" fluid>
                         Sign Up
                     </Button>
