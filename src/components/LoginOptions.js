@@ -20,7 +20,7 @@ class LoginOptions extends Component {
                     </Button>
                     <Divider horizontal>Or</Divider>
                     {/* TODO: add callback for sign up */}
-                    <Button color="blue" fluid>
+                    <Button color="teal" fluid>
                         Sign Up
                     </Button>
                 </Segment>

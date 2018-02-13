@@ -19,7 +19,7 @@ class FBLogin extends React.Component {
                 fields="name,email"
                 scope="public_profile,user_friends,user_actions.books"
                 callback={this.responseFacebook}
-                cssClass="ui black fluid button"
+                cssClass="ui blue fluid button"
             />
         );
     }

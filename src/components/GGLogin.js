@@ -29,7 +29,7 @@ class GGLogin extends React.Component {
                 onSuccess={this.responseOnSuccess}
                 onFailure={this.responseOnFailure}
                 style={{}}
-                className="ui black fluid button"
+                className="ui red fluid button"
             />
         );
     }
