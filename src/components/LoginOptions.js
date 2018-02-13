@@ -15,7 +15,11 @@ class LoginOptions extends Component {
                     <Button as={GGLogin} color="red" fluid />
                     <Divider horizontal>Or</Divider>
                     <Button color="black" fluid>
-                        Sign Up Now
+                        Login
+                    </Button>
+                    <Divider horizontal>Or</Divider>
+                    <Button color="blue" fluid>
+                        Sign Up
                     </Button>
                 </Segment>
             );
