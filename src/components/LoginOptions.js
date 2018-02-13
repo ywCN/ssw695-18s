@@ -10,9 +10,9 @@ class LoginOptions extends Component {
         if (!this.props.user) {
             return (
                 <Segment padded>
-                    <Button as={FBLogin} color="blue" fluid />
+                    <Button as={FBLogin} />
                     <Divider horizontal>Or</Divider>
-                    <Button as={GGLogin} color="red" fluid />
+                    <Button as={GGLogin} />
                     <Divider horizontal>Or</Divider>
                     {/* TODO: add callback for login */}
                     <Button color="black" fluid>

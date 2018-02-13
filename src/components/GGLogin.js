@@ -28,6 +28,7 @@ class GGLogin extends React.Component {
                 buttonText="LOGIN WITH GOOGLE"
                 onSuccess={this.responseOnSuccess}
                 onFailure={this.responseOnFailure}
+                style={{}}
             />
         );
     }
