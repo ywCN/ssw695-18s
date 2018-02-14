@@ -12,8 +12,8 @@ class MyPortfolio extends Component {
     }
 
     renderPortfolio() {
-        if (this.props.current_user_portfolio) {
-            const { name, email } = this.props.current_user_portfolio;
+        if (this.props.currentUserPortfolio) {
+            const { name, email } = this.props.currentUserPortfolio;
 
             return (
                 <Form>
@@ -59,8 +59,8 @@ class MyPortfolio extends Component {
         }
     }
     renderProjectsHelper() {
-        if (this.props.current_user_portfolio) {
-            const { projects } = this.props.current_user_portfolio;
+        if (this.props.currentUserPortfolio) {
+            const { projects } = this.props.currentUserPortfolio;
             return projects.map(project => {
                 const { projectName, projectDescription } = project;
                 return (
@@ -136,8 +136,8 @@ class MyPortfolio extends Component {
     }
 }
 
-const mapStateToProps = ({ current_user_portfolio, user }) => {
-    return { current_user_portfolio, user };
+const mapStateToProps = ({ currentUserPortfolio, user }) => {
+    return { currentUserPortfolio, user };
 };
 
 export default connect(mapStateToProps, { fetchPortfolio, setEdittingProject })(

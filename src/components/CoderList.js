@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Card } from 'semantic-ui-react';
 
-import { fetchCoders } from './../actions';
+import {
+    fetchCoders
+    // addContact
+} from './../actions';
 
 class CoderList extends Component {
     componentWillMount() {

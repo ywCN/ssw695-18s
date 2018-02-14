@@ -7,7 +7,7 @@ import projectReducer from './projectReducer';
 const rootReducer = combineReducers({
     user: authReducer,
     coders: coderReducer,
-    current_user_portfolio: portfolioReducer,
+    currentUserPortfolio: portfolioReducer,
     current_editting_project: projectReducer
 });
 

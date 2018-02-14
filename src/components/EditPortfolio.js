@@ -6,8 +6,8 @@ import { Button, Icon, Form } from 'semantic-ui-react';
 
 class EditPortfolio extends Component {
     renderPortfolio() {
-        if (this.props.current_user_portfolio) {
-            const { name, email } = this.props.current_user_portfolio;
+        if (this.props.currentUserPortfolio) {
+            const { name, email } = this.props.currentUserPortfolio;
 
             return (
                 <Form>
@@ -50,8 +50,8 @@ class EditPortfolio extends Component {
     }
 }
 
-const mapStateToProps = ({ current_user_portfolio }) => {
-    return { current_user_portfolio };
+const mapStateToProps = ({ currentUserPortfolio }) => {
+    return { currentUserPortfolio };
 };
 
 export default connect(mapStateToProps, { savePortfolio })(EditPortfolio);
