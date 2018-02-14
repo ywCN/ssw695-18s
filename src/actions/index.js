@@ -132,6 +132,14 @@ export const addContact = coderID => async dispatch => {
 };
 
 export const setCurrentCoderPortfolio = coderPortfolio => {
+    console.log('called');
+    console.log('called');
+
+    console.log('coderPortfolio');
+    console.log('coderPortfolio');
+    console.log(coderPortfolio);
+    console.log(coderPortfolio);
+
     return {
         type: SET_CURRENT_CODER_PORTFOLIO,
         payload: coderPortfolio
