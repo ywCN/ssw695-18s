@@ -17,6 +17,12 @@ import {
 } from './../actions';
 
 class CoderList extends Component {
+    state = { modalOpen: false };
+
+    handleOpen = () => this.setState({ modalOpen: true });
+
+    handleClose = () => this.setState({ modalOpen: false });
+
     componentWillMount() {
         this.props.fetchCoders();
     }
@@ -88,13 +94,17 @@ class CoderList extends Component {
     renderModal = coder => {
         return (
             <Modal
+                dimmer="blurring"
+                open={this.state.modalOpen}
+                onClose={this.handleClose}
                 trigger={
                     <Button
                         basic
                         color="green"
-                        onClick={() =>
-                            this.props.setCurrentCoderPortfolio(coder)
-                        }
+                        onClick={() => {
+                            this.props.setCurrentCoderPortfolio(coder);
+                            this.handleOpen();
+                        }}
                     >
                         View Portfolio
                     </Button>
@@ -113,12 +123,20 @@ class CoderList extends Component {
                     </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button secondary>
+                    <Button
+                        secondary
+                        onClick={() => {
+                            this.handleClose();
+                        }}
+                    >
                         Exit <Icon name="left chevron" />
                     </Button>
                     <Button
                         primary
-                        onClick={() => this.props.addContact(coder)}
+                        onClick={() => {
+                            this.props.addContact(coder);
+                            this.handleClose();
+                        }}
                     >
                         Add Contact <Icon name="right chevron" />
                     </Button>
