@@ -11,7 +11,7 @@ import LoginEmailPassword from './LoginEmailPassword';
 import Logout from './Logout';
 import EditPortfolio from './EditPortfolio';
 import EditProject from './EditProject';
-import CoderInfo from './CoderInfo';
+import CoderModal from './CoderModal';
 
 class App extends Component {
     render() {
@@ -36,7 +36,7 @@ class App extends Component {
                     <Route exact path="/myportfolio" component={MyPortfolio} />
                     <Route exact path="/addproject" component={AddProject} />
                     <Route exact path="/editproject" component={EditProject} />
-                    <Route exact path="/coderInfo" component={CoderInfo} />
+                    <Route exact path="/coderInfo" component={CoderModal} />
                 </Container>
             </BrowserRouter>
         );
