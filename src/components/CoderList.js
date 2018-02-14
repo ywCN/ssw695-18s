@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { Button, Card } from 'semantic-ui-react';
 
 import {
-    fetchCoders
-    // addContact
+    fetchCoders,
+    setCurrentCoderPortfolio,
+    addContact
 } from './../actions';
+import CoderModal from './CoderModal';
 
 class CoderList extends Component {
     componentWillMount() {
@@ -26,16 +28,20 @@ class CoderList extends Component {
                     </Card.Content>
                     <Card.Content extra>
                         <div className="ui two buttons">
-                            <Button
+                            <CoderModal
                                 as={Link}
                                 to="/coderInfo"
-                                basic
-                                color="green"
-                            >
-                                View Portfolio
-                            </Button>
+                                onClick={() =>
+                                    this.props.setCurrentCoderPortfolio(coder)
+                                }
+                            />
+
                             {/* TODO: callback for addContact action */}
-                            <Button basic color="blue">
+                            <Button
+                                basic
+                                color="blue"
+                                onClick={() => this.props.addContact()}
+                            >
                                 Add to Contact
                             </Button>
                         </div>
@@ -56,8 +62,12 @@ class CoderList extends Component {
     }
 }
 
-function mapStateToProps({ coders }) {
+const mapStateToProps = ({ coders }) => {
     return { coders };
-}
+};
 
-export default connect(mapStateToProps, { fetchCoders })(CoderList);
+export default connect(mapStateToProps, {
+    fetchCoders,
+    setCurrentCoderPortfolio,
+    addContact
+})(CoderList);
