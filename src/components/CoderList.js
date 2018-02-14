@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Card } from 'semantic-ui-react';
 
@@ -22,12 +23,17 @@ class CoderList extends Component {
                     </Card.Content>
                     <Card.Content extra>
                         <div className="ui two buttons">
-                            {/* TODO: as={Link} */}
-                            <Button basic color="green">
-                                Portfolio
+                            <Button
+                                as={Link}
+                                to="/coderInfo"
+                                basic
+                                color="green"
+                            >
+                                View Portfolio
                             </Button>
-                            <Button basic color="red">
-                                Ignore
+                            {/* TODO: callback for addContact action */}
+                            <Button basic color="blue">
+                                Add to Contact
                             </Button>
                         </div>
                     </Card.Content>
