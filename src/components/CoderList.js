@@ -20,8 +20,8 @@ class CoderList extends Component {
     componentWillMount() {
         this.props.fetchCoders();
     }
-    renderPortfolio = coder => {
-        const { name, email } = coder;
+    renderPortfolio = () => {
+        const { name, email } = this.props.currentCoderPortfolio;
         return (
             <Form>
                 <Form.Group unstackable widths={2}>
@@ -43,8 +43,8 @@ class CoderList extends Component {
             </Form>
         );
     };
-    renderProjectsHelper = coder => {
-        const { projects } = coder;
+    renderProjectsHelper = () => {
+        const { projects } = this.props.currentCoderPortfolio;
         return projects.map(project => {
             const { projectName, projectDescription } = project;
             return (
@@ -66,22 +66,26 @@ class CoderList extends Component {
         });
     };
 
-    renderProjects = coder => {
-        return <div>{this.renderProjectsHelper(coder)}</div>;
+    renderProjects = () => {
+        return <div>{this.renderProjectsHelper()}</div>;
     };
 
-    renderScrollContent = coder => {
-        return (
-            <div>
-                <Divider horizontal>Portfolio</Divider>
-                {this.renderPortfolio(coder)}
-                <Divider horizontal>Projects</Divider>
-                {this.renderProjects(coder)}
-            </div>
-        );
+    renderScrollContent = () => {
+        if (this.props.currentCoderPortfolio) {
+            return (
+                <div>
+                    <Divider horizontal>Portfolio</Divider>
+                    {this.renderPortfolio()}
+                    <Divider horizontal>Projects</Divider>
+                    {this.renderProjects()}
+                </div>
+            );
+        } else {
+            return null;
+        }
     };
 
-    renderModal(coder) {
+    renderModal = coder => {
         return (
             <Modal
                 trigger={
@@ -105,20 +109,27 @@ class CoderList extends Component {
                             cause the modal's dimmer to scroll
                         </p>
 
-                        <div>{this.renderScrollContent(coder)}</div>
+                        <div>{this.renderScrollContent()}</div>
                     </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
                     <Button secondary>
                         Exit <Icon name="left chevron" />
                     </Button>
-                    <Button primary>
+                    <Button
+                        primary
+                        onClick={() =>
+                            this.props.addContact(
+                                this.props.currentCoderPortfolio
+                            )
+                        }
+                    >
                         Add Contact <Icon name="right chevron" />
                     </Button>
                 </Modal.Actions>
             </Modal>
         );
-    }
+    };
 
     renderCard() {
         return this.props.coders.map(coder => {
@@ -140,7 +151,7 @@ class CoderList extends Component {
                                 color="blue"
                                 onClick={() => this.props.addContact(coder)}
                             >
-                                Add to Contact
+                                Add Contact
                             </Button>
                         </div>
                     </Card.Content>
@@ -160,8 +171,8 @@ class CoderList extends Component {
     }
 }
 
-const mapStateToProps = ({ coders }) => {
-    return { coders };
+const mapStateToProps = ({ coders, currentCoderPortfolio }) => {
+    return { coders, currentCoderPortfolio };
 };
 
 export default connect(mapStateToProps, {
