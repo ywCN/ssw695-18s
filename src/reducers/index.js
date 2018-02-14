@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     user: authReducer,
     coders: coderReducer,
     currentUserPortfolio: portfolioReducer,
-    current_editting_project: projectReducer
+    currentEdittingProject: projectReducer
 });
 
 export default rootReducer;

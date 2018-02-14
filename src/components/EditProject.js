@@ -13,7 +13,7 @@ class EditProject extends Component {
             const {
                 projectName,
                 projectDescription
-            } = this.props.current_editting_project;
+            } = this.props.currentEdittingProject;
             return (
                 <Form>
                     <Form.Input
@@ -54,8 +54,8 @@ class EditProject extends Component {
     }
 }
 
-const mapStateToProps = ({ current_editting_project, user }) => {
-    return { current_editting_project, user };
+const mapStateToProps = ({ currentEdittingProject, user }) => {
+    return { currentEdittingProject, user };
 };
 
 export default connect(mapStateToProps, { saveProject })(
