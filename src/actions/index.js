@@ -19,17 +19,59 @@ export const fetchCoders = () => async dispatch => {
             {
                 name: 'Lily',
                 role: 'Python Developer',
-                exp: '2 years experience'
+                exp: '2 years experience',
+                projects: [
+                    {
+                        projectName: 'asdasadfasfasda',
+                        projectDescription: 'asdffdasdfsdasd!'
+                    },
+                    {
+                        projectName: 'eledasdasdgan',
+                        projectDescription: 'No waaaaaagh!'
+                    },
+                    {
+                        projectName: 'adahjgfhdgfgnhmgfnxbvdzsd',
+                        projectDescription: 'asdasdfasdfsadfadsa!'
+                    }
+                ]
             },
             {
                 name: 'Tom',
                 role: 'Java Developer',
-                exp: '6 years experience'
+                exp: '6 years experience',
+                projects: [
+                    {
+                        projectName: 'asdasdadasdasd',
+                        projectDescription: 'assdadasdasddasd!'
+                    },
+                    {
+                        projectName: 'eledasddasdasdaasdgan',
+                        projectDescription: 'No waaaadadasdaaagh!'
+                    },
+                    {
+                        projectName: 'adadasdasdasdsd',
+                        projectDescription: 'asddadasdadsa!'
+                    }
+                ]
             },
             {
                 name: 'Jack',
-                role: 'Hungray Developer',
-                exp: '4 years experience'
+                role: 'Beef Developer',
+                exp: '4 years experience',
+                projects: [
+                    {
+                        projectName: 'asgdgsdgfdsdasda',
+                        projectDescription: 'aadasdasdsdasd!'
+                    },
+                    {
+                        projectName: 'eledasgdfgsdfgdasdgan',
+                        projectDescription: 'No wadadasdaaaaagh!'
+                    },
+                    {
+                        projectName: 'agsdfgsdasd',
+                        projectDescription: 'asdasfsdgafadsa!'
+                    }
+                ]
             }
         ]
     });
