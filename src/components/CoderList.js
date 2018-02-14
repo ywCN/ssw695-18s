@@ -85,7 +85,13 @@ class CoderList extends Component {
         return (
             <Modal
                 trigger={
-                    <Button basic color="green">
+                    <Button
+                        basic
+                        color="green"
+                        onClick={() =>
+                            this.props.setCurrentCoderPortfolio(coder)
+                        }
+                    >
                         View Portfolio
                     </Button>
                 }
@@ -132,7 +138,7 @@ class CoderList extends Component {
                             <Button
                                 basic
                                 color="blue"
-                                onClick={() => this.props.addContact()}
+                                onClick={() => this.props.addContact(coder)}
                             >
                                 Add to Contact
                             </Button>
