@@ -3,12 +3,14 @@ import authReducer from './authReducers';
 import coderReducer from './coderReducer';
 import portfolioReducer from './portfolioReducer';
 import projectReducer from './projectReducer';
+import setCurrentCoderPortfolioReducer from './setCurrentCoderPortfolioReducer';
 
 const rootReducer = combineReducers({
     user: authReducer,
     coders: coderReducer,
     currentUserPortfolio: portfolioReducer,
-    currentEdittingProject: projectReducer
+    currentEdittingProject: projectReducer,
+    currentCoderPortfolio: setCurrentCoderPortfolioReducer
 });
 
 export default rootReducer;
