@@ -128,18 +128,13 @@ export const setEdittingProject = projectName => {
 };
 
 export const addContact = coderID => async dispatch => {
+    console.log('addContact action called');
+
     dispatch({ type: ADD_CONTACT });
 };
 
 export const setCurrentCoderPortfolio = coderPortfolio => {
-    console.log('called');
-    console.log('called');
-
-    console.log('coderPortfolio');
-    console.log('coderPortfolio');
-    console.log(coderPortfolio);
-    console.log(coderPortfolio);
-
+    console.log('setCurrentCoderPortfolio action called');
     return {
         type: SET_CURRENT_CODER_PORTFOLIO,
         payload: coderPortfolio
