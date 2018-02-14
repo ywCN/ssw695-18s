@@ -118,11 +118,7 @@ class CoderList extends Component {
                     </Button>
                     <Button
                         primary
-                        onClick={() =>
-                            this.props.addContact(
-                                this.props.currentCoderPortfolio
-                            )
-                        }
+                        onClick={() => this.props.addContact(coder)}
                     >
                         Add Contact <Icon name="right chevron" />
                     </Button>
