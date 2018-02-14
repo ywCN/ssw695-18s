@@ -6,7 +6,9 @@ import {
     FETCH_PORTFOLIO,
     SAVE_PORTFOLIO,
     SAVE_PROJECT,
-    SET_EDITTING_PROJECT
+    SET_EDITTING_PROJECT,
+    ADD_CONTACT,
+    SET_CURRENT_CODER_PORTFOLIO
 } from './types';
 
 export const fetchCoders = () => async dispatch => {
@@ -80,5 +82,16 @@ export const setEdittingProject = projectName => {
     return {
         type: SET_EDITTING_PROJECT,
         payload: projectName
+    };
+};
+
+export const addContact = coderID => async dispatch => {
+    dispatch({ type: ADD_CONTACT });
+};
+
+export const setCurrentCoderPortfolio = coderPortfolio => {
+    return {
+        type: SET_CURRENT_CODER_PORTFOLIO,
+        payload: coderPortfolio
     };
 };
