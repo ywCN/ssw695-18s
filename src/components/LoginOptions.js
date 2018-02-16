@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Segment, Button, Divider } from 'semantic-ui-react';
 
@@ -15,12 +16,17 @@ class LoginOptions extends Component {
                     <Button as={GGLogin} />
                     <Divider horizontal>Or</Divider>
                     {/* TODO: add callback for login */}
-                    <Button color="black" fluid>
+                    <Button
+                        color="black"
+                        fluid
+                        as={Link}
+                        to="/loginemailpassword"
+                    >
                         Login
                     </Button>
                     <Divider horizontal>Or</Divider>
                     {/* TODO: add callback for sign up */}
-                    <Button color="teal" fluid>
+                    <Button color="teal" fluid as={Link} to="/signup">
                         Sign Up
                     </Button>
                 </Segment>

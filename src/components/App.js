@@ -11,6 +11,7 @@ import LoginEmailPassword from './LoginEmailPassword';
 import Logout from './Logout';
 import EditPortfolio from './EditPortfolio';
 import EditProject from './EditProject';
+import SignUp from './SignUp';
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                         path="/loginemailpassword"
                         component={LoginEmailPassword}
                     />
+                    <Route exact path="/signup" component={SignUp} />
                     <Route exact path="/logout" component={Logout} />
                     <Route
                         exact

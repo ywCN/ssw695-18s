@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
-class LoginEmailPassword extends Component {
+class SignUp extends Component {
     render() {
         return (
             <div className="login-form">
@@ -25,13 +25,19 @@ class LoginEmailPassword extends Component {
                 >
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as="h2" color="teal" textAlign="center">
-                            Log-in to your account
+                            Sign Up with Email
                         </Header>
                         <Form size="large">
                             <Segment stacked>
                                 <Form.Input
                                     fluid
                                     icon="user"
+                                    iconPosition="left"
+                                    placeholder="user name"
+                                />
+                                <Form.Input
+                                    fluid
+                                    icon="email"
                                     iconPosition="left"
                                     placeholder="E-mail address"
                                 />
@@ -40,6 +46,13 @@ class LoginEmailPassword extends Component {
                                     icon="lock"
                                     iconPosition="left"
                                     placeholder="Password"
+                                    type="password"
+                                />
+                                <Form.Input
+                                    fluid
+                                    icon="lock"
+                                    iconPosition="left"
+                                    placeholder="Repeat Password"
                                     type="password"
                                 />
 
@@ -55,4 +68,4 @@ class LoginEmailPassword extends Component {
     }
 }
 
-export default LoginEmailPassword;
+export default SignUp;
