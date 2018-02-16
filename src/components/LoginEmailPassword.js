@@ -4,19 +4,25 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
 class LoginEmailPassword extends Component {
-    state = { name: '', email: '', submittedName: '', submittedEmail: '' };
+    state = {
+        email: '',
+        password: '',
+        submittedName: '',
+        submittedaaaaaaaa: ''
+    };
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
     handleSubmit = () => {
-        const { name, email } = this.state;
+        const { email, password } = this.state;
 
-        this.setState({ submittedName: name, submittedEmail: email });
-        // this.props.history.push('/dashboard');
-        console.log({ name, email });
+        this.setState({ submittedName: email, submittedaaaaaaaa: password });
+        // TODO: insert login here and pass below as callback
+        this.props.history.push('/dashboard');
+        console.log({ email, password });
     };
     render() {
-        const { name, email } = this.state;
+        const { email, password } = this.state;
         return (
             <div className="login-form">
                 {/*
@@ -47,8 +53,8 @@ class LoginEmailPassword extends Component {
                                     icon="mail"
                                     iconPosition="left"
                                     placeholder="E-mail address"
-                                    name="name"
-                                    value={name}
+                                    name="email"
+                                    value={email}
                                     onChange={this.handleChange}
                                 />
                                 <Form.Input
@@ -56,9 +62,9 @@ class LoginEmailPassword extends Component {
                                     icon="lock"
                                     iconPosition="left"
                                     placeholder="Password"
-                                    // type="password"
-                                    name="email"
-                                    value={email}
+                                    type="password"
+                                    name="password"
+                                    value={password}
                                     onChange={this.handleChange}
                                 />
 
