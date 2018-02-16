@@ -25,7 +25,7 @@ class GGLogin extends React.Component {
         return (
             <GoogleLogin
                 clientId="806914580079-9msqlpl8f51fd3diiflsthebog8l7p2u.apps.googleusercontent.com"
-                buttonText="LOGIN WITH GOOGLE"
+                buttonText="Login with Google"
                 onSuccess={this.responseOnSuccess}
                 onFailure={this.responseOnFailure}
                 style={{}}
