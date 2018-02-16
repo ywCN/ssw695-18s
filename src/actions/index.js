@@ -77,8 +77,10 @@ export const fetchCoders = () => async dispatch => {
     });
 };
 
-export const login = user => async dispatch => {
+export const login = (user, callback) => async dispatch => {
     dispatch({ type: LOGIN, payload: user });
+    // TODO: only use callback if login is successful
+    callback();
 };
 
 export const logout = () => {

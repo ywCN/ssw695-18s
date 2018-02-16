@@ -8,8 +8,7 @@ import { login } from '../actions';
 class FBLogin extends React.Component {
     responseFacebook = response => {
         console.log('facebook auth response is', response);
-        this.props.login(response);
-        this.props.history.push('/dashboard');
+        this.props.login(response, () => this.props.history.push('/dashboard'));
     };
 
     render() {

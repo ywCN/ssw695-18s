@@ -12,9 +12,10 @@ import { login } from '../actions';
 class GGLogin extends React.Component {
     responseOnSuccess = response => {
         const { profileObj } = response;
-        console.log(profileObj);
-        this.props.login(profileObj);
-        this.props.history.push('/dashboard');
+        console.log('google auth response is', profileObj);
+        this.props.login(profileObj, () =>
+            this.props.history.push('/dashboard')
+        );
     };
     responseOnFailure = response => {
         alert(
