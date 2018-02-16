@@ -4,7 +4,31 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
 class SignUp extends Component {
+    state = {
+        email: '',
+        password1: '',
+        password2: '',
+        submittedEmail: '',
+        submittedPassword1: '',
+        submittedPassword2: ''
+    };
+
+    handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+    handleSubmit = () => {
+        const { email, password1, password2 } = this.state;
+
+        this.setState({
+            submittedEmail: email,
+            submittedPassword1: password1,
+            submittedPassword2: password2
+        });
+        // TODO: insert login here and pass below as callback
+        this.props.history.push('/dashboard');
+        console.log({ email, password1, password2 });
+    };
     render() {
+        const { email, password1, password2 } = this.state;
         return (
             <div className="login-form">
                 {/*
@@ -28,19 +52,25 @@ class SignUp extends Component {
                         <Header as="h2" color="teal" textAlign="center">
                             Sign Up with Email
                         </Header>
-                        <Form size="large">
+                        <Form size="large" onSubmit={this.handleSubmit}>
                             <Segment stacked>
                                 <Form.Input
                                     fluid
                                     icon="user"
                                     iconPosition="left"
                                     placeholder="user name"
+                                    // name="name"
+                                    // value={name}
+                                    // onChange={this.handleChange}
                                 />
                                 <Form.Input
                                     fluid
                                     icon="mail"
                                     iconPosition="left"
                                     placeholder="E-mail address"
+                                    name="email"
+                                    value={email}
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Input
                                     fluid
@@ -48,6 +78,9 @@ class SignUp extends Component {
                                     iconPosition="left"
                                     placeholder="Password"
                                     type="password"
+                                    name="password1"
+                                    value={password1}
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Input
                                     fluid
@@ -55,17 +88,12 @@ class SignUp extends Component {
                                     iconPosition="left"
                                     placeholder="Repeat Password"
                                     type="password"
+                                    name="password2"
+                                    value={password2}
+                                    onChange={this.handleChange}
                                 />
 
-                                <Button
-                                    color="teal"
-                                    fluid
-                                    size="large"
-                                    // login action callback
-                                    onClick={() =>
-                                        this.props.history.push('/dashboard')
-                                    }
-                                >
+                                <Button color="teal" fluid size="large">
                                     Sign Up
                                 </Button>
                             </Segment>

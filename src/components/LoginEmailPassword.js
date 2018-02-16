@@ -7,7 +7,7 @@ class LoginEmailPassword extends Component {
     state = {
         email: '',
         password: '',
-        submittedName: '',
+        submittedEmail: '',
         submittedPassword: ''
     };
 
@@ -16,7 +16,7 @@ class LoginEmailPassword extends Component {
     handleSubmit = () => {
         const { email, password } = this.state;
 
-        this.setState({ submittedName: email, submittedPassword: password });
+        this.setState({ submittedEmail: email, submittedPassword: password });
         // TODO: insert login here and pass below as callback
         this.props.history.push('/dashboard');
         console.log({ email, password });
