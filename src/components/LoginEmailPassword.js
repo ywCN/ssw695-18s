@@ -4,7 +4,19 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
 class LoginEmailPassword extends Component {
+    state = { name: '', email: '', submittedName: '', submittedEmail: '' };
+
+    handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+    handleSubmit = () => {
+        const { name, email } = this.state;
+
+        this.setState({ submittedName: name, submittedEmail: email });
+        // this.props.history.push('/dashboard');
+        console.log({ name, email });
+    };
     render() {
+        const { name, email } = this.state;
         return (
             <div className="login-form">
                 {/*
@@ -28,30 +40,29 @@ class LoginEmailPassword extends Component {
                         <Header as="h2" color="teal" textAlign="center">
                             Log-in to your account
                         </Header>
-                        <Form size="large">
+                        <Form size="large" onSubmit={this.handleSubmit}>
                             <Segment stacked>
                                 <Form.Input
                                     fluid
                                     icon="mail"
                                     iconPosition="left"
                                     placeholder="E-mail address"
+                                    name="name"
+                                    value={name}
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Input
                                     fluid
                                     icon="lock"
                                     iconPosition="left"
                                     placeholder="Password"
-                                    type="password"
+                                    // type="password"
+                                    name="email"
+                                    value={email}
+                                    onChange={this.handleChange}
                                 />
 
-                                <Button
-                                    color="teal"
-                                    fluid
-                                    size="large"
-                                    onClick={() =>
-                                        this.props.history.push('/dashboard')
-                                    }
-                                >
+                                <Button color="teal" fluid size="large">
                                     Login
                                 </Button>
                             </Segment>
