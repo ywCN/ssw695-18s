@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
@@ -43,7 +44,14 @@ class LoginEmailPassword extends Component {
                                     type="password"
                                 />
 
-                                <Button color="teal" fluid size="large">
+                                <Button
+                                    color="teal"
+                                    fluid
+                                    size="large"
+                                    onClick={() =>
+                                        this.props.history.push('/dashboard')
+                                    }
+                                >
                                     Login
                                 </Button>
                             </Segment>
@@ -55,4 +63,4 @@ class LoginEmailPassword extends Component {
     }
 }
 
-export default LoginEmailPassword;
+export default withRouter(LoginEmailPassword);

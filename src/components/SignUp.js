@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 // TODO: import actions
 
@@ -56,8 +57,16 @@ class SignUp extends Component {
                                     type="password"
                                 />
 
-                                <Button color="teal" fluid size="large">
-                                    Login
+                                <Button
+                                    color="teal"
+                                    fluid
+                                    size="large"
+                                    // login action callback
+                                    onClick={() =>
+                                        this.props.history.push('/dashboard')
+                                    }
+                                >
+                                    Sign Up
                                 </Button>
                             </Segment>
                         </Form>
@@ -68,4 +77,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
