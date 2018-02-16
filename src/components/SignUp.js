@@ -37,7 +37,7 @@ class SignUp extends Component {
                                 />
                                 <Form.Input
                                     fluid
-                                    icon="email"
+                                    icon="mail"
                                     iconPosition="left"
                                     placeholder="E-mail address"
                                 />
