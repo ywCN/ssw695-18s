@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
-// TODO: import actions
+
+import { login } from '../actions';
 
 class LoginEmailPassword extends Component {
     state = {
@@ -18,8 +20,9 @@ class LoginEmailPassword extends Component {
 
         this.setState({ submittedEmail: email, submittedPassword: password });
         // TODO: insert login here and pass below as callback
-        this.props.history.push('/dashboard');
-        console.log({ email, password });
+        this.props.login({ email, password }, () =>
+            this.props.history.push('/dashboard')
+        );
     };
     render() {
         const { email, password } = this.state;
@@ -80,4 +83,4 @@ class LoginEmailPassword extends Component {
     }
 }
 
-export default withRouter(LoginEmailPassword);
+export default connect(null, { login })(withRouter(LoginEmailPassword));
