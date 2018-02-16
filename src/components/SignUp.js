@@ -28,6 +28,7 @@ class SignUp extends Component {
         this.props.login({ email, password1, password2 }, () =>
             this.props.history.push('/dashboard')
         );
+        console.log({ email, password1, password2 });
     };
     render() {
         const { email, password1, password2 } = this.state;

@@ -19,10 +19,10 @@ class LoginEmailPassword extends Component {
         const { email, password } = this.state;
 
         this.setState({ submittedEmail: email, submittedPassword: password });
-        // TODO: insert login here and pass below as callback
         this.props.login({ email, password }, () =>
             this.props.history.push('/dashboard')
         );
+        console.log({ email, password });
     };
     render() {
         const { email, password } = this.state;
