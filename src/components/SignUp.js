@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
+import axios from 'axios';
 
-import { login } from '../actions';
+import { signUp } from '../actions';
 
 class SignUp extends Component {
     state = {
+        userName: '',
         email: '',
         password1: '',
         password2: '',
@@ -18,20 +20,22 @@ class SignUp extends Component {
     handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
     handleSubmit = () => {
-        const { email, password1, password2 } = this.state;
+        const { userName, email, password1, password2 } = this.state;
 
         this.setState({
+            userName: userName,
             submittedEmail: email,
             submittedPassword1: password1,
             submittedPassword2: password2
         });
-        this.props.login({ email, password1, password2 }, () =>
+
+        this.props.signUp(userName, email, password1, password2, () =>
             this.props.history.push('/dashboard')
         );
-        console.log({ email, password1, password2 });
     };
+
     render() {
-        const { email, password1, password2 } = this.state;
+        const { userName, email, password1, password2 } = this.state;
         return (
             <div className="login-form">
                 {/*
@@ -62,9 +66,9 @@ class SignUp extends Component {
                                     icon="user"
                                     iconPosition="left"
                                     placeholder="user name"
-                                    // name="name"
-                                    // value={name}
-                                    // onChange={this.handleChange}
+                                    name="userName"
+                                    value={userName}
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Input
                                     fluid
@@ -108,4 +112,4 @@ class SignUp extends Component {
     }
 }
 
-export default connect(null, { login })(withRouter(SignUp));
+export default connect(null, { signUp })(withRouter(SignUp));

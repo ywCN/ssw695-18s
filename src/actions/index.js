@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import {
     LOGIN,
+    SIGN_UP,
     LOGOUT,
     FETCH_CODERS,
     FETCH_PORTFOLIO,
@@ -80,6 +81,19 @@ export const fetchCoders = () => async dispatch => {
 export const login = (user, callback) => async dispatch => {
     dispatch({ type: LOGIN, payload: user });
     // TODO: only use callback if login is successful
+    callback();
+};
+
+export const signUp = (
+    username,
+    email,
+    password1,
+    password2,
+    callback
+) => async dispatch => {
+    console.log({ username, email, password1, password2 });
+
+    // dispatch({ type: LOGIN, payload: user });
     callback();
 };
 
