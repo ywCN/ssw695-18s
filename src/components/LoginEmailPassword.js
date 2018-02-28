@@ -8,9 +8,9 @@ import { login } from '../actions';
 class LoginEmailPassword extends Component {
     state = {
         email: '',
-        password: '',
-        submittedEmail: '',
-        submittedPassword: ''
+        password: ''
+        // submittedEmail: '',
+        // submittedPassword: ''
     };
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -18,11 +18,10 @@ class LoginEmailPassword extends Component {
     handleSubmit = () => {
         const { email, password } = this.state;
 
-        this.setState({ submittedEmail: email, submittedPassword: password });
-        this.props.login({ email, password }, () =>
+        // this.setState({ submittedEmail: email, submittedPassword: password });
+        this.props.login(email, password, () =>
             this.props.history.push('/dashboard')
         );
-        console.log({ email, password });
     };
     render() {
         const { email, password } = this.state;

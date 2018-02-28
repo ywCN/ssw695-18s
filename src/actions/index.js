@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 import {
     LOGIN,
     SIGN_UP,
@@ -78,9 +78,27 @@ export const fetchCoders = () => async dispatch => {
     });
 };
 
-export const login = (user, callback) => async dispatch => {
+export const login = (email, password, callback) => async dispatch => {
+    const url = 'http://34.203.190.77:8080/rest-auth/login/';
+    const data = {
+        email,
+        password
+    };
+    console.log(data);
+    try {
+        const res = await axios.post(url, data);
+        console.log(res);
+        // const user = {};
+        // loginSuccess(user, callback);
+    } catch (e) {
+        console.error(e);
+    }
+    console.log('called');
+};
+
+export const loginSuccess = (user, callback) => async dispatch => {
     dispatch({ type: LOGIN, payload: user });
-    // TODO: only use callback if login is successful
+    // if callback
     callback();
 };
 
@@ -91,9 +109,22 @@ export const signUp = (
     password2,
     callback
 ) => async dispatch => {
-    console.log({ username, email, password1, password2 });
+    const url = 'http://34.203.190.77:8080/rest-auth/registration/';
+    const data = {
+        username,
+        email,
+        password1,
+        password2
+    };
+    console.log(data);
+    try {
+        const res = await axios.post(url, data);
+        console.log(res);
+    } catch (e) {
+        console.error(e);
+    }
 
-    // dispatch({ type: LOGIN, payload: user });
+    dispatch({ type: SIGN_UP, payload: data });
     callback();
 };
 
