@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
-import axios from 'axios';
 
 import { signUp } from '../actions';
 
@@ -11,10 +10,11 @@ class SignUp extends Component {
         userName: '',
         email: '',
         password1: '',
-        password2: '',
-        submittedEmail: '',
-        submittedPassword1: '',
-        submittedPassword2: ''
+        password2: ''
+        // submittedUserName: '',
+        // submittedEmail: '',
+        // submittedPassword1: '',
+        // submittedPassword2: ''
     };
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -22,12 +22,12 @@ class SignUp extends Component {
     handleSubmit = () => {
         const { userName, email, password1, password2 } = this.state;
 
-        this.setState({
-            userName: userName,
-            submittedEmail: email,
-            submittedPassword1: password1,
-            submittedPassword2: password2
-        });
+        // this.setState({
+        //     submittedUserName: userName,
+        //     submittedEmail: email,
+        //     submittedPassword1: password1,
+        //     submittedPassword2: password2
+        // });
 
         this.props.signUp(userName, email, password1, password2, () =>
             this.props.history.push('/dashboard')
@@ -36,6 +36,7 @@ class SignUp extends Component {
 
     render() {
         const { userName, email, password1, password2 } = this.state;
+
         return (
             <div className="login-form">
                 {/*
