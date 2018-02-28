@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
 
-import { login } from '../actions';
+import { loginSuccess } from '../actions';
 
 class FBLogin extends React.Component {
     responseFacebook = response => {
         console.log('facebook auth response is', response);
-        this.props.login(response, () => this.props.history.push('/dashboard'));
+        this.props.loginSuccess(response, () =>
+            this.props.history.push('/dashboard')
+        );
     };
 
     render() {
@@ -24,4 +26,4 @@ class FBLogin extends React.Component {
     }
 }
 
-export default connect(null, { login })(withRouter(FBLogin));
+export default connect(null, { loginSuccess })(withRouter(FBLogin));

@@ -7,13 +7,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
-import { login } from '../actions';
+import { loginSuccess } from '../actions';
 
 class GGLogin extends React.Component {
     responseOnSuccess = response => {
         const { profileObj } = response;
         console.log('google auth response is', profileObj);
-        this.props.login(profileObj, () =>
+        this.props.loginSuccess(profileObj, () =>
             this.props.history.push('/dashboard')
         );
     };
@@ -36,4 +36,4 @@ class GGLogin extends React.Component {
     }
 }
 
-export default connect(null, { login })(withRouter(GGLogin));
+export default connect(null, { loginSuccess })(withRouter(GGLogin));
