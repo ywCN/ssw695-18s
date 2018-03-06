@@ -10,30 +10,30 @@ import { GoogleLogin } from 'react-google-login';
 import { loginSuccess } from '../actions';
 
 class GGLogin extends React.Component {
-    responseOnSuccess = response => {
-        const { profileObj } = response;
-        console.log('google auth response is', profileObj);
-        this.props.loginSuccess(profileObj, () =>
-            this.props.history.push('/dashboard')
-        );
-    };
-    responseOnFailure = response => {
-        alert(
-            `Please go to 'chrome://settings/content/cookies' and disable 'Block third-party cookies' to enable login with Google`
-        );
-    };
-    render() {
-        return (
-            <GoogleLogin
-                clientId="806914580079-9msqlpl8f51fd3diiflsthebog8l7p2u.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={this.responseOnSuccess}
-                onFailure={this.responseOnFailure}
-                style={{}}
-                className="ui red fluid button"
-            />
-        );
-    }
+  responseOnSuccess = response => {
+    const { profileObj } = response;
+    console.log('google auth response is', profileObj);
+    this.props.loginSuccess(profileObj, () =>
+      this.props.history.push('/dashboard')
+    );
+  };
+  responseOnFailure = response => {
+    alert(
+      `Please go to 'chrome://settings/content/cookies' and disable 'Block third-party cookies' to enable login with Google`
+    );
+  };
+  render() {
+    return (
+      <GoogleLogin
+        clientId="806914580079-9msqlpl8f51fd3diiflsthebog8l7p2u.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={this.responseOnSuccess}
+        onFailure={this.responseOnFailure}
+        style={{}}
+        className="ui red fluid button"
+      />
+    );
+  }
 }
 
 export default connect(null, { loginSuccess })(withRouter(GGLogin));

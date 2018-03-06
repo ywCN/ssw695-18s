@@ -14,33 +14,29 @@ import EditProject from './EditProject';
 import SignUp from './SignUp';
 
 class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <Container style={{ marginTop: '3em' }}>
-                    {/* Header will always display because it is not in Route. */}
-                    <AppHeader />
-                    <Route exact path="/" component={Landing} />
-                    <Route exact path="/dashboard" component={Dashboard} />
-                    <Route
-                        exact
-                        path="/loginemailpassword"
-                        component={LoginEmailPassword}
-                    />
-                    <Route exact path="/signup" component={SignUp} />
-                    <Route exact path="/logout" component={Logout} />
-                    <Route
-                        exact
-                        path="/editportfolio"
-                        component={EditPortfolio}
-                    />
-                    <Route exact path="/myportfolio" component={MyPortfolio} />
-                    <Route exact path="/addproject" component={AddProject} />
-                    <Route exact path="/editproject" component={EditProject} />
-                </Container>
-            </BrowserRouter>
-        );
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <Container style={{ marginTop: '3em' }}>
+          {/* Header will always display because it is not in Route. */}
+          <AppHeader />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route
+            exact
+            path="/loginemailpassword"
+            component={LoginEmailPassword}
+          />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/logout" component={Logout} />
+          <Route exact path="/editportfolio" component={EditPortfolio} />
+          <Route exact path="/myportfolio" component={MyPortfolio} />
+          <Route exact path="/addproject" component={AddProject} />
+          <Route exact path="/editproject" component={EditProject} />
+        </Container>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
