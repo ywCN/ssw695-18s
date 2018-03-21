@@ -78,21 +78,17 @@ export const fetchCoders = () => async dispatch => {
   });
 };
 
-export const login = (email, password, callback) => async dispatch => {
-  dispatch({ type: LOGIN, payload: { email, password } }); // TODO: del this line
-  callback(); // TODO: del this line
-  return; // TODO: del this line
+export const login = (username, password, callback) => async dispatch => {
   const url = 'http://34.203.190.77:8080/rest-auth/login/';
   const data = {
-    email,
+    username, // note, it is user name now, not email
     password
   };
-  console.log(data);
   try {
     const res = await axios.post(url, data);
-    console.log(res);
-    // const user = {};
-    // loginSuccess(user, callback);
+    const user = res.data;
+    dispatch({ type: LOGIN, payload: user });
+    callback();
   } catch (e) {
     console.error(e);
   }
