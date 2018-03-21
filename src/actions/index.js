@@ -12,6 +12,8 @@ import {
   SET_CURRENT_CODER_PORTFOLIO
 } from './types';
 
+const apiUrl = 'http://34.203.190.77:8080'; // TODO: use https
+
 export const fetchCoders = () => async dispatch => {
   // const res = await axios.get('path'); // TODO: update path, check res and update payload
   dispatch({
@@ -79,7 +81,7 @@ export const fetchCoders = () => async dispatch => {
 };
 
 export const login = (username, password, callback) => async dispatch => {
-  const url = 'http://34.203.190.77:8080/rest-auth/login/';
+  const url = `${apiUrl}/rest-auth/login/`;
   const data = {
     username, // note, it is user name now, not email
     password
@@ -97,7 +99,6 @@ export const login = (username, password, callback) => async dispatch => {
 
 export const loginSuccess = (user, callback) => async dispatch => {
   dispatch({ type: LOGIN, payload: user });
-  // if callback
   callback();
 };
 
@@ -108,7 +109,7 @@ export const signUp = (
   password2,
   callback
 ) => async dispatch => {
-  const url = 'http://34.203.190.77:8080/rest-auth/registration/';
+  const url = `${apiUrl}/rest-auth/registration/`;
   const data = {
     username,
     email,
