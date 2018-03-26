@@ -11,7 +11,7 @@ class AppHeader extends React.Component {
     const cookies = new Cookies();
     const logoPath = cookies.get('loginStatus') === 'ok' ? '/dashboard' : '/';
     return (
-      <Segment clearing color="blue">
+      <Segment clearing border="black">
         <Image
           as={Link}
           floated="left"
@@ -21,7 +21,7 @@ class AppHeader extends React.Component {
         />
 
         <Header as={Link} to="/myportfolio" floated="right">
-          <Icon name="user" size="large" />
+          <Icon name="user" size="large" color="grey" />
         </Header>
         <Header
           as={Link}
@@ -31,7 +31,7 @@ class AppHeader extends React.Component {
             this.props.logout(() => cookies.remove('loginStatus'));
           }}
         >
-          <Icon name="log out" size="large" />
+          <Icon name="log out" size="large" color="grey" />
         </Header>
       </Segment>
     );

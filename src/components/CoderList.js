@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   Button,
+  Container,
   Header,
   Icon,
   Modal,
@@ -173,7 +174,11 @@ class CoderList extends Component {
     }
   }
   render() {
-    return <div>{this.renderCards()}</div>;
+    return (
+      <Container fluid style={{ marginTop: '3em' }}>
+        {this.renderCards()}
+      </Container>
+    );
   }
 }
 
