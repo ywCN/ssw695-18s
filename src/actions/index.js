@@ -135,9 +135,9 @@ export const signUp = (
   callback();
 };
 
-export const logout = () => {
-  // set the user state to null in redux-store to make the user 'logged out'
-  return { type: LOGOUT };
+export const logout = removeCookie => dispatch => {
+  removeCookie();
+  dispatch({ type: LOGOUT });
 };
 
 export const fetchPortfolio = () => async dispatch => {

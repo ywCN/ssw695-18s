@@ -2,10 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Header, Segment, Icon, Image } from 'semantic-ui-react';
+import Cookies from 'universal-cookie';
+
 import { logout } from '../actions';
 
 class AppHeader extends React.Component {
   render() {
+    const cookies = new Cookies();
     const logoPath = this.props.user ? '/dashboard' : '/';
     return (
       <Segment clearing color="blue">
@@ -13,7 +16,6 @@ class AppHeader extends React.Component {
           as={Link}
           floated="left"
           to={logoPath}
-          onClick={() => console.log('logo clicked while logged in')}
           src="https://i.imgur.com/MVHIKpL.png"
           size="small"
         />
@@ -26,8 +28,7 @@ class AppHeader extends React.Component {
           to="/logout"
           floated="right"
           onClick={() => {
-            this.props.logout();
-            console.log('logout clicked');
+            this.props.logout(() => cookies.remove('loginStatus'));
           }}
         >
           <Icon name="log out" size="large" />

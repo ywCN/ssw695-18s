@@ -15,11 +15,16 @@ import EditProject from './EditProject';
 import SignUp from './SignUp';
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
     const cookies = new Cookies();
-    const cookie = cookies.get('loginStatus');
+    this.state = {
+      cookie: cookies.get('loginStatus')
+    };
+  }
+  render() {
     const content =
-      cookie === 'ok' ? (
+      this.state.cookie === 'ok' ? (
         <Container style={{ marginTop: '3em' }}>
           <AppHeader />
           <Route exact path="/" component={Landing} />
@@ -38,7 +43,6 @@ class App extends Component {
         </Container>
       ) : (
         <Container style={{ marginTop: '3em' }}>
-          {/* Header will always display because it is not in Route. */}
           <AppHeader />
           <Landing />
         </Container>
