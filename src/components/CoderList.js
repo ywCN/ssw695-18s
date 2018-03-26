@@ -8,7 +8,8 @@ import {
   Modal,
   Card,
   Form,
-  Divider
+  Divider,
+  Image
 } from 'semantic-ui-react';
 
 import {
@@ -145,6 +146,11 @@ class CoderList extends Component {
       return (
         <Card key={name}>
           <Card.Content>
+            <Image
+              floated="right"
+              size="mini"
+              src="https://i.imgur.com/MiYluL8.png"
+            />
             <Card.Header>{name}</Card.Header>
             <Card.Meta>{role}</Card.Meta>
             <Card.Description>{exp}</Card.Description>
