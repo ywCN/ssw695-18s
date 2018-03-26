@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Icon, Form } from 'semantic-ui-react';
+import Cookies from 'universal-cookie';
 
 import { saveProject } from '../actions';
 import Landing from './Landing';
 
 class EditProject extends Component {
   render() {
-    if (this.props.user) {
+    const cookies = new Cookies();
+    const cookie = cookies.get('loginStatus');
+    if (cookie) {
       const {
         projectName,
         projectDescription

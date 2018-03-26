@@ -9,7 +9,7 @@ import { logout } from '../actions';
 class AppHeader extends React.Component {
   render() {
     const cookies = new Cookies();
-    const logoPath = this.props.user ? '/dashboard' : '/';
+    const logoPath = cookies.get('loginStatus') === 'ok' ? '/dashboard' : '/';
     return (
       <Segment clearing color="blue">
         <Image
