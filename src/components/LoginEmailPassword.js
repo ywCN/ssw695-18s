@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cookies from 'universal-cookie';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 
 import { login } from '../actions';
@@ -15,9 +16,13 @@ class LoginEmailPassword extends Component {
 
   handleSubmit = () => {
     const { email, password } = this.state;
+    const cookies = new Cookies();
 
-    this.props.login(email, password, () =>
-      this.props.history.push('/dashboard')
+    this.props.login(
+      email,
+      password,
+      () => this.props.history.push('/dashboard'),
+      () => cookies.set('loginStatus', 'ok', { path: '/' })
     );
   };
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
+import Cookies from 'universal-cookie';
 
 import AppHeader from './AppHeader';
 import Landing from './Landing';
@@ -15,10 +16,11 @@ import SignUp from './SignUp';
 
 class App extends Component {
   render() {
-    return (
-      <BrowserRouter>
+    const cookies = new Cookies();
+    const cookie = cookies.get('loginStatus');
+    const content =
+      cookie === 'ok' ? (
         <Container style={{ marginTop: '3em' }}>
-          {/* Header will always display because it is not in Route. */}
           <AppHeader />
           <Route exact path="/" component={Landing} />
           <Route exact path="/dashboard" component={Dashboard} />
@@ -34,8 +36,14 @@ class App extends Component {
           <Route exact path="/addproject" component={AddProject} />
           <Route exact path="/editproject" component={EditProject} />
         </Container>
-      </BrowserRouter>
-    );
+      ) : (
+        <Container style={{ marginTop: '3em' }}>
+          {/* Header will always display because it is not in Route. */}
+          <AppHeader />
+          <Landing />
+        </Container>
+      );
+    return <BrowserRouter>{content}</BrowserRouter>;
   }
 }
 

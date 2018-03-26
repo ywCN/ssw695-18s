@@ -6,15 +6,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import Cookies from 'universal-cookie';
 
 import { loginSuccess } from '../actions';
 
 class GGLogin extends React.Component {
   responseOnSuccess = response => {
+    const cookies = new Cookies();
     const { profileObj } = response;
     console.log('google auth response is', profileObj);
-    this.props.loginSuccess(profileObj, () =>
-      this.props.history.push('/dashboard')
+    this.props.loginSuccess(
+      profileObj,
+      () => this.props.history.push('/dashboard'),
+      () => cookies.set('loginStatus', 'ok', { path: '/' })
     );
   };
   responseOnFailure = response => {
