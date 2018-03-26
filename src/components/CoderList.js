@@ -93,7 +93,7 @@ class CoderList extends Component {
         trigger={
           <Button
             basic
-            color="green"
+            color="yellow"
             onClick={() => {
               this.props.setCurrentCoderPortfolio(coder);
               this.handleOpen();
@@ -131,7 +131,7 @@ class CoderList extends Component {
               this.handleClose();
             }}
           >
-            Add Contact <Icon name="right chevron" />
+            Follow <Icon name="right chevron" />
           </Button>
         </Modal.Actions>
       </Modal>
@@ -155,10 +155,10 @@ class CoderList extends Component {
 
               <Button
                 basic
-                color="blue"
+                color="red"
                 onClick={() => this.props.addContact(coder)}
               >
-                Add Contact
+                Follow
               </Button>
             </div>
           </Card.Content>

@@ -11,7 +11,7 @@ class AppHeader extends React.Component {
     const cookies = new Cookies();
     const logoPath = cookies.get('loginStatus') === 'ok' ? '/dashboard' : '/';
     return (
-      <Segment clearing border="black">
+      <Segment clearing color="red">
         <Image
           as={Link}
           floated="left"
