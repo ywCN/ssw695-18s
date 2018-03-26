@@ -80,7 +80,12 @@ export const fetchCoders = () => async dispatch => {
   });
 };
 
-export const login = (username, password, callback) => async dispatch => {
+export const login = (
+  username,
+  password,
+  redirect,
+  setCookie
+) => async dispatch => {
   const url = `${apiUrl}/rest-auth/login/`;
   const data = {
     username, // note, it is user name now, not email
@@ -89,17 +94,19 @@ export const login = (username, password, callback) => async dispatch => {
   try {
     const res = await axios.post(url, data);
     const user = res.data;
+    setCookie();
     dispatch({ type: LOGIN, payload: user });
-    callback();
+    redirect();
   } catch (e) {
     console.error(e);
   }
   console.log('called');
 };
 
-export const loginSuccess = (user, callback) => async dispatch => {
+export const loginSuccess = (user, redirect, setCookie) => async dispatch => {
+  setCookie();
   dispatch({ type: LOGIN, payload: user });
-  callback();
+  redirect();
 };
 
 export const signUp = (
