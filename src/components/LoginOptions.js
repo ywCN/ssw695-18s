@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cookies from 'universal-cookie';
 import { Segment, Button, Divider } from 'semantic-ui-react';
 
 import FBLogin from './FBLogin';
 import GGLogin from './GGLogin';
 
 class LoginOptions extends Component {
+  constructor(props) {
+    super(props);
+    const cookies = new Cookies();
+    this.state = {
+      cookie: cookies.get('loginStatus')
+    };
+  }
   render() {
-    if (!this.props.user) {
+    if (this.state.cookie) {
+      return <div />;
+    } else {
       return (
         <Segment padded>
           <Button as={FBLogin} />
@@ -26,8 +36,6 @@ class LoginOptions extends Component {
           </Button>
         </Segment>
       );
-    } else {
-      return <div />;
     }
   }
 }

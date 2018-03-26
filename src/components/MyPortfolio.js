@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Button, Icon, Form, Divider } from 'semantic-ui-react';
+import Cookies from 'universal-cookie';
 
 import { fetchPortfolio, setEdittingProject } from '../actions';
 import Landing from './Landing';
 
 class MyPortfolio extends Component {
+  constructor(props) {
+    super(props);
+    const cookies = new Cookies();
+    this.state = {
+      cookie: cookies.get('loginStatus')
+    };
+  }
   componentWillMount() {
     this.props.fetchPortfolio();
   }
@@ -105,18 +113,19 @@ class MyPortfolio extends Component {
   }
 
   render() {
-    const content = this.props.user ? (
-      <div>
-        <Divider horizontal>Portfolio</Divider>
-        {this.renderPortfolio()}
-        <Divider horizontal>Projects</Divider>
-        {this.renderProjects()}
-      </div>
-    ) : (
-      <Landing />
-    );
-
-    return content;
+    if (this.state.cookie) {
+      return (
+        <div>
+          <Divider horizontal>Portfolio</Divider>
+          {this.renderPortfolio()}
+          <Divider horizontal>Projects</Divider>
+          {this.renderProjects()}
+        </div>
+      );
+    } else {
+      this.props.history.push('/');
+      return <Landing />;
+    }
   }
 }
 
@@ -125,5 +134,5 @@ const mapStateToProps = ({ currentUserPortfolio, user }) => {
 };
 
 export default connect(mapStateToProps, { fetchPortfolio, setEdittingProject })(
-  MyPortfolio
+  withRouter(MyPortfolio)
 );

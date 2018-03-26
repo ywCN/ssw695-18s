@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import Cookies from 'universal-cookie';
 
 import AppHeader from './AppHeader';
 import Landing from './Landing';
@@ -15,16 +14,9 @@ import EditProject from './EditProject';
 import SignUp from './SignUp';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    const cookies = new Cookies();
-    this.state = {
-      cookie: cookies.get('loginStatus')
-    };
-  }
   render() {
-    const content =
-      this.state.cookie === 'ok' ? (
+    return (
+      <BrowserRouter>
         <Container style={{ marginTop: '3em' }}>
           <AppHeader />
           <Route exact path="/" component={Landing} />
@@ -41,13 +33,8 @@ class App extends Component {
           <Route exact path="/addproject" component={AddProject} />
           <Route exact path="/editproject" component={EditProject} />
         </Container>
-      ) : (
-        <Container style={{ marginTop: '3em' }}>
-          <AppHeader />
-          <Landing />
-        </Container>
-      );
-    return <BrowserRouter>{content}</BrowserRouter>;
+      </BrowserRouter>
+    );
   }
 }
 
