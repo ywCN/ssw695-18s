@@ -4,7 +4,6 @@ import {
   Button,
   Container,
   Header,
-  Icon,
   Modal,
   Card,
   Form,
@@ -118,21 +117,20 @@ class CoderList extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button
-            secondary
+            basic
+            color="yellow"
             onClick={() => {
               this.handleClose();
             }}
           >
-            Exit <Icon name="left chevron" />
+            Exit
           </Button>
           <Button
-            primary
-            onClick={() => {
-              this.props.addContact(coder);
-              this.handleClose();
-            }}
+            basic
+            color="red"
+            onClick={() => this.props.addContact(coder)}
           >
-            Follow <Icon name="right chevron" />
+            Follow
           </Button>
         </Modal.Actions>
       </Modal>
@@ -158,7 +156,6 @@ class CoderList extends Component {
           <Card.Content extra>
             <div className="ui two buttons">
               {this.renderModal(coder)}
-
               <Button
                 basic
                 color="red"
