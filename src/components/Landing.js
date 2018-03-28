@@ -19,7 +19,7 @@ class Landing extends React.Component {
       return <Dashboard />;
     } else {
       return (
-        <div style={{ textAlign: 'center' }}>
+        <div style={style}>
           <div>
             <h1>CoderIn!</h1>
             Find smartest coders!
@@ -30,5 +30,12 @@ class Landing extends React.Component {
     }
   }
 }
+
+const style = {
+  maxWidth: '90%',
+  width: '400px',
+  textAlign: 'center',
+  margin: 'auto'
+};
 
 export default withRouter(Landing);
