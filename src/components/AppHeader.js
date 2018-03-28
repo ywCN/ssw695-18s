@@ -5,6 +5,7 @@ import { Header, Segment, Icon, Image } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { logout } from '../actions';
+import SearchBar from './SearchBar';
 
 class AppHeader extends React.Component {
   render() {
@@ -19,7 +20,9 @@ class AppHeader extends React.Component {
           src="https://i.imgur.com/MVHIKpL.png"
           size="small"
         />
-
+        <Header floated="left">
+          <SearchBar />
+        </Header>
         <Header as={Link} to="/myportfolio" floated="right">
           <Icon name="user" size="large" color="grey" />
         </Header>
