@@ -10,22 +10,10 @@ import SearchBar from './SearchBar';
 class AppHeader extends React.Component {
   render() {
     const cookies = new Cookies();
-    const logoPath = cookies.get('loginStatus') === 'ok' ? '/dashboard' : '/';
-    return (
-      <Segment clearing color="red">
-        <Image
-          as={Link}
-          floated="left"
-          to={logoPath}
-          src="https://i.imgur.com/MVHIKpL.png"
-          size="small"
-        />
-        <Header floated="left">
-          <SearchBar />
-        </Header>
-        <Header as={Link} to="/myportfolio" floated="right">
-          <Icon name="user" size="large" color="grey" />
-        </Header>
+    const logoPath =
+      this.props.user || cookies.get('loginStatus') ? '/dashboard' : '/';
+    const logoutIcon =
+      this.props.user || cookies.get('loginStatus') ? (
         <Header
           as={Link}
           to="/logout"
@@ -35,6 +23,23 @@ class AppHeader extends React.Component {
           }}
         >
           <Icon name="log out" size="large" color="grey" />
+        </Header>
+      ) : null;
+    return (
+      <Segment clearing color="red">
+        <Image
+          as={Link}
+          floated="left"
+          to={logoPath}
+          src="https://i.imgur.com/MVHIKpL.png"
+          size="small"
+        />
+        {logoutIcon}
+        <Header as={Link} to="/myportfolio" floated="right">
+          <Icon name="user" size="large" color="grey" />
+        </Header>
+        <Header floated="right">
+          <SearchBar />
         </Header>
       </Segment>
     );
