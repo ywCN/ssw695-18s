@@ -43,22 +43,22 @@ class AddProject extends Component {
         </Form.Group>
         <div>
           <Button
-            primary
-            animated
+            basic
+            color="yellow"
             as={Link}
             to="/myportfolio"
             onClick={() => console.log('add clicked')}
           >
-            <Button.Content visible>Add</Button.Content>
-            <Button.Content hidden>
-              <Icon name="check" />
-            </Button.Content>
+            Add
           </Button>
-          <Button secondary animated as={Link} to="/myportfolio">
-            <Button.Content visible>Cancel</Button.Content>
-            <Button.Content hidden>
-              <Icon name="cancel" />
-            </Button.Content>
+          <Button
+            basic
+            as={Link}
+            to="/myportfolio"
+            color="red"
+            onClick={() => console.log('cancel clicked')}
+          >
+            Cancel
           </Button>
         </div>
       </Form>
