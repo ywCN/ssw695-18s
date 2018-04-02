@@ -20,10 +20,6 @@ class Landing extends React.Component {
     } else {
       return (
         <div style={style}>
-          <div>
-            <h1>CoderIn!</h1>
-            Find smartest coders!
-          </div>
           <LoginOptions />
         </div>
       );
