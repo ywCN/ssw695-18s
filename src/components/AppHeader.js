@@ -31,7 +31,7 @@ class AppHeader extends React.Component {
           as={Link}
           floated="left"
           to={logoPath}
-          src="https://i.imgur.com/MVHIKpL.png"
+          src="https://i.imgur.com/WSUHc40.png"
           size="small"
         />
         {logoutIcon}
