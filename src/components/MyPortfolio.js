@@ -98,6 +98,7 @@ class MyPortfolio extends Component {
         {this.renderProjectsHelper()}
         <Button
           animated
+          color="green"
           as={Link}
           to="/addproject"
           onClick={() => console.log('Add Project clicked')}

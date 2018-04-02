@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Icon, Form } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { saveProject } from '../actions';
