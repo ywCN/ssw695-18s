@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Icon, Form, Input, TextArea } from 'semantic-ui-react';
+import { Button, Form, Input, TextArea } from 'semantic-ui-react';
 
 import { saveProject } from '../actions';
 
@@ -21,26 +21,24 @@ class AddProject extends Component {
           label="Project Description"
           placeholder="Project Description"
         />
-        <div>
-          <Button
-            basic
-            color="yellow"
-            as={Link}
-            to="/myportfolio"
-            onClick={() => console.log('add clicked')}
-          >
-            Add
-          </Button>
-          <Button
-            basic
-            as={Link}
-            to="/myportfolio"
-            color="red"
-            onClick={() => console.log('cancel clicked')}
-          >
-            Cancel
-          </Button>
-        </div>
+        <Button
+          basic
+          color="yellow"
+          as={Link}
+          to="/myportfolio"
+          onClick={() => console.log('add clicked')}
+        >
+          Add
+        </Button>
+        <Button
+          basic
+          as={Link}
+          to="/myportfolio"
+          color="red"
+          onClick={() => console.log('cancel clicked')}
+        >
+          Cancel
+        </Button>
       </Form>
       // TODO: add saveProject action callback
     );
