@@ -25,8 +25,13 @@ class AppHeader extends React.Component {
           <Icon name="log out" size="large" color="grey" />
         </Header>
       ) : null;
+
+    const bigPic =
+      this.props.user || cookies.get('loginStatus') ? null : (
+        <Image src="https://i.imgur.com/ahTtO3t.png" />
+      );
     return (
-      <Segment clearing style={{ borderColor: '#fc8184' }}>
+      <Segment clearing style={{ borderTopColor: '#fc8184' }}>
         <Image
           as={Link}
           floated="left"
@@ -34,7 +39,6 @@ class AppHeader extends React.Component {
           src="https://i.imgur.com/WSUHc40.png"
           size="small"
         />
-        <Image src="https://i.imgur.com/ahTtO3t.png" />
         {logoutIcon}
         <Header as={Link} to="/myportfolio" floated="right">
           <Icon name="user" size="large" color="grey" />
@@ -42,6 +46,7 @@ class AppHeader extends React.Component {
         <Header floated="right">
           <SearchBar />
         </Header>
+        {bigPic}
       </Segment>
     );
   }
