@@ -26,7 +26,7 @@ class AppHeader extends React.Component {
         </Header>
       ) : null;
     return (
-      <Segment clearing color="red">
+      <Segment clearing style={{ borderColor: '#fc8184' }}>
         <Image
           as={Link}
           floated="left"
