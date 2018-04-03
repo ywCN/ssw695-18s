@@ -20,7 +20,15 @@ class LoginOptions extends Component {
       return <div />;
     } else {
       return (
-        <Segment padded>
+        <Segment
+          padded
+          style={{
+            maxWidth: '90%',
+            width: '400px',
+            textAlign: 'center',
+            margin: 'auto'
+          }}
+        >
           <Button as={FBLogin} />
           <Divider horizontal>Or</Divider>
           <Button as={GGLogin} />

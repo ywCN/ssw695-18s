@@ -18,20 +18,9 @@ class Landing extends React.Component {
       this.props.history.push('/dashboard');
       return <Dashboard />;
     } else {
-      return (
-        <div style={style}>
-          <LoginOptions />
-        </div>
-      );
+      return <LoginOptions />;
     }
   }
 }
-
-const style = {
-  maxWidth: '90%',
-  width: '400px',
-  textAlign: 'center',
-  margin: 'auto'
-};
 
 export default withRouter(Landing);
