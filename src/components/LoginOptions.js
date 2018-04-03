@@ -25,13 +25,21 @@ class LoginOptions extends Component {
           <Divider horizontal>Or</Divider>
           <Button as={GGLogin} />
           <Divider horizontal>Or</Divider>
-          {/* TODO: add callback for login */}
-          <Button color="black" fluid as={Link} to="/loginemailpassword">
+          <Button
+            style={{ backgroundColor: '#fdef65' }}
+            fluid
+            as={Link}
+            to="/loginemailpassword"
+          >
             Login
           </Button>
           <Divider horizontal>Or</Divider>
-          {/* TODO: add callback for sign up */}
-          <Button color="teal" fluid as={Link} to="/signup">
+          <Button
+            style={{ backgroundColor: '#fc8184' }}
+            fluid
+            as={Link}
+            to="/signup"
+          >
             Sign Up
           </Button>
         </Segment>
