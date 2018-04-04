@@ -34,8 +34,9 @@ class LoginOptions extends Component {
           <Button as={GGLogin} />
           <Divider horizontal>Or</Divider>
           <Button
+            basic
             // style={{ borderWidth: '15px', borderColor: '#fdef65' }}
-            style={{ backgroundColor: '#fdef65' }}
+            color="yellow"
             fluid
             as={Link}
             to="/loginemailpassword"
@@ -44,8 +45,9 @@ class LoginOptions extends Component {
           </Button>
           <Divider horizontal>Or</Divider>
           <Button
+            basic
             // style={{ borderWidth: '15px', borderColor: '#fc8184' }}
-            style={{ backgroundColor: '#fc8184' }}
+            color="red"
             fluid
             as={Link}
             to="/signup"
