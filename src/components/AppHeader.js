@@ -28,7 +28,7 @@ class AppHeader extends React.Component {
 
     const bigPic =
       this.props.user || cookies.get('loginStatus') ? null : (
-        <Image src="https://i.imgur.com/ahTtO3t.png" />
+        <Image src="https://i.imgur.com/ugZbSuU.png" />
       );
     return (
       <Segment clearing style={{ borderTopColor: '#fc8184' }}>
