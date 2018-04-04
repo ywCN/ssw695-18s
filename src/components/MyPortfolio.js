@@ -25,11 +25,8 @@ class MyPortfolio extends Component {
 
       return (
         <Form>
-          <Form.Group unstackable widths={2}>
-            <Form.Input label="First name" defaultValue={name} readOnly />
-            <Form.Input label="Last name" defaultValue="Last name" readOnly />
-          </Form.Group>
-          <Form.Group widths={2}>
+          <Form.Group widths={3}>
+            <Form.Input label="Name" defaultValue={name} readOnly />
             <Form.Input label="Email" defaultValue={email} readOnly />
             <Form.Input label="Phone" defaultValue="Phone" readOnly />
           </Form.Group>
