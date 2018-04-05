@@ -1,6 +1,5 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
-import { withRouter } from 'react-router-dom';
 
 import CoderList from './CoderList';
 import Landing from './Landing';
@@ -15,16 +14,11 @@ class Dashboard extends React.Component {
   }
   render() {
     if (this.state.cookie) {
-      return (
-        <div>
-          <CoderList />
-        </div>
-      );
+      return <CoderList />;
     } else {
-      this.props.history.push('/');
       return <Landing />;
     }
   }
 }
 
-export default withRouter(Dashboard);
+export default Dashboard;

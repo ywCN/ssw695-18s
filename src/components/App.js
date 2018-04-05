@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import AppHeader from './AppHeader';
@@ -19,19 +19,18 @@ class App extends Component {
       <BrowserRouter>
         <Container style={{ marginTop: '3em' }}>
           <AppHeader />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route
-            exact
-            path="/loginemailpassword"
-            component={LoginEmailPassword}
-          />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/editportfolio" component={EditPortfolio} />
-          <Route exact path="/myportfolio" component={MyPortfolio} />
-          <Route exact path="/addproject" component={AddProject} />
-          <Route exact path="/editproject" component={EditProject} />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/loginemailpassword" component={LoginEmailPassword} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/editportfolio" component={EditPortfolio} />
+            <Route path="/myportfolio" component={MyPortfolio} />
+            <Route path="/addproject" component={AddProject} />
+            <Route path="/editproject" component={EditProject} />
+            <Redirect to="/" />
+          </Switch>
         </Container>
       </BrowserRouter>
     );

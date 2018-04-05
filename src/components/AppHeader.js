@@ -8,12 +8,16 @@ import { logout } from '../actions';
 import SearchBar from './SearchBar';
 
 class AppHeader extends React.Component {
+  componentWillMount() {
+    const cookies = new Cookies();
+    this.setState({ cookie: cookies.get('loginStatus') });
+  }
+
   render() {
     const cookies = new Cookies();
-    const logoPath =
-      this.props.user || cookies.get('loginStatus') ? '/dashboard' : '/';
+    const logoPath = this.state.cookie || this.props.user ? '/dashboard' : '/';
     const logoutIcon =
-      this.props.user || cookies.get('loginStatus') ? (
+      this.state.cookie || this.props.user ? (
         <Header
           as={Link}
           to="/logout"
@@ -27,9 +31,10 @@ class AppHeader extends React.Component {
       ) : null;
 
     const bigPic =
-      this.props.user || cookies.get('loginStatus') ? null : (
+      this.state.cookie || this.props.user ? null : (
         <Image src="https://i.imgur.com/ugZbSuU.png" />
       );
+
     return (
       <Segment clearing style={{ borderTopColor: '#fc8184' }}>
         <Image

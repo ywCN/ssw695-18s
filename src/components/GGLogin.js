@@ -22,9 +22,7 @@ class GGLogin extends React.Component {
     );
   };
   responseOnFailure = response => {
-    alert(
-      `Please go to 'chrome://settings/content/cookies' and disable 'Block third-party cookies' to enable login with Google`
-    );
+    console.error(response);
   };
   render() {
     return (
@@ -33,7 +31,6 @@ class GGLogin extends React.Component {
         buttonText="Login with Google"
         onSuccess={this.responseOnSuccess}
         onFailure={this.responseOnFailure}
-        style={{}}
         className="ui red basic fluid button"
       />
     );

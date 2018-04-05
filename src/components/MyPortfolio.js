@@ -8,15 +8,10 @@ import { fetchPortfolio, setEdittingProject } from '../actions';
 import Landing from './Landing';
 
 class MyPortfolio extends Component {
-  constructor(props) {
-    super(props);
-    const cookies = new Cookies();
-    this.state = {
-      cookie: cookies.get('loginStatus')
-    };
-  }
   componentWillMount() {
     this.props.fetchPortfolio();
+    const cookies = new Cookies();
+    this.setState({ cookie: cookies.get('loginStatus') });
   }
 
   renderPortfolio() {
@@ -121,7 +116,6 @@ class MyPortfolio extends Component {
         </div>
       );
     } else {
-      this.props.history.push('/');
       return <Landing />;
     }
   }

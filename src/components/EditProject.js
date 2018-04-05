@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
@@ -9,10 +8,13 @@ import { saveProject } from '../actions';
 import Landing from './Landing';
 
 class EditProject extends Component {
-  render() {
+  componentWillMount() {
     const cookies = new Cookies();
-    const cookie = cookies.get('loginStatus');
-    if (cookie) {
+    this.setState({ cookie: cookies.get('loginStatus') });
+  }
+
+  render() {
+    if (this.state.cookie) {
       const {
         projectName,
         projectDescription
@@ -46,7 +48,6 @@ class EditProject extends Component {
         // TODO: add saveProject action callback
       );
     } else {
-      this.props.history.push('/');
       return <Landing />;
     }
   }
@@ -56,6 +57,4 @@ const mapStateToProps = ({ currentEdittingProject, user }) => {
   return { currentEdittingProject, user };
 };
 
-export default connect(mapStateToProps, { saveProject })(
-  withRouter(EditProject)
-);
+export default connect(mapStateToProps, { saveProject })(EditProject);

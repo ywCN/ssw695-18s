@@ -1,13 +1,35 @@
-import React from 'react';
-import LoginOptions from './LoginOptions';
+import React, { Component } from 'react';
+import Cookies from 'universal-cookie';
+import Typing from 'react-typing-animation';
 
-const Logout = () => {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Thank you for using CoderIn!</h1>
-      <LoginOptions />
-    </div>
-  );
-};
+import LoginOptions from './LoginOptions';
+import Dashboard from './Dashboard';
+
+class Logout extends Component {
+  componentWillMount() {
+    const cookies = new Cookies();
+    this.setState({ cookie: cookies.get('loginStatus') });
+  }
+
+  render() {
+    if (this.state.cookie) {
+      return <Dashboard />;
+    } else {
+      return (
+        <div>
+          <Typing
+            className="segment"
+            speed={50}
+            startDelay={1000}
+            cursor={true}
+          >
+            <h1 style={{ textAlign: 'center' }}>Thank you for using CodeIn</h1>
+          </Typing>
+          <LoginOptions />
+        </div>
+      );
+    }
+  }
+}
 
 export default Logout;

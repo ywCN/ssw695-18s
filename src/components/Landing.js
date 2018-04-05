@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Typing from 'react-typing-animation';
 
@@ -7,16 +6,13 @@ import LoginOptions from './LoginOptions';
 import Dashboard from './Dashboard';
 
 class Landing extends React.Component {
-  constructor(props) {
-    super(props);
+  componentWillMount() {
     const cookies = new Cookies();
-    this.state = {
-      cookie: cookies.get('loginStatus')
-    };
+    this.setState({ cookie: cookies.get('loginStatus') });
   }
+
   render() {
     if (this.state.cookie) {
-      this.props.history.push('/dashboard');
       return <Dashboard />;
     } else {
       return (
@@ -36,4 +32,4 @@ class Landing extends React.Component {
   }
 }
 
-export default withRouter(Landing);
+export default Landing;
