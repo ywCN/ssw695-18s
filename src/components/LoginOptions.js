@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
-import { Segment, Button, Divider } from 'semantic-ui-react';
+import { Segment, Button, Divider, Container } from 'semantic-ui-react';
 
 import FBLogin from './FBLogin';
 import GGLogin from './GGLogin';
@@ -31,17 +31,14 @@ class LoginOptions extends Component {
           }}
         >
           <LoginEmailPassword />
-          <Button as={FBLogin} />
-          <Divider horizontal>Or</Divider>
-          <Button as={GGLogin} />
-          <Divider horizontal>Or</Divider>
-          <Button basic color="yellow" fluid as={Link} to="/loginemailpassword">
-            Login
-          </Button>
-          <Divider horizontal>Or</Divider>
-          <Button basic color="red" fluid as={Link} to="/signup">
-            Sign Up
-          </Button>
+          <Container style={{ marginTop: '30px', marginBottom: '30px' }}>
+            <Button as={FBLogin} />
+            <Divider horizontal>Or</Divider>
+            <Button as={GGLogin} />
+          </Container>
+          <Link to="/signup" style={{ color: 'black', fontSize: '30px' }}>
+            New to CodeIn?
+          </Link>
         </Segment>
       );
     }
