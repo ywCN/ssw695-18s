@@ -51,30 +51,33 @@ class LoginEmailPassword extends Component {
               Log-in to your account
             </Header> */}
             <Form size="large" onSubmit={this.handleSubmit}>
-              <Segment stacked>
-                <Form.Input
-                  fluid
-                  icon="mail"
-                  iconPosition="left"
-                  placeholder="E-mail address"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  fluid
-                  icon="lock"
-                  iconPosition="left"
-                  placeholder="Password"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                />
-                <Button basic color="yellow" fluid size="large">
-                  Sign in
-                </Button>
-              </Segment>
+              <Form.Input
+                fluid
+                icon="mail"
+                iconPosition="left"
+                placeholder="E-mail address"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+                // style={{
+                //   borderTop: 'none',
+                //   borderLeft: 'none',
+                //   borderRight: 'none'
+                // }}
+              />
+              <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+              <Button basic color="yellow" fluid size="large">
+                Sign in
+              </Button>
             </Form>
           </Grid.Column>
         </Grid>
