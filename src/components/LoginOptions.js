@@ -36,6 +36,7 @@ class LoginOptions extends Component {
             <Divider horizontal>Or</Divider>
             <Button as={GGLogin} />
           </Container>
+          <Divider clearing />
           <Link to="/signup" style={{ color: 'black', fontSize: '30px' }}>
             New to CodeIn?
           </Link>
