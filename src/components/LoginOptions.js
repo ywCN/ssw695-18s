@@ -27,7 +27,8 @@ class LoginOptions extends Component {
             maxWidth: '90%',
             width: '400px',
             textAlign: 'center',
-            margin: 'auto'
+            margin: 'auto',
+            border: 'none'
           }}
         >
           <LoginEmailPassword />
