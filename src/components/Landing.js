@@ -23,7 +23,9 @@ class Landing extends React.Component {
             startDelay={1000}
             cursor={true}
           >
-            <h1 style={{ textAlign: 'center' }}>Welcome to CodeIn</h1>
+            <h1 style={{ textAlign: 'center', marginTop: '40px' }}>
+              Welcome to CodeIn
+            </h1>
           </Typing>
           <LoginOptions />
         </div>
