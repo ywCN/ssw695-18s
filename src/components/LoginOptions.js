@@ -6,6 +6,7 @@ import { Segment, Button, Divider } from 'semantic-ui-react';
 
 import FBLogin from './FBLogin';
 import GGLogin from './GGLogin';
+import LoginEmailPassword from './LoginEmailPassword';
 
 class LoginOptions extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class LoginOptions extends Component {
             margin: 'auto'
           }}
         >
+          <LoginEmailPassword />
           <Button as={FBLogin} />
           <Divider horizontal>Or</Divider>
           <Button as={GGLogin} />
