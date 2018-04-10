@@ -72,7 +72,7 @@ class LoginEmailPassword extends Component {
                 value={password}
                 onChange={this.handleChange}
               />
-              <Button basic color="yellow" fluid size="large">
+              <Button basic color="yellow" fluid>
                 Sign in
               </Button>
             </Form>
