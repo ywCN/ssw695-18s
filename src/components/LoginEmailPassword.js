@@ -47,9 +47,6 @@ class LoginEmailPassword extends Component {
           verticalAlign="middle"
         >
           <Grid.Column style={{ maxWidth: 450 }}>
-            {/* <Header as="h2" color="teal" textAlign="center">
-              Log-in to your account
-            </Header> */}
             <Form size="large" onSubmit={this.handleSubmit}>
               <Form.Input
                 fluid
