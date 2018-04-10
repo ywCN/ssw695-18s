@@ -41,7 +41,16 @@ class AppHeader extends React.Component {
       );
 
     return (
-      <Segment clearing style={{ borderTopColor: '#fc8184' }}>
+      <Segment
+        clearing
+        style={{
+          borderTopColor: '#fc8184',
+          boxShadow: 'none'
+          // borderBottom: 'none',
+          // borderLeft: 'none',
+          // borderRight: 'none'
+        }}
+      >
         <Image
           as={Link}
           floated="left"
