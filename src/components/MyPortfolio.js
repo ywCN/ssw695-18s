@@ -9,9 +9,9 @@ import Landing from './Landing';
 
 class MyPortfolio extends Component {
   componentWillMount() {
-    this.props.fetchPortfolio();
-    const cookies = new Cookies();
-    this.setState({ cookie: cookies.get('loginStatus') });
+    const cookie = new Cookies().get('loginStatus');
+    this.setState({ cookie });
+    this.props.fetchPortfolio(cookie);
   }
 
   renderPortfolio() {
