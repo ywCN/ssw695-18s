@@ -43,9 +43,9 @@ class SignUp extends Component {
         <Grid
           textAlign="center"
           style={{ height: '100%' }}
-          verticalAlign="middle"
+          // verticalAlign="middle"
         >
-          <Grid.Column style={{ maxWidth: 450 }}>
+          <Grid.Column style={{ maxWidth: 450, marginTop: '50px' }}>
             <Header as="h2" color="teal" textAlign="center">
               Sign Up with Email
             </Header>
@@ -90,7 +90,7 @@ class SignUp extends Component {
                   onChange={this.handleChange}
                 />
 
-                <Button color="teal" fluid size="large">
+                <Button color="blue" fluid size="large">
                   Sign Up
                 </Button>
               </Segment>
