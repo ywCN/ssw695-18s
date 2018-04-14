@@ -18,11 +18,15 @@ class LoginEmailPassword extends Component {
     const { email, password } = this.state;
     const cookies = new Cookies();
 
+    const setCookie = token => {
+      cookies.set('loginStatus', `JWT ${token}`, { path: '/' });
+    };
+
     this.props.login(
       email,
       password,
       () => this.props.history.push('/dashboard'),
-      () => cookies.set('loginStatus', 'ok', { path: '/' })
+      setCookie
     );
   };
   render() {
@@ -56,11 +60,6 @@ class LoginEmailPassword extends Component {
                 name="email"
                 value={email}
                 onChange={this.handleChange}
-                // style={{
-                //   borderTop: 'none',
-                //   borderLeft: 'none',
-                //   borderRight: 'none'
-                // }}
               />
               <Form.Input
                 fluid
