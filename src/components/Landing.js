@@ -23,7 +23,14 @@ class Landing extends React.Component {
             startDelay={1000}
             cursor={true}
           >
-            <h1 style={{ textAlign: 'center', marginTop: '40px' }}>
+            <h1
+              style={{
+                textAlign: 'center',
+                marginTop: '60px',
+                fontFamily: 'sans-serif',
+                color: 'grey'
+              }}
+            >
               Welcome to CodeIn
             </h1>
           </Typing>

@@ -23,8 +23,15 @@ class Logout extends Component {
             startDelay={1000}
             cursor={true}
           >
-            <h1 style={{ textAlign: 'center', marginTop: '40px' }}>
-              Thank you for using CodeIn
+            <h1
+              style={{
+                textAlign: 'center',
+                marginTop: '60px',
+                fontFamily: 'sans-serif',
+                color: 'grey'
+              }}
+            >
+              Thank you for using CodeIn!
             </h1>
           </Typing>
           <LoginOptions />
