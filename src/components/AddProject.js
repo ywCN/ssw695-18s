@@ -1,32 +1,60 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Form, Input, TextArea } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
+import Cookies from 'universal-cookie';
 
 import { saveProject } from '../actions';
 
 class AddProject extends Component {
+  state = {
+    projectName: '',
+    projectDescription: ''
+  };
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  handleSubmit = () => {
+    const cookie = new Cookies().get('loginStatus');
+    const { projectName, projectDescription } = this.state;
+    this.props.saveProject(
+      {
+        name: projectName,
+        description: projectDescription
+      },
+      cookie
+    );
+  };
+
   render() {
+    const { projectName, projectDescription } = this.state;
     return (
       <Form>
-        <Form.Field
-          id="form-input-control-first-name"
-          control={Input}
+        <Form.Input
+          fluid
           label="Project Name"
-          placeholder="Project Name"
+          // placeholder="Project Name"
+          name="projectName"
+          value={projectName}
+          onChange={this.handleChange}
         />
-        <Form.Field
-          id="form-textarea-control-opinion"
-          control={TextArea}
+        <Form.Input
+          fluid
           label="Project Description"
-          placeholder="Project Description"
+          // placeholder="project Description"
+          name="projectDescription"
+          value={projectDescription}
+          onChange={this.handleChange}
         />
         <Button
           basic
           color="yellow"
           as={Link}
           to="/myportfolio"
-          onClick={() => console.log('add clicked')}
+          onClick={() => {
+            console.log('add clicked');
+            this.handleSubmit();
+          }}
         >
           Add
         </Button>
@@ -40,7 +68,6 @@ class AddProject extends Component {
           Cancel
         </Button>
       </Form>
-      // TODO: add saveProject action callback
     );
   }
 }
