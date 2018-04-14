@@ -19,7 +19,7 @@ class LoginEmailPassword extends Component {
     const cookies = new Cookies();
 
     const setCookie = token => {
-      cookies.set('loginStatus', `JWT ${token}`, { path: '/' });
+      cookies.set('loginStatus', `JWT ${token}`, { path: '/', maxAge: 3600 });
     };
 
     this.props.login(
