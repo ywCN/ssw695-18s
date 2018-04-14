@@ -15,13 +15,13 @@ class MyPortfolio extends Component {
   }
 
   renderPortfolio() {
-    if (this.props.currentUserPortfolio) {
-      const { name, email } = this.props.currentUserPortfolio;
+    if (this.props.user) {
+      const { username, email } = this.props.user.user;
 
       return (
         <Form>
           <Form.Group widths={3}>
-            <Form.Input label="Name" defaultValue={name} readOnly />
+            <Form.Input label="Name" defaultValue={username} readOnly />
             <Form.Input label="Email" defaultValue={email} readOnly />
             <Form.Input label="Phone" defaultValue="Phone" readOnly />
           </Form.Group>
@@ -45,40 +45,38 @@ class MyPortfolio extends Component {
   renderProjectsHelper() {
     if (this.props.currentUserPortfolio) {
       const { projects } = this.props.currentUserPortfolio;
-      return projects.map(project => {
-        const { projectName, projectDescription } = project;
-        return (
-          // TODO: use id for key
-          <Form key={projectName}>
-            <Form.Input
-              label="Project Name"
-              defaultValue={projectName}
-              readOnly
-            />
-            <Form.TextArea
-              label="Project Description"
-              defaultValue={projectDescription}
-              readOnly
-            />
-            <Button
-              animated
-              as={Link}
-              to="/editproject"
-              onClick={() => {
-                this.props.setEdittingProject(project);
-                console.log('editting project', project);
-                console.log('edit project clicked');
-              }}
-            >
-              <Button.Content visible>Edit</Button.Content>
-              <Button.Content hidden>
-                <Icon name="edit" />
-              </Button.Content>
-            </Button>
-            <Divider section />
-          </Form>
-        );
-      });
+      return projects
+        .filter(project => project.user === this.props.user.user.username)
+        .map(project => {
+          const { name, description } = project;
+          return (
+            // TODO: use id for key
+            <Form key={name}>
+              <Form.Input label="Project Name" defaultValue={name} readOnly />
+              <Form.TextArea
+                label="Project Description"
+                defaultValue={description}
+                readOnly
+              />
+              <Button
+                animated
+                as={Link}
+                to="/editproject"
+                onClick={() => {
+                  this.props.setEdittingProject(project);
+                  console.log('editting project', project);
+                  console.log('edit project clicked');
+                }}
+              >
+                <Button.Content visible>Edit</Button.Content>
+                <Button.Content hidden>
+                  <Icon name="edit" />
+                </Button.Content>
+              </Button>
+              <Divider section />
+            </Form>
+          );
+        });
     } else {
       return <div />;
     }

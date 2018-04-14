@@ -12,7 +12,7 @@ import {
   SET_CURRENT_CODER_PORTFOLIO
 } from './types';
 
-const apiUrl = 'http://34.203.190.77:8080'; // TODO: use https
+const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
 
 export const fetchCoders = () => async dispatch => {
   // const res = await axios.get('path'); // TODO: update path, check res and update payload
@@ -94,7 +94,7 @@ export const login = (
   try {
     const res = await axios.post(url, data);
     const user = res.data;
-    setCookie();
+    setCookie(user.token);
     dispatch({ type: LOGIN, payload: user });
     redirect();
   } catch (e) {
@@ -140,18 +140,24 @@ export const logout = removeCookie => dispatch => {
   dispatch({ type: LOGOUT });
 };
 
-export const fetchPortfolio = () => async dispatch => {
-  // const res = await axios.get('path'); // TODO: update path, check res and update payload
+export const fetchPortfolio = token => async dispatch => {
+  const portfolioUrl = `${apiUrl}/platform/portfolio/`;
+  const projectsUrl = `${apiUrl}/platform/project/`;
+  const portfolio = await axios.get(portfolioUrl, {
+    headers: { Authorization: token }
+  });
+  const projects = await axios.get(projectsUrl, {
+    headers: { Authorization: token }
+  });
+  // console.log('portfolio is', portfolio.data, '\nprojects are', );
+
   dispatch({
     type: FETCH_PORTFOLIO,
     payload: {
       name: 'tom',
-      email: 'tom@email.com',
-      projects: [
-        { projectName: 'theaks', projectDescription: 'Waaaaaagh!' },
-        { projectName: 'elegan', projectDescription: 'No waaaaaagh!' },
-        { projectName: 'beef', projectDescription: 'oh!' }
-      ]
+      image: 'image link',
+      email: 'test@test.com',
+      projects: projects.data
     }
   });
 };
@@ -161,17 +167,10 @@ export const savePortfolio = () => async dispatch => {
   dispatch({ type: SAVE_PORTFOLIO });
 };
 
-export const saveProject = () => async dispatch => {
-  // const res = await axios.post('path', obj); // TODO: update path, check res and update payload
+export const saveProject = (data, token) => async dispatch => {
+  const url = `${apiUrl}/platform/project_write/`;
+  await axios.post(url, data, { headers: { Authorization: token } });
   dispatch({ type: SAVE_PROJECT });
-};
-
-// sync sample
-export const fetchOOXX = city => {
-  // return {
-  //     type: TYPE,
-  //     payload: payload
-  // };
 };
 
 export const setEdittingProject = projectName => {
