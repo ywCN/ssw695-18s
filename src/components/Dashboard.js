@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
 
 import CoderList from './CoderList';
@@ -13,7 +14,7 @@ class Dashboard extends React.Component {
     };
   }
   render() {
-    if (this.state.cookie) {
+    if (this.state.cookie && this.props.user) {
       return <CoderList />;
     } else {
       return <Landing />;
@@ -21,4 +22,8 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = ({ user }) => {
+  return { user };
+};
+
+export default connect(mapStateToProps)(Dashboard);

@@ -17,9 +17,11 @@ class GGLogin extends React.Component {
       () => cookies.set('loginStatus', 'ok', { path: '/' })
     );
   };
+
   responseOnFailure = response => {
     console.error(response);
   };
+
   render() {
     return (
       <GoogleLogin

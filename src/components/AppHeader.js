@@ -15,9 +15,9 @@ class AppHeader extends React.Component {
 
   render() {
     const cookies = new Cookies();
-    const logoPath = this.state.cookie || this.props.user ? '/dashboard' : '/';
+    const logoPath = this.state.cookie && this.props.user ? '/dashboard' : '/';
     const Icons =
-      this.state.cookie || this.props.user ? (
+      this.state.cookie && this.props.user ? (
         <div>
           <Header
             as={Link}
@@ -36,7 +36,7 @@ class AppHeader extends React.Component {
       ) : null;
 
     const bigPic =
-      this.state.cookie || this.props.user ? null : (
+      this.state.cookie && this.props.user ? null : (
         <Image src="https://i.imgur.com/ugZbSuU.png" />
       );
 

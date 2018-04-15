@@ -104,7 +104,7 @@ class MyPortfolio extends Component {
   }
 
   render() {
-    if (this.state.cookie) {
+    if (this.state.cookie && this.props.user) {
       return (
         <div>
           <Divider horizontal>Portfolio</Divider>

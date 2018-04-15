@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
 import Typing from 'react-typing-animation';
 
@@ -12,7 +13,7 @@ class Landing extends React.Component {
   }
 
   render() {
-    if (this.state.cookie) {
+    if (this.state.cookie && this.props.user) {
       return <Dashboard />;
     } else {
       return (
@@ -41,4 +42,8 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = ({ user }) => {
+  return { user };
+};
+
+export default connect(mapStateToProps)(Landing);
