@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
-import { Segment, Button, Divider, Container } from 'semantic-ui-react';
+import { Segment, Divider, Container } from 'semantic-ui-react';
 
 import FBLogin from './FBLogin';
 import GGLogin from './GGLogin';
