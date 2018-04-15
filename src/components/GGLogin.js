@@ -1,7 +1,3 @@
-/**
- * Note: 'Block third-party cookies' must be disabled to make this component work
- * chrome://settings/content/cookies
- */
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -28,11 +24,20 @@ class GGLogin extends React.Component {
     return (
       <GoogleLogin
         clientId="806914580079-9msqlpl8f51fd3diiflsthebog8l7p2u.apps.googleusercontent.com"
-        buttonText="Login with Google"
+        buttonText=""
         onSuccess={this.responseOnSuccess}
         onFailure={this.responseOnFailure}
-        className="ui red basic fluid button"
-      />
+        className="ui basic button"
+      >
+        <img
+          style={{
+            width: '40px',
+            height: '40px'
+          }}
+          src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_plus.svg"
+          alt="login fb"
+        />
+      </GoogleLogin>
     );
   }
 }

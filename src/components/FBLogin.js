@@ -23,7 +23,6 @@ class FBLogin extends React.Component {
         style={{
           width: '40px',
           height: '40px'
-          // margin: 'none'
         }}
         src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg"
         alt="login fb"

@@ -34,9 +34,8 @@ class LoginOptions extends Component {
         >
           <LoginEmailPassword />
           <Container style={{ marginTop: '30px', marginBottom: '30px' }}>
-            <FBLogin />
-            <Divider horizontal>Or</Divider>
-            <Button as={GGLogin} />
+            <Divider clearing />
+            <GGLogin /> <FBLogin />
           </Container>
           <Divider clearing />
           <Link
