@@ -34,8 +34,34 @@ class EditPortfolio extends Component {
       return <div />;
     }
   }
+
+  renderUpload = () => {
+    return (
+      <form method="post" enctype="multipart/form-data">
+         <div>
+             <label for="profile_pic">Choose file to upload</label>
+          <input
+            type="file"
+            id="profile_pic"
+            name="profile_pic"
+            accept=".jpg, .jpeg, .png"
+            onChange={e => console.log(e)}
+          />
+        </div>
+        <div>
+             <button>Submit</button>
+        </div>
+      </form>
+    );
+  };
+
   render() {
-    return <div>{this.renderPortfolio()}</div>;
+    return (
+      <div>
+        {this.renderPortfolio()}
+        {this.renderUpload()}
+      </div>
+    );
   }
 }
 
