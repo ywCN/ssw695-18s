@@ -36,8 +36,8 @@ class GGLogin extends React.Component {
             width: '40px',
             height: '40px'
           }}
-          src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_plus.svg"
-          alt="login fb"
+          src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Google_plus_icon.svg"
+          alt="google fb"
         />
       </GoogleLogin>
     );
