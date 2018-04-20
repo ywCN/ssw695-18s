@@ -141,7 +141,7 @@ export const logout = removeCookie => dispatch => {
 };
 
 export const fetchPortfolio = token => async dispatch => {
-  const portfolioUrl = `${apiUrl}/platform/portfolio/`;
+  // const portfolioUrl = `${apiUrl}/platform/portfolio/`; // use later
   const projectsUrl = `${apiUrl}/platform/project/`;
   // const portfolio = await axios.get(portfolioUrl, {
   //   headers: { Authorization: token }
