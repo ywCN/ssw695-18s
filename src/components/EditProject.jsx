@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { saveProject } from '../actions';
-import Landing from './Landing';
 
 class EditProject extends Component {
   componentWillMount() {
@@ -48,7 +47,7 @@ class EditProject extends Component {
         // TODO: add saveProject action callback
       );
     } else {
-      return <Landing />;
+      return <Redirect to="/" />;
     }
   }
 }

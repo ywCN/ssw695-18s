@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Typing from 'react-typing-animation';
 
 import LoginOptions from './LoginOptions';
-import Dashboard from './Dashboard';
 
 class Logout extends Component {
   componentWillMount() {
@@ -13,7 +13,7 @@ class Logout extends Component {
 
   render() {
     if (this.state.cookie) {
-      return <Dashboard />;
+      return <Redirect to="/dashboard" />;
     } else {
       return (
         <div>

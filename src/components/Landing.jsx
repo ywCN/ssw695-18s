@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Typing from 'react-typing-animation';
 
 import LoginOptions from './LoginOptions';
-import Dashboard from './Dashboard';
 
 class Landing extends React.Component {
   componentWillMount() {
@@ -14,7 +14,7 @@ class Landing extends React.Component {
 
   render() {
     if (this.state.cookie && this.props.user) {
-      return <Dashboard />;
+      return <Redirect to="/dashboard" />;
     } else {
       return (
         <div>

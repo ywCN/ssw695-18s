@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Button, Icon, Form, Divider } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { fetchPortfolio, setEdittingProject } from '../actions';
-import Landing from './Landing';
 
 class MyPortfolio extends Component {
   componentWillMount() {
@@ -114,7 +113,7 @@ class MyPortfolio extends Component {
         </div>
       );
     } else {
-      return <Landing />;
+      return <Redirect to="/" />;
     }
   }
 }
@@ -124,5 +123,5 @@ const mapStateToProps = ({ currentUserPortfolio, user }) => {
 };
 
 export default connect(mapStateToProps, { fetchPortfolio, setEdittingProject })(
-  withRouter(MyPortfolio)
+  MyPortfolio
 );

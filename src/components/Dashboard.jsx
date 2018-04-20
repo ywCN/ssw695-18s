@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 import CoderList from './CoderList';
-import Landing from './Landing';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
     if (this.state.cookie && this.props.user) {
       return <CoderList />;
     } else {
-      return <Landing />;
+      return <Redirect to="/" />;
     }
   }
 }
