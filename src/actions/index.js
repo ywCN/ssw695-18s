@@ -138,6 +138,7 @@ export const signUp = (
 export const logout = removeCookie => dispatch => {
   removeCookie();
   dispatch({ type: LOGOUT });
+  localStorage.clear();
 };
 
 export const fetchPortfolio = token => async dispatch => {
