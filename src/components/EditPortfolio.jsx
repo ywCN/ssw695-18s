@@ -37,9 +37,9 @@ class EditPortfolio extends Component {
 
   renderUpload = () => {
     return (
-      <form method="post" enctype="multipart/form-data">
+      <form method="post" encType="multipart/form-data">
          <div>
-             <label for="profile_pic">Choose file to upload</label>
+             <label htmlFor="profile_pic">Choose file to upload</label>
           <input
             type="file"
             id="profile_pic"
