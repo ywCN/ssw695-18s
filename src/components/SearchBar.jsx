@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Cookies from 'universal-cookie';
 import { Search, Grid } from 'semantic-ui-react';
 
 import { search } from '../actions';
@@ -10,6 +11,8 @@ class SearchBar extends Component {
   };
 
   componentWillMount() {
+    const cookie = new Cookies().get('loginStatus');
+    this.setState({ cookie });
     this.resetComponent();
   }
 
@@ -39,8 +42,9 @@ class SearchBar extends Component {
 
     this.setState({
       timeout: setTimeout(() => {
-        if (this.state.value.length < 1) return this.resetComponent();
-        console.log('searching keyword:', this.state.value);
+        if (this.state.value.length < 1 || !this.state.token)
+          return this.resetComponent();
+        this.props.search(this.state.value, this.state.cookie);
       }, 500)
     });
   };
