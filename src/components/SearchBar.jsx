@@ -1,14 +1,5 @@
-import _ from 'lodash';
-import faker from 'faker';
 import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
-
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$')
-}));
 
 export default class SearchBar extends Component {
   componentWillMount() {
@@ -16,7 +7,11 @@ export default class SearchBar extends Component {
   }
 
   resetComponent = () =>
-    this.setState({ isLoading: false, results: [], value: '' });
+    this.setState({
+      isLoading: false,
+      results: 'replace with redux state',
+      value: ''
+    });
 
   handleResultSelect = (e, { result }) =>
     this.setState({ value: result.title });
@@ -27,14 +22,14 @@ export default class SearchBar extends Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.title);
-
+      // call actions here
+      // get redux states here
+      console.log(value);
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch)
+        results: 'redux states'
       });
-    }, 300);
+    }, 500);
   };
 
   render() {
@@ -46,20 +41,11 @@ export default class SearchBar extends Component {
           <Search
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true
-            })}
+            onSearchChange={this.handleSearchChange}
             results={results}
             value={value}
-            {...this.props}
           />
         </Grid.Column>
-        {/* <Grid.Column width={8}>
-          <Header>State</Header>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-          <Header>Options</Header>
-          <pre>{JSON.stringify(source, null, 2)}</pre>
-        </Grid.Column> */}
       </Grid>
     );
   }
