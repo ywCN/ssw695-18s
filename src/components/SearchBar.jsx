@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Search, Grid } from 'semantic-ui-react';
 
-export default class SearchBar extends Component {
+import { search } from '../actions';
+
+class SearchBar extends Component {
   state = {
     timeout: setTimeout(() => {}, 5000)
   };
@@ -59,3 +62,5 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+export default connect(null, { search })(SearchBar);
