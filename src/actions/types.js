@@ -8,3 +8,4 @@ export const SAVE_PROJECT = 'save_project';
 export const SET_EDITTING_PROJECT = 'set_editting_project';
 export const ADD_CONTACT = 'add_contact';
 export const SET_CURRENT_CODER_PORTFOLIO = 'set_current_coder_portfolio';
+export const SEARCH = 'SEARCH';

@@ -9,7 +9,8 @@ import {
   SAVE_PROJECT,
   SET_EDITTING_PROJECT,
   ADD_CONTACT,
-  SET_CURRENT_CODER_PORTFOLIO
+  SET_CURRENT_CODER_PORTFOLIO,
+  SEARCH
 } from './types';
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
@@ -215,6 +216,15 @@ export const search = (keyword, token) => async dispatch => {
   });
 
   console.log(ProjectProjectName, ProjectUsername, UserUsername, UserEmail);
-
-  dispatch({});
+  const data = {
+    projects: {
+      byName: ProjectProjectName.data,
+      byUser: ProjectUsername.data
+    },
+    users: {
+      byName: UserUsername.data,
+      byEmail: UserEmail.data
+    }
+  };
+  dispatch({ type: SEARCH, payload: data });
 };
