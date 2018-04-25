@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
 
 export default class SearchBar extends Component {
+  state = {
+    timeout: setTimeout(() => {}, 5000)
+  };
+
   componentWillMount() {
     this.resetComponent();
   }
@@ -13,23 +17,29 @@ export default class SearchBar extends Component {
       value: ''
     });
 
-  handleResultSelect = (e, { result }) =>
-    this.setState({ value: result.title });
-
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
-      // call actions here
-      // get redux states here
-      console.log(value);
+      // TODO: call actions here
+      // TODO: get redux states here
+
       this.setState({
         isLoading: false,
         results: 'redux states'
       });
     }, 500);
+
+    clearTimeout(this.state.timeout);
+
+    this.setState({
+      timeout: setTimeout(() => {
+        if (this.state.value.length < 1) return this.resetComponent();
+        console.log('searching keyword:', this.state.value);
+      }, 500)
+    });
   };
 
   render() {
