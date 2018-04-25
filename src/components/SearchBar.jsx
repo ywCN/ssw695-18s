@@ -50,7 +50,6 @@ export default class SearchBar extends Component {
         <Grid.Column width={8}>
           <Search
             loading={isLoading}
-            onResultSelect={this.handleResultSelect}
             onSearchChange={this.handleSearchChange}
             results={results}
             value={value}
