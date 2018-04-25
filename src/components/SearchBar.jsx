@@ -42,9 +42,10 @@ class SearchBar extends Component {
 
     this.setState({
       timeout: setTimeout(() => {
-        if (this.state.value.length < 1 || !this.state.token)
-          return this.resetComponent();
-        this.props.search(this.state.value, this.state.cookie);
+        if (this.state.value.length < 1) return this.resetComponent();
+        if (this.state.cookie) {
+          this.props.search(this.state.value, this.state.cookie);
+        }
       }, 500)
     });
   };
