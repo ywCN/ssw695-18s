@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { savePortfolio } from '../actions';
 import { Button, Form } from 'semantic-ui-react';
+
+import Accept from './Accept';
+import { savePortfolio } from '../actions';
 
 class EditPortfolio extends Component {
   renderPortfolio() {
@@ -35,31 +37,11 @@ class EditPortfolio extends Component {
     }
   }
 
-  renderUpload = () => {
-    return (
-      <form method="post" encType="multipart/form-data">
-         <div>
-             <label htmlFor="profile_pic">Choose file to upload</label>
-          <input
-            type="file"
-            id="profile_pic"
-            name="profile_pic"
-            accept=".jpg, .jpeg, .png"
-            onChange={e => console.log(e)}
-          />
-        </div>
-        <div>
-             <button>Submit</button>
-        </div>
-      </form>
-    );
-  };
-
   render() {
     return (
       <div>
         {this.renderPortfolio()}
-        {this.renderUpload()}
+        <Accept />
       </div>
     );
   }
