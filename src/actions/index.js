@@ -142,15 +142,15 @@ export const logout = removeCookie => dispatch => {
 };
 
 export const fetchPortfolio = token => async dispatch => {
-  // const portfolioUrl = `${apiUrl}/platform/portfolio/`; // use later
+  const portfolioUrl = `${apiUrl}/platform/portfolio/`; // use later
   const projectsUrl = `${apiUrl}/platform/project/`;
-  // const portfolio = await axios.get(portfolioUrl, {
-  //   headers: { Authorization: token }
-  // }); // use later
+  const portfolio = await axios.get(portfolioUrl, {
+    headers: { Authorization: token }
+  }); // use later
   const projects = await axios.get(projectsUrl, {
     headers: { Authorization: token }
   });
-  // console.log('portfolio is', portfolio.data, '\nprojects are', projects.data);
+  console.log('portfolio is', portfolio.data, '\nprojects are', projects.data);
 
   dispatch({
     type: FETCH_PORTFOLIO,
@@ -193,4 +193,28 @@ export const setCurrentCoderPortfolio = coderPortfolio => {
     type: SET_CURRENT_CODER_PORTFOLIO,
     payload: coderPortfolio
   };
+};
+
+export const search = (keyword, token) => async dispatch => {
+  const urlProjectProjectName = `${apiUrl}/platform/project/get_search_proj/?search_proj_name=${keyword}`;
+  const urlProjectUsername = `${apiUrl}/platform/project/get_search_proj/?search_user_projs=${keyword}`;
+  const urlUserUsername = `${apiUrl}/server/user/get_search_user/?search_user_name=${keyword}`;
+  const urlUserEmail = `${apiUrl}/server/users/get_search_user/?search_email=${keyword}`;
+
+  const ProjectProjectName = await axios.get(urlProjectProjectName, {
+    headers: { Authorization: token }
+  });
+  const ProjectUsername = await axios.get(urlProjectUsername, {
+    headers: { Authorization: token }
+  });
+  const UserUsername = await axios.get(urlUserUsername, {
+    headers: { Authorization: token }
+  });
+  const UserEmail = await axios.get(urlUserEmail, {
+    headers: { Authorization: token }
+  });
+
+  console.log(ProjectProjectName, ProjectUsername, UserUsername, UserEmail);
+
+  dispatch({});
 };
