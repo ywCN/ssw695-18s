@@ -122,13 +122,12 @@ export const fetchPortfolio = token => async dispatch => {
   const projects = await axios.get(projectsUrl, {
     headers: { Authorization: token }
   });
-  console.log('portfolio is', portfolio.data, '\nprojects are', projects.data);
 
   dispatch({
     type: FETCH_PORTFOLIO,
     payload: {
       name: 'tom',
-      image: 'image link',
+      image: portfolio.data[0].image,
       email: 'test@test.com',
       projects: projects.data
     }

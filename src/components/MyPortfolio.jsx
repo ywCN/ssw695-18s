@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { Button, Icon, Form, Divider } from 'semantic-ui-react';
+import { Button, Icon, Form, Divider, Image } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { fetchPortfolio, setEdittingProject } from '../actions';
@@ -16,20 +16,21 @@ class MyPortfolio extends Component {
   renderPortfolio() {
     if (this.props.user) {
       const { username, email } = this.props.user.user;
+      const { image } = this.props.currentUserPortfolio; // note this link is broken
 
       return (
         <Form>
+          <Image
+            floated="left"
+            size="small"
+            src="https://www0.sun.ac.za/chemistry/images/0/0b/Blank_avatar.jpeg" // this is a defaut pic as the image on server is broken
+          />
           <Form.Group widths={3}>
             <Form.Input label="Name" defaultValue={username} readOnly />
             <Form.Input label="Email" defaultValue={email} readOnly />
             <Form.Input label="Phone" defaultValue="Phone" readOnly />
           </Form.Group>
-          <Button
-            animated
-            as={Link}
-            to="/editportfolio"
-            onClick={() => console.log('Edit Portfolio clicked')}
-          >
+          <Button animated as={Link} to="/editportfolio">
             <Button.Content visible>Edit Portfolio</Button.Content>
             <Button.Content hidden>
               <Icon name="write" />
