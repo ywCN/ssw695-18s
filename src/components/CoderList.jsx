@@ -4,7 +4,6 @@ import Cookies from 'universal-cookie';
 import {
   Button,
   Container,
-  Header,
   Modal,
   Card,
   Form,
