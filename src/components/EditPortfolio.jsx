@@ -8,13 +8,13 @@ import { savePortfolio } from '../actions';
 
 class EditPortfolio extends Component {
   renderPortfolio() {
-    if (this.props.currentUserPortfolio) {
-      const { name, email } = this.props.currentUserPortfolio;
+    if (this.props.user) {
+      const { username, email } = this.props.user.user;
 
       return (
         <Form>
           <Form.Group widths={3}>
-            <Form.Input label="Name" defaultValue={name} />
+            <Form.Input label="Name" defaultValue={username} />
             <Form.Input label="Email" defaultValue={email} />
             <Form.Input label="Phone" placeholder="Phone" />
           </Form.Group>
@@ -41,8 +41,8 @@ class EditPortfolio extends Component {
   }
 }
 
-const mapStateToProps = ({ currentUserPortfolio }) => {
-  return { currentUserPortfolio };
+const mapStateToProps = ({ user }) => {
+  return { user };
 };
 
 export default connect(mapStateToProps, { savePortfolio })(EditPortfolio);
