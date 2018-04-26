@@ -54,9 +54,9 @@ class LoginEmailPassword extends Component {
             <Form size="large" onSubmit={this.handleSubmit}>
               <Form.Input
                 fluid
-                icon="mail"
+                icon="user"
                 iconPosition="left"
-                placeholder="E-mail address"
+                placeholder="username"
                 name="email"
                 value={email}
                 onChange={this.handleChange}
