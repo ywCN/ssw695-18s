@@ -25,6 +25,8 @@ export const fetchCoders = token => async dispatch => {
       name: user.username,
       role: `developer`,
       exp: '1 year experience',
+      pk: user.pk,
+      email: user.email,
       projects: [
         {
           projectName: `Project ID ${Math.floor(Math.random() * 100000)}`,
