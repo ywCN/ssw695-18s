@@ -16,7 +16,7 @@ class MyPortfolio extends Component {
   renderPortfolio() {
     if (this.props.user) {
       const { username, email } = this.props.user.user;
-      const { image } = this.props.currentUserPortfolio; // note this link is broken
+      // const { image } = this.props.currentUserPortfolio; // note this link is broken
 
       return (
         <Form>

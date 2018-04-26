@@ -132,7 +132,13 @@ class CoderList extends Component {
           <Button
             basic
             color="red"
-            onClick={() => this.props.addContact(coder)}
+            onClick={() =>
+              this.props.addContact(
+                this.props.user.user.pk,
+                coder.pk,
+                this.state.cookie
+              )
+            }
           >
             Follow
           </Button>
@@ -143,7 +149,6 @@ class CoderList extends Component {
 
   renderCard() {
     return this.props.coders.map(coder => {
-      // TODO: use id instead of name
       const { name, role, exp } = coder;
       return (
         <Card key={name}>
@@ -163,7 +168,13 @@ class CoderList extends Component {
               <Button
                 basic
                 color="red"
-                onClick={() => this.props.addContact(coder)}
+                onClick={() =>
+                  this.props.addContact(
+                    this.props.user.user.pk,
+                    coder.pk,
+                    this.state.cookie
+                  )
+                }
               >
                 Follow
               </Button>
@@ -189,8 +200,8 @@ class CoderList extends Component {
   }
 }
 
-const mapStateToProps = ({ coders, currentCoderPortfolio }) => {
-  return { coders, currentCoderPortfolio };
+const mapStateToProps = ({ user, coders, currentCoderPortfolio }) => {
+  return { user, coders, currentCoderPortfolio };
 };
 
 export default connect(mapStateToProps, {

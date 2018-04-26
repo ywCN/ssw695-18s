@@ -98,7 +98,7 @@ export const signUp = (
     password2
   };
   try {
-    const res = await axios.post(url, data);
+    await axios.post(url, data);
   } catch (e) {
     console.error(e);
   }
@@ -152,7 +152,15 @@ export const setEdittingProject = projectName => {
   };
 };
 
-export const addContact = coderID => async dispatch => {
+export const addContact = (from, to, token) => async dispatch => {
+  const url = `${apiUrl}/platform/followers/`;
+  await axios.post(
+    url,
+    { user_from: from, user_to: to },
+    { headers: { Authorization: token } }
+  );
+  const updated = await axios.get(url, { headers: { Authorization: token } });
+  console.log('updated followers are', updated.data);
   dispatch({ type: ADD_CONTACT });
 };
 
