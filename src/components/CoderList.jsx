@@ -110,12 +110,6 @@ class CoderList extends Component {
         <Modal.Header>Profile Picture</Modal.Header>
         <Modal.Content scrolling>
           <Modal.Description>
-            <Header>Modal Header</Header>
-            <p>
-              This is an example of expanded content that will cause the modal's
-              dimmer to scroll
-            </p>
-
             <div>{this.renderScrollContent()}</div>
           </Modal.Description>
         </Modal.Content>
