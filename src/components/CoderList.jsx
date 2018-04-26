@@ -151,7 +151,7 @@ class CoderList extends Component {
             <Image
               floated="right"
               size="mini"
-              src="https://i.imgur.com/MiYluL8.png"
+              src="https://www0.sun.ac.za/chemistry/images/0/0b/Blank_avatar.jpeg"
             />
             <Card.Header>{name}</Card.Header>
             <Card.Meta>{role}</Card.Meta>
