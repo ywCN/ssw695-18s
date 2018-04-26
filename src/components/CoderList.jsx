@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Cookies from 'universal-cookie';
 import {
   Button,
   Container,
@@ -25,8 +26,11 @@ class CoderList extends Component {
   handleClose = () => this.setState({ modalOpen: false });
 
   componentWillMount() {
-    this.props.fetchCoders();
+    const cookie = new Cookies().get('loginStatus');
+    this.setState({ cookie });
+    this.props.fetchCoders(cookie);
   }
+
   renderPortfolio = () => {
     const { name, email } = this.props.currentCoderPortfolio;
     return (
