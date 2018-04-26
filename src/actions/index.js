@@ -97,10 +97,8 @@ export const signUp = (
     password1,
     password2
   };
-  console.log(data);
   try {
     const res = await axios.post(url, data);
-    console.log(res);
   } catch (e) {
     console.error(e);
   }
@@ -156,13 +154,10 @@ export const setEdittingProject = projectName => {
 };
 
 export const addContact = coderID => async dispatch => {
-  console.log('addContact action called');
-
   dispatch({ type: ADD_CONTACT });
 };
 
 export const setCurrentCoderPortfolio = coderPortfolio => {
-  console.log('setCurrentCoderPortfolio action called');
   return {
     type: SET_CURRENT_CODER_PORTFOLIO,
     payload: coderPortfolio

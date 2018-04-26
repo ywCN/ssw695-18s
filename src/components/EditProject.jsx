@@ -25,22 +25,10 @@ class EditProject extends Component {
             label="Project Description"
             defaultValue={projectDescription}
           />
-          <Button
-            basic
-            color="yellow"
-            as={Link}
-            to="/myportfolio"
-            onClick={() => console.log('add clicked')}
-          >
+          <Button basic color="yellow" as={Link} to="/myportfolio">
             Save
           </Button>
-          <Button
-            basic
-            color="red"
-            as={Link}
-            to="/myportfolio"
-            onClick={() => console.log('cancel clicked')}
-          >
+          <Button basic color="red" as={Link} to="/myportfolio">
             Cancel
           </Button>
         </Form>

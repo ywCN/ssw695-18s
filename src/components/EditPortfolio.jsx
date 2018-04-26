@@ -18,13 +18,7 @@ class EditPortfolio extends Component {
             <Form.Input label="Email" defaultValue={email} />
             <Form.Input label="Phone" placeholder="Phone" />
           </Form.Group>
-          <Button
-            basic
-            color="yellow"
-            as={Link}
-            to="/myportfolio"
-            onClick={() => console.log('add clicked')}
-          >
+          <Button basic color="yellow" as={Link} to="/myportfolio">
             Save
           </Button>
           <Button basic color="red" as={Link} to="/myportfolio">

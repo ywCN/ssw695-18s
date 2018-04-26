@@ -10,7 +10,6 @@ class GGLogin extends React.Component {
   responseOnSuccess = response => {
     const cookies = new Cookies();
     const { profileObj } = response;
-    console.log('google auth response is', profileObj);
     this.props.loginSuccess(
       profileObj,
       () => this.props.history.push('/dashboard'),

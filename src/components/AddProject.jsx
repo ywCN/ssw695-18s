@@ -52,19 +52,12 @@ class AddProject extends Component {
           as={Link}
           to="/myportfolio"
           onClick={() => {
-            console.log('add clicked');
             this.handleSubmit();
           }}
         >
           Add
         </Button>
-        <Button
-          basic
-          as={Link}
-          to="/myportfolio"
-          color="red"
-          onClick={() => console.log('cancel clicked')}
-        >
+        <Button basic as={Link} to="/myportfolio" color="red">
           Cancel
         </Button>
       </Form>

@@ -9,7 +9,6 @@ import { loginSuccess } from '../actions';
 class FBLogin extends React.Component {
   responseFacebook = response => {
     const cookies = new Cookies();
-    console.log('facebook auth response is', response);
     this.props.loginSuccess(
       response,
       () => this.props.history.push('/dashboard'),
