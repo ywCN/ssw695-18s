@@ -118,7 +118,7 @@ export const fetchPortfolio = token => async dispatch => {
   const projectsUrl = `${apiUrl}/platform/project/`;
   const portfolio = await axios.get(portfolioUrl, {
     headers: { Authorization: token }
-  }); // use later
+  });
   const projects = await axios.get(projectsUrl, {
     headers: { Authorization: token }
   });
