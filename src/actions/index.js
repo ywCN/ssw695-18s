@@ -15,8 +15,11 @@ import {
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
 
-export const fetchCoders = () => async dispatch => {
-  // const res = await axios.get('path'); // TODO: update path, check res and update payload
+export const fetchCoders = token => async dispatch => {
+  const res = await axios.get(`${apiUrl}/server/user`, {
+    headers: { Authorization: token }
+  });
+  console.log(res);
   dispatch({
     type: FETCH_CODERS,
     payload: [
