@@ -16,71 +16,40 @@ import {
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
 
 export const fetchCoders = token => async dispatch => {
-  const res = await axios.get(`${apiUrl}/server/user`, {
+  const res = await axios.get(`${apiUrl}/server/users`, {
     headers: { Authorization: token }
   });
-  console.log(res);
+
+  const processedData = res.data.map(user => {
+    return {
+      name: user.username,
+      role: `developer`,
+      exp: '1 year experience',
+      projects: [
+        {
+          projectName: `Project ID ${Math.floor(Math.random() * 100000)}`,
+          projectDescription: `Build for Company ID ${Math.floor(
+            Math.random() * 100000
+          )}`
+        },
+        {
+          projectName: `Project ID ${Math.floor(Math.random() * 100000)}`,
+          projectDescription: `Build for Company ID ${Math.floor(
+            Math.random() * 100000
+          )}`
+        },
+        {
+          projectName: `Project ID ${Math.floor(Math.random() * 100000)}`,
+          projectDescription: `Build for Company ID ${Math.floor(
+            Math.random() * 100000
+          )}`
+        }
+      ]
+    };
+  });
   dispatch({
     type: FETCH_CODERS,
-    payload: [
-      {
-        name: 'Lily',
-        role: 'Python Developer',
-        exp: '2 years experience',
-        projects: [
-          {
-            projectName: 'asdasadfasfasda',
-            projectDescription: 'asdffdasdfsdasd!'
-          },
-          {
-            projectName: 'eledasdasdgan',
-            projectDescription: 'No waaaaaagh!'
-          },
-          {
-            projectName: 'adahjgfhdgfgnhmgfnxbvdzsd',
-            projectDescription: 'asdasdfasdfsadfadsa!'
-          }
-        ]
-      },
-      {
-        name: 'Tom',
-        role: 'Java Developer',
-        exp: '6 years experience',
-        projects: [
-          {
-            projectName: 'asdasdadasdasd',
-            projectDescription: 'assdadasdasddasd!'
-          },
-          {
-            projectName: 'eledasddasdasdaasdgan',
-            projectDescription: 'No waaaadadasdaaagh!'
-          },
-          {
-            projectName: 'adadasdasdasdsd',
-            projectDescription: 'asddadasdadsa!'
-          }
-        ]
-      },
-      {
-        name: 'Jack',
-        role: 'Beef Developer',
-        exp: '4 years experience',
-        projects: [
-          {
-            projectName: 'asgdgsdgfdsdasda',
-            projectDescription: 'aadasdasdsdasd!'
-          },
-          {
-            projectName: 'eledasgdfgsdfgdasdgan',
-            projectDescription: 'No wadadasdaaaaagh!'
-          },
-          {
-            projectName: 'agsdfgsdasd',
-            projectDescription: 'asdasfsdgafadsa!'
-          }
-        ]
-      }
-    ]
+    payload: processedData
   });
 };
 
@@ -104,7 +73,6 @@ export const login = (
   } catch (e) {
     console.error(e);
   }
-  console.log('called');
 };
 
 export const loginSuccess = (user, redirect, setCookie) => async dispatch => {
