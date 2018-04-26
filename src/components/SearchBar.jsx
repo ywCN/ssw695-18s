@@ -19,7 +19,7 @@ class SearchBar extends Component {
   resetComponent = () =>
     this.setState({
       isLoading: false,
-      results: 'replace with redux state',
+      results: [],
       value: ''
     });
 
@@ -34,7 +34,28 @@ class SearchBar extends Component {
 
       this.setState({
         isLoading: false,
-        results: 'redux states'
+        results: [
+          {
+            title: 'Tom',
+            description: '10 year Java developer',
+            image:
+              'https://s3.amazonaws.com/uifaces/faces/twitter/anasnakawa/128.jpg',
+            contact: '000-000-0000'
+          },
+          {
+            title: 'Lily',
+            description: '3 year JavaScript developer',
+            image:
+              'https://s3.amazonaws.com/uifaces/faces/twitter/fotomagin/128.jpg',
+            contact: '111-111-1111'
+          },
+          {
+            title: 'Jerry',
+            description: '15 year php developer',
+            image: 'https://s3.amazonaws.com/uifaces/faces/twitter/gt/128.jpg',
+            contact: '222-222-2222'
+          }
+        ]
       });
     }, 500);
 
