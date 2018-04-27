@@ -10,7 +10,8 @@ import {
   SET_EDITTING_PROJECT,
   ADD_CONTACT,
   SET_CURRENT_CODER_PORTFOLIO,
-  SEARCH
+  SEARCH,
+  FETCH_ALL_FOLLOWERS
 } from './types';
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
@@ -160,8 +161,8 @@ export const addContact = (from, to, token) => async dispatch => {
     { headers: { Authorization: token } }
   );
   const updated = await axios.get(url, { headers: { Authorization: token } });
-  console.log('updated followers are', updated.data);
   dispatch({ type: ADD_CONTACT });
+  dispatch({ type: FETCH_ALL_FOLLOWERS, payload: updated });
 };
 
 export const setCurrentCoderPortfolio = coderPortfolio => {
