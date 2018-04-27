@@ -64,7 +64,7 @@ export const login = (
 ) => async dispatch => {
   const url = `${apiUrl}/rest-auth/login/`;
   const data = {
-    username, // note, it is user name now, not email
+    username,
     password
   };
   try {
@@ -115,7 +115,7 @@ export const logout = removeCookie => dispatch => {
 };
 
 export const fetchPortfolio = token => async dispatch => {
-  const portfolioUrl = `${apiUrl}/platform/portfolio/`; // use later
+  const portfolioUrl = `${apiUrl}/platform/portfolio/`;
   const projectsUrl = `${apiUrl}/platform/project/`;
   const portfolio = await axios.get(portfolioUrl, {
     headers: { Authorization: token }
@@ -160,7 +160,6 @@ export const addContact = (from, to, token) => async dispatch => {
     { user_from: from, user_to: to },
     { headers: { Authorization: token } }
   );
-  const updated = await axios.get(url, { headers: { Authorization: token } });
   dispatch({ type: ADD_CONTACT });
   dispatch(fetchAllFollowers(token));
 };
