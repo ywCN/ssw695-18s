@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
         <div>
           <CoderList />
           <h3>My PK is: {this.props.user.user.pk}</h3>
-          <p style={{ width: '200px' }}>{updatedFollowers}</p>
+          <p style={{ width: '400px' }}>{updatedFollowers}</p>
         </div>
       );
     } else {
