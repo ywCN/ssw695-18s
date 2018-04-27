@@ -5,6 +5,7 @@ import portfolioReducer from './portfolioReducer';
 import projectReducer from './projectReducer';
 import setCurrentCoderPortfolioReducer from './setCurrentCoderPortfolioReducer';
 import searchReducer from './searchReducer';
+import followerReducers from './followerReducers';
 
 const rootReducer = combineReducers({
   user: authReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   currentUserPortfolio: portfolioReducer,
   currentEdittingProject: projectReducer,
   currentCoderPortfolio: setCurrentCoderPortfolioReducer,
-  searchResults: searchReducer
+  searchResults: searchReducer,
+  followers: followerReducers
 });
 
 export default rootReducer;
