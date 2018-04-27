@@ -162,6 +162,12 @@ export const addContact = (from, to, token) => async dispatch => {
   );
   const updated = await axios.get(url, { headers: { Authorization: token } });
   dispatch({ type: ADD_CONTACT });
+  dispatch(fetchAllFollowers(token));
+};
+
+export const fetchAllFollowers = token => async dispatch => {
+  const url = `${apiUrl}/platform/followers/`;
+  const updated = await axios.get(url, { headers: { Authorization: token } });
   dispatch({ type: FETCH_ALL_FOLLOWERS, payload: updated });
 };
 
