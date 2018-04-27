@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
+import { fetchAllFollowers } from './../actions/index';
 import CoderList from './CoderList';
 
 class Dashboard extends React.Component {
@@ -26,4 +27,4 @@ const mapStateToProps = ({ user, followers }) => {
   return { user, followers };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { fetchAllFollowers })(Dashboard);
