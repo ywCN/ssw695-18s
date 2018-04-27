@@ -17,12 +17,13 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const updatedFollowers = JSON.stringify(this.props.followers);
+    const updatedFollowers = JSON.stringify(this.props.followers, null, 2);
     if (this.state.cookie && this.props.user) {
       return (
         <div>
           <CoderList />
-          {updatedFollowers}
+          <h3>My PK is: {this.props.user.user.pk}</h3>
+          <p style={{ width: '200px' }}>{updatedFollowers}</p>
         </div>
       );
     } else {
