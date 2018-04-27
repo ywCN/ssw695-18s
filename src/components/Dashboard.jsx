@@ -13,10 +13,18 @@ class Dashboard extends React.Component {
     this.state = {
       cookie: cookies.get('loginStatus')
     };
+    this.props.fetchAllFollowers(this.state.cookie);
   }
+
   render() {
+    const updatedFollowers = JSON.stringify(this.props.followers);
     if (this.state.cookie && this.props.user) {
-      return <CoderList />;
+      return (
+        <div>
+          <CoderList />
+          {updatedFollowers}
+        </div>
+      );
     } else {
       return <Redirect to="/" />;
     }
