@@ -180,7 +180,7 @@ export const setCurrentCoderPortfolio = coderPortfolio => {
 export const search = (keyword, token) => async dispatch => {
   const urlProjectProjectName = `${apiUrl}/platform/project/get_search_proj/?search_proj_name=${keyword}`;
   const urlProjectUsername = `${apiUrl}/platform/project/get_search_proj/?search_user_projs=${keyword}`;
-  const urlUserUsername = `${apiUrl}/server/user/get_search_user/?search_user_name=${keyword}`;
+  const urlUserUsername = `${apiUrl}/server/users/get_search_user/?search_user_name=${keyword}`;
   const urlUserEmail = `${apiUrl}/server/users/get_search_user/?search_email=${keyword}`;
 
   const ProjectProjectName = await axios.get(urlProjectProjectName, {
@@ -196,7 +196,6 @@ export const search = (keyword, token) => async dispatch => {
     headers: { Authorization: token }
   });
 
-  console.log(ProjectProjectName, ProjectUsername, UserUsername, UserEmail);
   const data = {
     projects: {
       byName: ProjectProjectName.data,
@@ -207,5 +206,6 @@ export const search = (keyword, token) => async dispatch => {
       byEmail: UserEmail.data
     }
   };
+
   dispatch({ type: SEARCH, payload: data });
 };

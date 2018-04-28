@@ -67,7 +67,7 @@ class SearchBar extends Component {
         if (this.state.value.length < 1) return this.resetComponent();
         if (this.state.cookie) {
           console.log('searching');
-          // this.props.search(this.state.value, this.state.cookie); // search on server is broken, use it later
+          this.props.search(this.state.value, this.state.cookie); // search on server is broken, use it later
         }
       }, 500)
     });
