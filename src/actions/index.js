@@ -196,16 +196,14 @@ export const search = (keyword, token) => async dispatch => {
     headers: { Authorization: token }
   });
 
-  const data = {
-    projects: {
-      byName: ProjectProjectName.data,
-      byUser: ProjectUsername.data
-    },
-    users: {
-      byName: UserUsername.data,
-      byEmail: UserEmail.data
-    }
-  };
+  const data = [
+    ...new Set(
+      ...ProjectProjectName.data,
+      ...ProjectUsername.data,
+      ...UserUsername.data,
+      ...UserEmail.data
+    )
+  ];
 
   dispatch({ type: SEARCH, payload: data });
 };
