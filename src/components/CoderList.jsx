@@ -186,9 +186,12 @@ class CoderList extends Component {
   }
   render() {
     return (
-      <Container fluid style={{ marginTop: '3em' }}>
-        {this.renderCards()}
-      </Container>
+      <div>
+        <h1>Coders</h1>
+        <Container fluid style={{ marginTop: '3em' }}>
+          {this.renderCards()}
+        </Container>
+      </div>
     );
   }
 }
