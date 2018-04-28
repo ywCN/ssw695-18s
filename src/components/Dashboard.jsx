@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
 import { fetchAllFollowers } from './../actions/index';
@@ -17,13 +18,24 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const updatedFollowers = JSON.stringify(this.props.followers, null, 2);
+    console.log(this.props.followers);
+    const updatedFollowers = this.props.followers.map(relationship => {
+      return (
+        <Button
+          style={{ marginBottom: '5px' }}
+          key={relationship}
+          onClick={this.props.unfollow}
+        >
+          {JSON.stringify(relationship)}
+        </Button>
+      );
+    });
     if (this.state.cookie && this.props.user) {
       return (
         <div>
           <CoderList />
-          <h3>My PK is: {this.props.user.user.pk}</h3>
-          <p style={{ width: '400px' }}>{updatedFollowers}</p>
+          <h1>Following Relationships. My PK is: {this.props.user.user.pk}</h1>
+          <p style={{ width: '500px' }}>{updatedFollowers}</p>
         </div>
       );
     } else {
