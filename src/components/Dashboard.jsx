@@ -34,7 +34,8 @@ class Dashboard extends React.Component {
       return (
         <div>
           <CoderList />
-          <h1>Following Relationships. My PK is: {this.props.user.user.pk}</h1>
+          <h1>Following Relationships</h1>
+          <h1>My PK is: {this.props.user.user.pk}</h1>
           <p style={{ width: '500px' }}>{updatedFollowers}</p>
         </div>
       );
