@@ -50,7 +50,6 @@ class CoderList extends Component {
     return projects.map(project => {
       const { projectName, projectDescription } = project;
       return (
-        // TODO: use id for key
         <Form key={projectName}>
           <Form.Input
             label="Project Name"
