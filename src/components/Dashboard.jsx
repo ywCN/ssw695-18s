@@ -24,10 +24,12 @@ class Dashboard extends React.Component {
         <Button
           style={{ marginBottom: '5px' }}
           key={relationship}
-          onClick={
-            (relationship.user_from,
-            relationship.user_to,
-            this.props.unfollow(this.state.cookie))
+          onClick={() =>
+            this.props.unfollow(
+              relationship.user_from,
+              relationship.user_to,
+              this.state.cookie
+            )
           }
         >
           {JSON.stringify(relationship)}
