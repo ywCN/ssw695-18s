@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
-import { fetchAllFollowers } from './../actions/index';
+import { fetchAllFollowers, unfollow } from './../actions/index';
 import CoderList from './CoderList';
 
 class Dashboard extends React.Component {
@@ -24,12 +24,17 @@ class Dashboard extends React.Component {
         <Button
           style={{ marginBottom: '5px' }}
           key={relationship}
-          onClick={this.props.unfollow}
+          onClick={
+            (relationship.user_from,
+            relationship.user_to,
+            this.props.unfollow(this.state.cookie))
+          }
         >
           {JSON.stringify(relationship)}
         </Button>
       );
     });
+
     if (this.state.cookie && this.props.user) {
       return (
         <div>
@@ -49,4 +54,6 @@ const mapStateToProps = ({ user, followers }) => {
   return { user, followers };
 };
 
-export default connect(mapStateToProps, { fetchAllFollowers })(Dashboard);
+export default connect(mapStateToProps, { fetchAllFollowers, unfollow })(
+  Dashboard
+);

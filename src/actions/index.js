@@ -11,7 +11,8 @@ import {
   ADD_CONTACT,
   SET_CURRENT_CODER_PORTFOLIO,
   SEARCH,
-  FETCH_ALL_FOLLOWERS
+  FETCH_ALL_FOLLOWERS,
+  UNFOLLOW
 } from './types';
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
@@ -204,4 +205,8 @@ export const search = (keyword, token) => async dispatch => {
   };
 
   dispatch({ type: SEARCH, payload: data });
+};
+
+export const unfollow = (from, to, token) => async dispatch => {
+  dispatch(fetchAllFollowers(token));
 };
