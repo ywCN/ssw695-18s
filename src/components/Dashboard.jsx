@@ -19,29 +19,30 @@ class Dashboard extends React.Component {
 
   render() {
     const updatedFollowers = this.props.followers.map(relationship => {
-      return (
-        <Button
-          style={{ marginBottom: '5px' }}
-          key={JSON.stringify(relationship)}
-          onClick={() =>
-            this.props.unfollow(
-              relationship.user_from,
-              relationship.user_to,
-              this.state.cookie
-            )
-          }
-        >
-          {JSON.stringify(relationship)}
-        </Button>
-      );
+      if (relationship.user_from === this.props.user.user.pk) {
+        return (
+          <Button
+            style={{ marginBottom: '5px' }}
+            key={JSON.stringify(relationship)}
+            onClick={() =>
+              this.props.unfollow(
+                relationship.user_from,
+                relationship.user_to,
+                this.state.cookie
+              )
+            }
+          >
+            {JSON.stringify(relationship)}
+          </Button>
+        );
+      }
     });
 
     if (this.state.cookie && this.props.user) {
       return (
         <div>
           <CoderList />
-          <h1 key="1">Following Relationships</h1>
-          <h1 key="2">My PK is: {this.props.user.user.pk}</h1>
+          <h1>My Followings. Click to unfollow. </h1>
           <p style={{ width: '500px' }}>{updatedFollowers}</p>
         </div>
       );
