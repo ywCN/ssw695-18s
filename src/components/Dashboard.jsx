@@ -18,12 +18,11 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    console.log(this.props.followers);
     const updatedFollowers = this.props.followers.map(relationship => {
       return (
         <Button
           style={{ marginBottom: '5px' }}
-          key={relationship}
+          key={JSON.stringify(relationship)}
           onClick={() =>
             this.props.unfollow(
               relationship.user_from,
@@ -41,8 +40,8 @@ class Dashboard extends React.Component {
       return (
         <div>
           <CoderList />
-          <h1>Following Relationships</h1>
-          <h1>My PK is: {this.props.user.user.pk}</h1>
+          <h1 key="1">Following Relationships</h1>
+          <h1 key="2">My PK is: {this.props.user.user.pk}</h1>
           <p style={{ width: '500px' }}>{updatedFollowers}</p>
         </div>
       );

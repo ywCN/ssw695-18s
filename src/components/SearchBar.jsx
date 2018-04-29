@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
 import { Search, Grid } from 'semantic-ui-react';
 
-import { search } from '../actions';
+import { search, clearSearch } from '../actions';
 
 class SearchBar extends Component {
   state = {
@@ -30,6 +30,7 @@ class SearchBar extends Component {
       if (this.state.value.length < 1) return this.resetComponent();
 
       if (this.state.cookie) {
+        this.props.clearSearch();
         this.props.search(this.state.value, this.state.cookie);
       }
 
@@ -48,6 +49,7 @@ class SearchBar extends Component {
         isLoading: false,
         results: processed
       });
+      this.resetComponent();
     }, 500);
   };
 
@@ -73,4 +75,4 @@ const mapStateToProps = ({ searchResults }) => {
   return { searchResults };
 };
 
-export default connect(mapStateToProps, { search })(SearchBar);
+export default connect(mapStateToProps, { search, clearSearch })(SearchBar);

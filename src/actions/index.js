@@ -12,7 +12,8 @@ import {
   SET_CURRENT_CODER_PORTFOLIO,
   SEARCH,
   FETCH_ALL_FOLLOWERS,
-  UNFOLLOW
+  UNFOLLOW,
+  CLEAR_SEARCH
 } from './types';
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
@@ -212,4 +213,8 @@ export const unfollow = (from, to, token) => async dispatch => {
   await axios.get(url, { headers: { Authorization: token } });
   dispatch({ type: UNFOLLOW });
   dispatch(fetchAllFollowers(token));
+};
+
+export const clearSearch = () => dispatch => {
+  dispatch({ type: CLEAR_SEARCH, payload: {} });
 };
