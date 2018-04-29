@@ -29,48 +29,26 @@ class SearchBar extends Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
-      // TODO: call actions here
-      // TODO: get redux states here
+      if (this.state.cookie) {
+        this.props.search(this.state.value, this.state.cookie);
+      }
+
+      const processed = [
+        ...this.props.searchResults.projects,
+        ...this.props.searchResults.users
+      ].map(a => {
+        return {
+          title: a.username,
+          description: a.email,
+          image: 'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg'
+        };
+      });
 
       this.setState({
         isLoading: false,
-        results: [
-          {
-            title: 'Tom',
-            description: '10 year Java developer',
-            image:
-              'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg',
-            contact: '000-000-0000'
-          },
-          {
-            title: 'Lily',
-            description: '3 year JavaScript developer',
-            image:
-              'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg',
-            contact: '111-111-1111'
-          },
-          {
-            title: 'Jerry',
-            description: '15 year php developer',
-            image:
-              'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg',
-            contact: '222-222-2222'
-          }
-        ]
+        results: processed
       });
     }, 500);
-
-    clearTimeout(this.state.timeout);
-
-    this.setState({
-      timeout: setTimeout(() => {
-        if (this.state.value.length < 1) return this.resetComponent();
-        if (this.state.cookie) {
-          console.log('searching');
-          this.props.search(this.state.value, this.state.cookie); // search on server is broken, use it later
-        }
-      }, 500)
-    });
   };
 
   render() {
@@ -91,4 +69,8 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, { search })(SearchBar);
+const mapStateToProps = ({ searchResults }) => {
+  return { searchResults };
+};
+
+export default connect(mapStateToProps, { search })(SearchBar);
