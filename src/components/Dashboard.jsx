@@ -35,6 +35,8 @@ class Dashboard extends React.Component {
             {JSON.stringify(relationship)}
           </Button>
         );
+      } else {
+        return null;
       }
     });
 
