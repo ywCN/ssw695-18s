@@ -208,5 +208,8 @@ export const search = (keyword, token) => async dispatch => {
 };
 
 export const unfollow = (from, to, token) => async dispatch => {
+  const url = `${apiUrl}/platform/unfollow/${to}/${from}`;
+  await axios.get(url, { headers: { Authorization: token } });
+  dispatch({ type: UNFOLLOW });
   dispatch(fetchAllFollowers(token));
 };
