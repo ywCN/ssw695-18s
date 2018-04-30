@@ -167,7 +167,7 @@ class CoderList extends Component {
                 onClick={() =>
                   this.props.addContact(
                     this.props.user.user.pk,
-                    coder.pk,
+                    role,
                     this.state.cookie
                   )
                 }
