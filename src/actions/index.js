@@ -24,6 +24,15 @@ export const fetchCoders = token => async dispatch => {
     headers: { Authorization: token }
   });
 
+  const map = new Map();
+  for (const { username, pk } of res.data) {
+    map.set(pk, username);
+  }
+  dispatch({
+    type: MAP_CODER_ID_TO_NAME,
+    payload: map
+  });
+
   const processedData = res.data.map(user => {
     return {
       // NOTE: BAD namings
@@ -55,14 +64,6 @@ export const fetchCoders = token => async dispatch => {
   dispatch({
     type: FETCH_CODERS,
     payload: processedData
-  });
-  const map = new Map();
-  for (const { username, pk } of res.data) {
-    map.set(pk, username);
-  }
-  dispatch({
-    type: MAP_CODER_ID_TO_NAME,
-    payload: map
   });
 };
 

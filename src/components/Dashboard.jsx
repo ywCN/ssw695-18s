@@ -17,8 +17,8 @@ class Dashboard extends React.Component {
     this.props.fetchAllFollowers(this.state.cookie);
   }
 
-  render() {
-    const updatedFollowers = this.props.followers.map(relationship => {
+  renderFollowers = () => {
+    return this.props.followers.map(relationship => {
       if (relationship.user_from === this.props.user.user.pk) {
         return (
           <Button
@@ -32,20 +32,23 @@ class Dashboard extends React.Component {
               )
             }
           >
-            {JSON.stringify(relationship)}
+            {this.props.pkToNameMapping.get(relationship.user_from)}
           </Button>
         );
       } else {
         return null;
       }
     });
+  };
 
-    if (this.state.cookie && this.props.user) {
+  render() {
+    console.log(this.props);
+    if (this.state.cookie) {
       return (
         <div>
           <CoderList />
           <h1>My Followings. Click to unfollow. </h1>
-          <p style={{ width: '500px' }}>{updatedFollowers}</p>
+          <p style={{ width: '500px' }}>{this.renderFollowers()}</p>
         </div>
       );
     } else {
@@ -54,8 +57,8 @@ class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user, followers }) => {
-  return { user, followers };
+const mapStateToProps = ({ user, followers, pkToNameMapping, coders }) => {
+  return { user, followers, pkToNameMapping, coders };
 };
 
 export default connect(mapStateToProps, { fetchAllFollowers, unfollow })(
