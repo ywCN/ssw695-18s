@@ -49,6 +49,8 @@ class SearchBar extends Component {
             isLoading: false,
             results: processed
           });
+        } else {
+          this.setState({ isLoading: false, value: '', results: [] });
         }
       }, 800)
     });
