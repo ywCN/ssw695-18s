@@ -12,3 +12,4 @@ export const SEARCH = 'SEARCH';
 export const FETCH_ALL_FOLLOWERS = 'FETCH_ALL_FOLLOWERS';
 export const UNFOLLOW = 'UNFOLLOW';
 export const CLEAR_SEARCH = 'CLEAR_SEARCH';
+export const MAP_CODER_ID_TO_NAME = 'MAP_CODER_ID_TO_NAME';

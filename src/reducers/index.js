@@ -6,6 +6,7 @@ import projectReducer from './projectReducer';
 import setCurrentCoderPortfolioReducer from './setCurrentCoderPortfolioReducer';
 import searchReducer from './searchReducer';
 import followerReducers from './followerReducers';
+import mapIDtoNameReducer from './mapIDtoNameReducer';
 
 const rootReducer = combineReducers({
   user: authReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   currentEdittingProject: projectReducer,
   currentCoderPortfolio: setCurrentCoderPortfolioReducer,
   searchResults: searchReducer,
-  followers: followerReducers
+  followers: followerReducers,
+  pkToNameMapping: mapIDtoNameReducer
 });
 
 export default rootReducer;

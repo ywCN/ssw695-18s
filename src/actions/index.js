@@ -13,7 +13,8 @@ import {
   SEARCH,
   FETCH_ALL_FOLLOWERS,
   UNFOLLOW,
-  CLEAR_SEARCH
+  CLEAR_SEARCH,
+  MAP_CODER_ID_TO_NAME
 } from './types';
 
 const apiUrl = 'http://34.203.190.77:8000'; // TODO: use https
@@ -54,6 +55,14 @@ export const fetchCoders = token => async dispatch => {
   dispatch({
     type: FETCH_CODERS,
     payload: processedData
+  });
+  const map = new Map();
+  for (const { username, pk } of res.data) {
+    map.set(pk, username);
+  }
+  dispatch({
+    type: MAP_CODER_ID_TO_NAME,
+    payload: map
   });
 };
 
