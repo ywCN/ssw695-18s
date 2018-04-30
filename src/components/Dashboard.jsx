@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
               )
             }
           >
-            {mapping.get(relationship.user_from)}
+            {mapping.get(relationship.user_to)}
           </Button>
         );
       } else {
