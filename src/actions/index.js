@@ -26,10 +26,8 @@ export const fetchCoders = token => async dispatch => {
   const processedData = res.data.map(user => {
     return {
       name: user.username,
-      role: `developer`,
-      exp: '1 year experience',
-      pk: user.pk,
-      email: user.email,
+      role: user.pk,
+      exp: user.email,
       projects: [
         {
           projectName: `Project ID ${Math.floor(Math.random() * 100000)}`,
