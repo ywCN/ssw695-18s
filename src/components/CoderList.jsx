@@ -151,8 +151,12 @@ class CoderList extends Component {
               src="https://www0.sun.ac.za/chemistry/images/0/0b/Blank_avatar.jpeg"
             />
             <Card.Header>{name}</Card.Header>
-            <Card.Meta>{role}</Card.Meta>
-            <Card.Description>{exp}</Card.Description>
+            <Card.Meta>
+              Coder ID: <strong>{role}</strong>
+            </Card.Meta>
+            <Card.Description>
+              Coder Email: <strong>{exp}</strong>
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             <div className="ui two buttons">
