@@ -25,6 +25,7 @@ export const fetchCoders = token => async dispatch => {
 
   const processedData = res.data.map(user => {
     return {
+      // NOTE: BAD namings
       name: user.username,
       role: user.pk,
       exp: user.email,
