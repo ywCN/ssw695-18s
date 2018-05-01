@@ -188,7 +188,7 @@ export const setCurrentCoderPortfolio = coderPortfolio => {
   };
 };
 
-export const search = (keyword, token) => async dispatch => {
+export const search = (keyword, token, setState) => async dispatch => {
   const urlProjectProjectName = `${apiUrl}/platform/project/get_search_proj/?search_proj_name=${keyword}`;
   const urlProjectUsername = `${apiUrl}/platform/project/get_search_proj/?search_user_projs=${keyword}`;
   const urlUserUsername = `${apiUrl}/server/users/get_search_user/?search_user_name=${keyword}`;
@@ -207,14 +207,32 @@ export const search = (keyword, token) => async dispatch => {
     headers: { Authorization: token }
   });
 
-  const data = {
-    projects: [
-      ...new Set([...ProjectProjectName.data, ...ProjectUsername.data])
-    ],
-    users: [...new Set([...UserUsername.data, ...UserEmail.data])]
-  };
+  const set = new Set();
+
+  const data = [
+    ...new Set([
+      ...ProjectProjectName.data,
+      ...ProjectUsername.data,
+      ...UserUsername.data,
+      ...UserEmail.data
+    ])
+  ]
+    .map(a => {
+      if (!set.has(a.username)) {
+        set.add(a.username);
+        return {
+          title: a.username,
+          description: a.email,
+          image: 'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg'
+        };
+      } else {
+        return null;
+      }
+    })
+    .filter(a => a && a.title);
 
   dispatch({ type: SEARCH, payload: data });
+  setState();
 };
 
 export const unfollow = (from, to, token) => async dispatch => {

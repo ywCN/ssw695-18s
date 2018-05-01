@@ -31,24 +31,12 @@ class SearchBar extends Component {
     this.setState({
       timeout: setTimeout(() => {
         if (this.state.cookie && value) {
-          this.props.search(this.state.value, this.state.cookie);
-
-          const processed = [
-            ...(this.props.searchResults.projects || []),
-            ...(this.props.searchResults.users || [])
-          ].map(a => {
-            return {
-              title: a.username,
-              description: a.email,
-              image:
-                'https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg'
-            };
-          });
-
-          this.setState({
-            isLoading: false,
-            results: processed
-          });
+          this.props.search(this.state.value, this.state.cookie, () =>
+            this.setState({
+              isLoading: false,
+              results: this.props.searchResults
+            })
+          );
         } else {
           this.setState({ isLoading: false, value: '', results: [] });
         }
