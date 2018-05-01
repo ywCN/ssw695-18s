@@ -34,8 +34,8 @@ class SearchBar extends Component {
           this.props.search(this.state.value, this.state.cookie);
 
           const processed = [
-            ...this.props.searchResults.projects,
-            ...this.props.searchResults.users
+            ...(this.props.searchResults.projects || []),
+            ...(this.props.searchResults.users || [])
           ].map(a => {
             return {
               title: a.username,
