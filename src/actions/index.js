@@ -126,11 +126,11 @@ export const logout = removeCookie => dispatch => {
 };
 
 export const fetchPortfolio = token => async dispatch => {
-  const portfolioUrl = `${apiUrl}/platform/portfolio/`;
+  // const portfolioUrl = `${apiUrl}/platform/portfolio/`; // useless API
   const projectsUrl = `${apiUrl}/platform/project/`;
-  const portfolio = await axios.get(portfolioUrl, {
-    headers: { Authorization: token }
-  });
+  // const portfolio = await axios.get(portfolioUrl, {
+  //   headers: { Authorization: token }
+  // }); // useless API
   const projects = await axios.get(projectsUrl, {
     headers: { Authorization: token }
   });
@@ -139,7 +139,7 @@ export const fetchPortfolio = token => async dispatch => {
     type: FETCH_PORTFOLIO,
     payload: {
       name: 'tom',
-      // image: portfolio.data[0].image,
+      // image: portfolio.data[0].image, // image is broken
       email: 'test@test.com',
       projects: projects.data
     }
