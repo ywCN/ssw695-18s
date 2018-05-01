@@ -1,3 +1,8 @@
+/**
+ * Note: This project is cursed because backend people had limited experience in backend.
+ * They do not aggregate data in the backend but expect frontend to do the aggregation. This is not a good practice.
+ * Please do not follow the design of the actions and reducers.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
