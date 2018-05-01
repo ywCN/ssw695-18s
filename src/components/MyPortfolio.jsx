@@ -45,6 +45,7 @@ class MyPortfolio extends Component {
   renderProjectsHelper() {
     if (this.props.currentUserPortfolio) {
       const { projects } = this.props.currentUserPortfolio;
+
       return projects
         .filter(project => project.user === this.props.user.user.username)
         .map(project => {
@@ -64,8 +65,6 @@ class MyPortfolio extends Component {
                 to="/editproject"
                 onClick={() => {
                   this.props.setEdittingProject(project);
-                  console.log('editting project', project);
-                  console.log('edit project clicked');
                 }}
               >
                 <Button.Content visible>Edit</Button.Content>

@@ -139,7 +139,7 @@ export const fetchPortfolio = token => async dispatch => {
     type: FETCH_PORTFOLIO,
     payload: {
       name: 'tom',
-      image: portfolio.data[0].image,
+      // image: portfolio.data[0].image,
       email: 'test@test.com',
       projects: projects.data
     }

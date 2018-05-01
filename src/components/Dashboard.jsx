@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Cookies from 'universal-cookie';
 
-import { fetchAllFollowers, unfollow } from './../actions/index';
+import { fetchAllFollowers, unfollow, fetchCoders } from './../actions/index';
 import CoderList from './CoderList';
 
 class Dashboard extends React.Component {
@@ -14,6 +14,10 @@ class Dashboard extends React.Component {
     this.state = {
       cookie: cookies.get('loginStatus')
     };
+  }
+
+  componentWillMount() {
+    this.props.fetchCoders(this.state.cookie);
     this.props.fetchAllFollowers(this.state.cookie);
   }
 
@@ -42,14 +46,13 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const map = new Map();
+    if (this.state.cookie && this.props.coders) {
+      const map = new Map();
 
-    for (const { role, name } of this.props.coders) {
-      const pk = role;
-      map.set(pk, name);
-    }
-
-    if (this.state.cookie) {
+      for (const { role, name } of this.props.coders) {
+        const pk = role;
+        map.set(pk, name);
+      }
       return (
         <div>
           <CoderList />
@@ -67,6 +70,8 @@ const mapStateToProps = ({ user, followers, pkToNameMapping, coders }) => {
   return { user, followers, pkToNameMapping, coders };
 };
 
-export default connect(mapStateToProps, { fetchAllFollowers, unfollow })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  fetchAllFollowers,
+  unfollow,
+  fetchCoders
+})(Dashboard);
