@@ -52,7 +52,7 @@ class MyPortfolio extends Component {
           const { name, description } = project;
           return (
             // TODO: use id for key
-            <Form key={name}>
+            <Form key={name + Math.random()}>
               <Form.Input label="Project Name" defaultValue={name} readOnly />
               <Form.TextArea
                 label="Project Description"
