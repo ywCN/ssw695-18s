@@ -14,7 +14,8 @@ import {
 import {
   fetchCoders,
   setCurrentCoderPortfolio,
-  addContact
+  addContact,
+  fetchPortfolio
 } from './../actions';
 
 class CoderList extends Component {
@@ -46,25 +47,23 @@ class CoderList extends Component {
     );
   };
   renderProjectsHelper = () => {
-    const { projects } = this.props.currentCoderPortfolio;
-    return projects.map(project => {
-      const { projectName, projectDescription } = project;
-      return (
-        <Form key={projectName}>
-          <Form.Input
-            label="Project Name"
-            defaultValue={projectName}
-            readOnly
-          />
-          <Form.TextArea
-            label="Project Description"
-            defaultValue={projectDescription}
-            readOnly
-          />
-          <Divider section />
-        </Form>
-      );
-    });
+    const { projects } = this.props.currentUserPortfolio;
+    return projects
+      .filter(project => project.user === this.props.currentCoderPortfolio.name)
+      .map(project => {
+        const { name, description } = project;
+        return (
+          <Form key={name + Math.random()}>
+            <Form.Input label="Project Name" defaultValue={name} readOnly />
+            <Form.TextArea
+              label="Project Description"
+              defaultValue={description}
+              readOnly
+            />
+            <Divider section />
+          </Form>
+        );
+      });
   };
 
   renderProjects = () => {
@@ -199,12 +198,18 @@ class CoderList extends Component {
   }
 }
 
-const mapStateToProps = ({ user, coders, currentCoderPortfolio }) => {
-  return { user, coders, currentCoderPortfolio };
+const mapStateToProps = ({
+  user,
+  coders,
+  currentCoderPortfolio,
+  currentUserPortfolio
+}) => {
+  return { user, coders, currentCoderPortfolio, currentUserPortfolio };
 };
 
 export default connect(mapStateToProps, {
   fetchCoders,
   setCurrentCoderPortfolio,
-  addContact
+  addContact,
+  fetchPortfolio
 })(CoderList);
